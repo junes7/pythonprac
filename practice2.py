@@ -26,3 +26,13 @@ print(a + b)
 # map 함수를 사용해 한 번에 여러 입력 문자열 정수형으로 변환
 a, b = map(int, input('숫자 두 개를 입력하세요: ').split())
 print(a + b)
+# 정수 세 개를 입력받고 합계 출력하기
+a, b, c = map(int, input('숫자 세 개를 입력하세요: ').split())
+print(a + b + c)
+# 50, 100, None이 각 줄에 출력되게 하기
+a = int(50)
+b = 2*a
+c = None
+print(a)
+print(b)
+print(c)
