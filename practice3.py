@@ -21,3 +21,36 @@ print(1, 2, 3, sep='\n')
 print(1, end='')
 print(2, end='')
 print(3)
+# end에 공백 한 칸 지정
+print(1, end=' ')
+print(2, end=' ')
+print(3)
+# 16:9 출력하는 방법
+print(16, 9, sep=':')
+print('Hello', 'Python', sep='\n')
+print('Hello', '\n', 'Python', sep='')
+print('Hello\nPython')
+print('Hello', 'Python', end='\n')
+# 날짜와 시간 출력하기
+year = 2000
+month = 10
+day = 27
+hour = 11
+minute = 43
+second = 59
+print(year, month, day, sep='/', end=' ')
+print(hour, minute, second, sep=':')
+
+a = 20
+99% = 30
+#c = -a
+#c-=b
+c = a + 10
+#b + = a
+#c = a // b
+print(c)
+
+
+# 입력된 값을 실수로 변환하여 변수 두 개에 저장
+#a, b = map(float, input('실수를 입력하세요: ').split())
+#print(a, b, sep=', ')
