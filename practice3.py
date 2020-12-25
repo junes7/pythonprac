@@ -31,6 +31,7 @@ print('Hello', 'Python', sep='\n')
 print('Hello', '\n', 'Python', sep='')
 print('Hello\nPython')
 print('Hello', 'Python', end='\n')
+print('Hello', 'Python')
 # 날짜와 시간 출력하기
 year = 2000
 month = 10
@@ -42,7 +43,7 @@ print(year, month, day, sep='/', end=' ')
 print(hour, minute, second, sep=':')
 
 a = 20
-99% = 30
+b = 30
 #c = -a
 #c-=b
 c = a + 10
@@ -50,7 +51,9 @@ c = a + 10
 #c = a // b
 print(c)
 
-
+year, month, day, hour, minute, second = input().split()
+print(year, month, day, sep='-', end='T')
+print(hour, minute, second, sep=':')
 # 입력된 값을 실수로 변환하여 변수 두 개에 저장
 #a, b = map(float, input('실수를 입력하세요: ').split())
 #print(a, b, sep=', ')
