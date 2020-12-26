@@ -327,15 +327,75 @@ print(a + b)
 
 ### map을 사용하여 정수로 변환하기
 
-* 매번 각 변수마다  int로 변환 해주던 입력문자열을  map 함수를 사용해  한 번에 변환
+```python
+# split의 결과를 매번 int로 변환해주려니 귀찮습니다. 이때는 map에 int와 input().split()을 넣으면 split의 결과를 모두 int로 변환해줍니다.(실수로 변환할 때는 int 대신 float를 넣습니다.)
+변수1, 변수2 = map(int, input().split())
+변수1, 변수2 = map(int, input().split('기준문자열'))
+변수1, 변수2 = map(int, input('문자열').split())
+변수1, 변수2 = map(int, input('문자열').split('기준문자열'))
+```
+
+
+
+* 매번 각 변수마다  int로 변환 해주던 입력문자열을  map 함수를 사용해  한 번에 변환해줍니다.
 
 ```python
 # 입력받은 값을 공백을 기준으로 분리
 a, b = map(int, input('숫자 두 개를 입력하세요: ').split())
-
 print(a + b)
 # 실행 결과
 숫자 두 개를 입력하세요: 10 20
 30
 ```
+
+
+
+### 입력받은 값을 콤마를 기준으로 분리하기
+
+```python
+# 입력받은 값을 콤마를 기준으로 분리
+a, b = map(int, input('숫자 두 개를 입력하세요: ').split(','))
+print(a, b, sep=', ')
+print(a + b)
+# 실행 결과
+숫자 두 개를 입력하세요: 10, 20
+60, 20    
+80
+```
+
+
+
+### 연습문제: 정수 세 개를 입력받고 합계 출력하기
+
+```python
+a, b, c = map(int, input().split())
+print(a + b + c)
+
+-10 20 30
+```
+
+
+
+### 심사문제: 변수 만들기
+
+```python
+# 첫 번째 방법
+a = int(50)
+b = int(100) # 또는 b = 2*a
+c = None
+print(a)
+print(b)
+print(c)
+# 두 번째 방법
+a, b, c = int(50), int(100), None
+print(a, b, c, sep='\n')
+```
+
+
+
+###  평균 점수 구하기
+
+
+
+
 

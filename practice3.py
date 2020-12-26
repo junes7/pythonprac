@@ -54,6 +54,15 @@ print(c)
 year, month, day, hour, minute, second = input().split()
 print(year, month, day, sep='-', end='T')
 print(hour, minute, second, sep=':')
+# 입력받은 값을 콤마를 기준으로 분리
+a, b = map(int, input('숫자 두 개를 입력하세요: ').split())
+print(a, b, sep=', ')
+print(a + b)
+
+# 정수 세 개를 입력받고 합계 출력하기
+a, b, c = map(int, input().split())
+print(a + b + c)
+
 # 입력된 값을 실수로 변환하여 변수 두 개에 저장
 #a, b = map(float, input('실수를 입력하세요: ').split())
 #print(a, b, sep=', ')
