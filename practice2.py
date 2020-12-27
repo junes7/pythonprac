@@ -36,3 +36,6 @@ c = None
 print(a)
 print(b)
 print(c)
+# 두 번째 방법: 세 변수 한 번에 만들면서 값을 할당
+a, b, c = int(50), int(100), None
+print(a, b, c, sep='\n')
