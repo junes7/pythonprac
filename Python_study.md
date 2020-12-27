@@ -846,6 +846,8 @@ english = 47
 mathematics = 86
 science = 81
 print(korean >= 50 and english >= 50 and mathematics >= 50 and science >= 50)
+# 실행 결과
+False
 ```
 
 
@@ -859,9 +861,151 @@ print(korean >= 50 and english >= 50 and mathematics >= 50 and science >= 50)
 ```python
 korean, english, mathematics, science = map(int, input().split())
 print(korean >= 90 and english > 80 and mathematics > 85 and science >= 80)
+# 실행 결과
+90 81 86 80
+True
+90 80 85 80
+False
 ```
 
 
 
 ### 문자열 사용하기
+
+* 문자열은 영문 문자열 뿐만 아니라 한글 문자열도 사용할 수 있습니다.
+
+* 파이썬에서는  ' '(작은따옴표), " "(큰따옴표)로 묶거나, 또 '''(작은따옴표 3개)로 묶거나 """(큰따옴표 3개)로 묶을 수도 있습니다.
+
+```python
+hello = 'Hello, world!'
+print(hello)
+hello1 = '안녕하세요'
+print(hello1)
+hello2 = "Hello, Program"
+print(hello2)
+hello3 = '''Hello, Python!'''
+print(hello3)
+python = """Python Programming"""
+print(python)
+# 실행 결과
+Hello, world!
+안녕하세요
+Hello, Program
+Hello, Python!
+Python Programming
+```
+
+
+
+### 여러 줄로 된 문자열(multiline string) 사용하기
+
+```python
+hello = '''Hello, world!
+안녕하세요.
+Python입니다.'''
+print(hello)
+# 실행 결과
+Hello, world!
+안녕하세요.
+Python입니다.
+```
+
+* 따옴표 세 개로 묶지 않고 여러 줄로 된 문자열을 사용할 수 있다.
+
+```python
+print('Hello\nPython')
+# 실행 결과
+Hello
+Python
+```
+
+
+
+### 문자열 안에 작은따옴표나 큰따옴표 포함하기
+
+* 문자열 안에 ' (작은따옴표)를 넣고 싶다면 문자열을 " (큰따옴표)로 묶어줍니다.
+* 작은따옴표 안에 작은따옴표를 넣거나 큰따옴표 안에 큰따옴표를 넣을 수는 없습니다.
+
+```python
+s = 'He said "Python is easy".'
+s1 = "Python isn't difficult."
+s2 = """"Hello", Python"""
+s3 = """Hello, 'Python'"""
+print(s, s1, s2, s3, sep='\n')
+# 실행 결과
+He said "Python is easy".
+Python isn't difficult.
+"Hello", Python
+Hello, 'Python'
+```
+
+* 작은따옴표 안에 작은따옴표를 넣기 위해서는 작은따옴표 앞에 \\(역슬래시)를 붙이면 됩니다.
+
+```python
+s = 'Python isn\'t difficult.'
+s1 = 'Hello, \'Python\''
+print(s, s1, sep='\n')
+# 실행 결과
+Python isn't difficult.
+Hello, 'Python'
+```
+
+* 파이썬 셸에서는 문자열이나 변수를 그대로 입력하면 출력 결과가 문자열이라는 것을 정확하게 표현하기 위해 작은따옴표로 묶인 문자열이 출력된다. 
+
+```python
+# 파이썬 셸
+>>> 'Hello, world!'
+'Hello, world!'
+# 스크립트
+print('Hello, world!')
+# 실행 결과
+Hello, world!
+```
+
+* 한글 문자열 출력이 안 될 때
+
+```bash
+C:\project>python string_multiline_quote.py
+  File "string_multiline_quote.py", line 1
+SyntaxError: Non-UTF-8 code starting with '\xbe' in file string_multiline_quote.py on line 1, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+```
+
+에러가 나는 이유는 .py 파일을 UTF-8이 아닌 기본 인코딩인 CP949로 저장했기 때문입니다. 이때 스크립트 파일을 UTF-8로 저장하면 됩니다. UTF-8로 저장하려면 파일(F) > 다른 이름으로 저장(save as)(A) > 인코딩(E)에서 UTF-8을 선택한 뒤 저장하면 됩니다. 이런 인코딩 문제를 예방하려면 기본 인코딩이 UTF-8인 파이썬 IDLE, PyCharm 등  파이썬 전용 편집기나 개발 도구를 사용하면 됩니다.   
+
+
+
+### 연습문제: 여러 줄로 된 문자열 사용하기
+
+```python
+s = '''Python is a programming language that lets you work quickly
+and
+integrate systems more effectively.'''
+# 다른 방법
+s = """Python is a programming language that lets you work quickly
+and
+integrate systems more effectively."""
+print(s)
+```
+
+
+
+### 심사문제: 여러 줄로 된 문자열 사용하기
+
+```python
+s = """'Python' is a "programming language"
+that lets you work quickly
+and
+integrate systems more effectively."""
+# 다른 방법
+s = '''\'Python\' is a "programming language"
+that lets you work quickly
+and
+integrate systems more effectively.'''
+print(s)
+# 실행 결과
+'Python' is a "programming language"
+that lets you work quickly
+and
+integrate systems more effectively.
+```
 
