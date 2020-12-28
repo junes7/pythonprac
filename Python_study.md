@@ -1020,6 +1020,7 @@ integrate systems more effectively.
 ### 리스트 만들기
 
 * 리스트 = [값, 값, 값]
+* element 사용
 
 ```python
 a = [38, 21, 53, 62, 19]
