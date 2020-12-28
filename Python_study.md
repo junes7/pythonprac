@@ -985,6 +985,10 @@ s = """Python is a programming language that lets you work quickly
 and
 integrate systems more effectively."""
 print(s)
+# 실행 결과
+Python is a programming language that lets you work quickly
+and
+integrate systems more effectively.
 ```
 
 
@@ -1007,5 +1011,25 @@ print(s)
 that lets you work quickly
 and
 integrate systems more effectively.
+```
+
+
+
+## 리스트와 튜플 사용하기
+
+### 리스트 만들기
+
+* 리스트 = [값, 값, 값]
+
+```python
+a = [38, 21, 53, 62, 19]
+# 실행 결과
+a
+[38, 21, 53, 62, 19]
+
+person = ['james', 17, 175.3, True]
+# 실행 결과
+person
+['james', 17, 175.3, True]
 ```
 

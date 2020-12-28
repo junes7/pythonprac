@@ -39,3 +39,8 @@ that lets you work quickly
 and
 integrate systems more effectively."""
 print(s)
+# 리스트 만들기
+a = [38, 21, 53, 62, 19]
+person = ['james', 17, 175.3, True]
+print(a)
+print(person)
