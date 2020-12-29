@@ -44,3 +44,9 @@ a = [38, 21, 53, 62, 19]
 person = ['james', 17, 175.3, True]
 print(a)
 print(person)
+# range를 사용하여 리스트 만들기
+a = list(range(10))
+b = list(range(5, 12))
+c = list(range(-4, 10, 2))
+d = list(range(10, 0, -1))
+print(a, b, c, d, sep='\n')
