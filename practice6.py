@@ -50,3 +50,10 @@ b = list(range(5, 12))
 c = list(range(-4, 10, 2))
 d = list(range(10, 0, -1))
 print(a, b, c, d, sep='\n')
+# range로 리스트 만들기
+a = list(range(5, -10, -2))
+print(a)
+# range로 튜플 만들기
+a = int(input())
+b = tuple(range(-10, 10, a))
+print(b)
