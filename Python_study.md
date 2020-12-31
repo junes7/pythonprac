@@ -1289,3 +1289,25 @@ b = tuple(range(-10, 10, a))
 print(b)
 ```
 
+
+
+## 시퀀스 자료형 활용하기
+
+### 특정 값이 있는지 확인하기
+
+```python
+a = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+# 값 in 시퀀스객체
+print(30 in a)
+True
+print(100 in a)
+False
+# 값 not in 시퀀스객체
+print(100 not in a)
+True
+print(30 not in a)
+False
+```
+
+
+
