@@ -1337,3 +1337,16 @@ a + b
 [0, 10, 20, 30, 9, 8, 7, 6]
 ```
 
+
+
+* 시퀀스 자료형 중에는 range는 연산자로 객체를 연결할 수 없습니다.
+
+```python
+range(0, 10) + range(10, 20)
+Traceback (most recent call last):
+  File "<pyshell#1>", line 1, in <module>
+    range(0, 10) + range(10, 20)
+TypeError: unsupported operand type(s) for +: 'range' and 'range'
+```
+
+* 이
