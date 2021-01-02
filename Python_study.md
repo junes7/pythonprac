@@ -1349,4 +1349,74 @@ Traceback (most recent call last):
 TypeError: unsupported operand type(s) for +: 'range' and 'range'
 ```
 
-* 이
+* 이때는 range를 리스트 또는 튜플로 만들어서 연결하면 됩니다.
+
+```python
+list(range(0, 10)) + list(range(10, 20))
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+tuple(range(0, 10)) + tuple(range(10, 20))
+(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19)
+```
+
+* 문자열은 + 연산자로 여러 문자열을 연결할 수 있습니다.
+
+```python
+'Hello,' + 'world!'
+'Hello, world!'
+```
+
+
+
+### 문자열에 숫자 연결하기
+
+* 문자열에 정수를 연결하려고 하면 정수를 문자열로 변환할 수 없어서 에러(TypeError)가 발생합니다. 이 문제를 해결하려면 str을 사용해 숫자(정수, 실수)를 문자열로 변환하면 됩니다.
+  * '문자열' + str(정수, 실수)
+
+```python
+'Hello,' + str(10)
+'Hello, 10'
+'Hello,' + str(1.5)
+'Hello, 1.5'
+```
+
+
+
+### 시퀀스 객체 반복하기
+
+* \* 연산자는 시퀀스 객체를 특정 횟수만큼 반복하여 새 시퀀스 객체를 만듭니다(0 또는 음수를 곱하면 빈 객체가 나오며 실수는 곱할 수 없습니다).
+
+  * 시퀀스 객체 * 정수
+
+  * 정수 * 시퀀스 객체
+
+```python
+[0, 10, 20, 30] * 3
+[0, 10, 20, 30, 0, 10, 20, 30, 0, 10, 20, 30]
+```
+
+* range는 * 연산자를 사용해 반복할 수 없습니다.
+
+```python
+range(0, 5, 2) * 3
+Traceback (most recent call last):
+  File "<pyshell#3>", line 1, in <module>
+    range(0, 5, 2) * 3
+TypeError: unsupported operand type(s) for *: 'range' and 'int'
+```
+
+* range를 리스트 또는 튜플로 만들어서 반복하면 됩니다.
+
+```python
+list(range(0, 5, 2)) * 3
+[0, 2, 4, 0, 2, 4, 0, 2, 4]
+tuple(range(0, 5, 2)) * 3
+(0, 2, 4, 0, 2, 4, 0, 2, 4)
+```
+
+* 문자열은 * 연산자를 사용하여 반복할 수 있습니다.
+
+```python
+'Hello, ' * 3
+'Hello, Hello, Hello, '
+```
+
