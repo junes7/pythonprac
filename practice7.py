@@ -35,3 +35,6 @@ y = input()
 print(x[1::2])
 print(y[0::2])
 print(x[1::2] + y[0::2])
+# 딕셔너리 만들기
+lux = {'health': 490, 'mana': 334, 'melee': 550, 'armor': 18.72}
+print(lux)
