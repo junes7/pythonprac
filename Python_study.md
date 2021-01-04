@@ -2026,10 +2026,6 @@ plsrwer
 
 
 
-
-
-
-
 ## 딕셔너리 사용히기
 
 * 게임 캐릭터의 능력치를 저장해보겠습니다. 리스트 lux에서 인덱스 0은 체력, 인덱스 1은 마나, 인덱스 2는 사거리, 인덱스 3은 방어력이라고 했을 때 리스트만 봐서는 각 값이 어떤 능력치인지 쉽게 알기가 힘듭니다.
@@ -2057,5 +2053,181 @@ lux
 {'health': 490, 'mana': 334, 'melee': 550, 'armor': 18.72}
 ```
 
+```markdown
+SyntaxError: invalid syntax: { }의 짝이 맞지 않을 때, 키: 값 형식에 맞지 않을 때, 키 문자열의 ' '짝이 맞지 않을 때, 각 키:값을 구분할 때 , 를 넣지 않아서 발생하는 구문 에러입니다. { }, ' ' 짝이 맞는지, 키:값 형식에 맞는지, ,를 빠뜨리지 않았는지 확인해주세요.
+```
+
+* 딕셔너리는 키를 먼저 지정하고: (콜론)을 붙여서 값을 표현합니다. 특히 키에는 값을 하나만 지정할 수 있으며 이런 특성을 따서 키-값 쌍(key-value pair)이라 부릅니다.
+
+### 키 이름이 중복되면?
+
+```python
+lux = {'health': 490, 'health': 800, 'mana': 334, 'melee': 550, 'armor': 18.72}
+lux['health']		# 키가 중복되면 가장 뒤에 있는 값만 사용함
+800
+lux					# 중복되는 키는 저장되지 않음
+{'health': 800, 'mana': 334, 'melee': 550, 'armor': 18.72}
+```
 
 
+
+### 딕셔너리 키의 자료형
+
+* 딕셔너리의 키는 문자열뿐만 아니라 정수, 실수, 불도 사용할 수 있으며 자료형을 섞어서 사용해도 됩니다. 그리고 값에는 리스트, 딕셔너리 등을 포함하여 모든 자료형을 사용할 수 있습니다.
+
+```python
+x = {100: 'hundred', False: 0, 3.5: [3.5, 3.5]}
+x
+{100: 'hundred', False: 0, 3.5: [3.5, 3.5]}
+```
+
+* 단, 키에는 리스트와 딕셔너리를 사용할 수 없습니다.
+
+```python
+>>> x = {[10, 20]: 100}
+Traceback (most recent call last):
+  File "<pyshell#3>", line 1, in <module>
+    x = {[10, 20]: 100}
+TypeError: unhashable type: 'list'
+>>> x = {{'a': 10}: 100}
+Traceback (most recent call last):
+  File "<pyshell#4>", line 1, in <module>
+    x = {{'a': 10}: 100}
+TypeError: unhashable type: 'dict'
+```
+
+
+
+### 빈 딕셔너리 만들기
+
+* 빈 딕셔너리를 만들 때는 { }만 지정하거나 dict를 사용하면 됩니다. 보통은 { }를 주로 사용합니다.
+  * 딕셔너리 = {}
+  * 딕셔너리 = dict()
+
+```python
+x = {}
+x
+{}
+y = dict()
+y
+{}
+```
+
+
+
+### dict로 딕셔너리({'키': 값}) 만들기
+
+* dict는 키와 값을 연결하거나, 리스트, 튜플, 딕셔너리로 딕셔너리를 만들 때 사용합니다.
+
+  * 딕셔너리 = dict(키1=값1, 키2=값2)
+  * 딕셔너리 = dict(zip([키1, 키2], [값1, 값2]))
+
+  * 딕셔너리 = dict([(키1, 값1), (키2, 값2)])
+  * 딕셔너리 = dict({키1: 값1, 키2: 값2})
+
+```python
+lux1 = dict(health=490, mana=334, melee=550, armor=18.72)
+lux1			# 키=값 형식으로 딕셔너리를 만듦
+{'health': 490, 'mana': 334, 'melee': 550, 'armor': 18.72}
+lux2 = dict(zip['health', 'mana', 'melee', 'armor'], [490, 334, 550, 18.72])	# zip 함수로
+lux2			# 키 리스트와 값 리스트를 묶음
+{'health': 490, 'mana': 334, 'melee': 550, 'armor': 18.72}
+lux3 = dict([('health', 490), ('mana', 334), ('melee', 550), ('armor', 18.72)])
+lux3			# (키, 값) 형식의 튜플로 딕셔너리를 만듦
+{'health': 490, 'mana': 334, 'melee': 550, 'armor': 18.72}
+lux4 = dict({'health': 490, 'mana': 334, 'melee': 550, 'armor': 18.72})			# dict 안에서 중괄호로 딕셔너리를 만듦
+lux4
+{'health': 490, 'mana': 334, 'melee': 550, 'armor': 18.72}
+```
+
+
+
+### 딕셔너리의 키에 접근하고 값 할당하기
+
+* 딕셔너리의 키에 접근할 때는 딕셔너리 뒤에 \[ ](대괄호)를 사용하며 [ ]안에 키를 지정해주면 됩니다.
+  * 딕셔너리[키]
+
+```python
+lux = {'health': 490, 'mana': 334, 'melee': 550, 'armor': 18.72}
+lux['health']
+490
+lux['armor']
+18.72
+```
+
+
+
+#### 딕셔너리에 키를 지정하지 않으면?
+
+* 딕셔너리에 키를 지정하지 않은 상태는 해당 딕셔너리 전체를 뜻합니다. 따라서 딕셔너리 lux를 출력하면 { }를 포함하여 딕셔너리 전체가 출력됩니다.
+
+```python
+lux = {'health': 490, 'mana': 334, 'melee': 550, 'armor': 18.72}
+lux		# 딕셔너리에 키를 지정하지 않으면 딕셔너리 전체를 뜻함
+{'health': 490, 'mana': 334, 'melee': 550, 'armor': 18.72}
+```
+
+
+
+### 딕셔너리의 키에 값 할당하기
+
+* 딕셔너리의 키에 값을 할당할 때는 [ ]로 키에 접근한 뒤 값을 할당합니다.
+  * 딕셔너리[키] = 값
+
+```python
+lux = {'health': 490, 'mana': 334, 'melee': 550, 'armor': 18.72}
+lux['health'] = 2037	# 키 'health'의 값을 2037로 변경
+lux['mana'] = 1184		# 키 'mana'의 값을 1184로 변경
+lux
+{'health': 2037, 'mana': 1184, 'melee': 550, 'armor': 18.72}
+```
+
+* 딕셔너리는 없는 키에 값을 할당하면 해당 키가 추가되고 값이 할당됩니다.
+
+```python
+lux['mana_regen'] = 3.28 # 키 'mana_regen'을 추가하고 값 3.28 할당
+lux
+{'health': 2037, 'mana': 1184, 'melee': 550, 'armor': 18.72}
+```
+
+* 없는 키에서 값을 가져오려고 하면 keyError가 발생합니다.
+
+```python
+lux = {'health': 490, 'mana': 334, 'melee': 550, 'armor': 18.72}
+lux['attack_speed']    # lux에는 'attack_speed' 키가 없음
+Traceback (most recent call last):
+  File "<pyshell#3>", line 1, in <module>
+    lux['attack_speed']
+KeyError: 'attack_speed'
+```
+
+
+
+### 딕셔너리에 키가 있는지 확인하기
+
+* 딕셔너리에 키가 `있는지` 확인하고 싶다면 in 연산자를 사용하면 됩니다.
+  * 키 in 딕셔너리
+
+```python
+lux = {'health': 490, 'mana': 334, 'melee': 550, 'armor': 18.72}
+'health' in lux
+True
+'attack_speed' in lux
+False
+```
+
+* 반대로 in 앞에 not을 붙이면 특정 키가 `없는지` 확인합니다. 
+  * 키 not in 딕셔너리
+
+```python
+'attack_speed' not in lux
+True
+'health' not in lux
+False
+```
+
+
+
+#### 해시
+
+딕셔너리는 해시(Hash) 기법을 이용해서 데이터를 저장합니다.  보통 딕셔너리와 같은 키-값 형태의 자료형을 해시, 해시, 맵, 해시테이블 등으로 부르기도 합니다.
