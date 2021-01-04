@@ -2231,3 +2231,66 @@ False
 #### 해시
 
 딕셔너리는 해시(Hash) 기법을 이용해서 데이터를 저장합니다.  보통 딕셔너리와 같은 키-값 형태의 자료형을 해시, 해시, 맵, 해시테이블 등으로 부르기도 합니다.
+
+
+
+### 딕셔너리의 키 개수 구하기
+
+* 딕셔너리의 키와 값을 직접 타이핑할 때는 키의 개수를 알기가 쉽습니다. 하지만 실무에서는 함수 등을 사용해서 딕셔너리를 생성하거나 키를 추가하기 때문에 키의 개수가 눈에 보이지 않습니다. 따라서 키의 개수는 len 함수를 사용해 구합니다(키와 값은 1:1 관계이므로 키의 개수는 곧 값의 개수입니다).
+  * len(딕셔너리)
+
+```python
+lux = {'health': 490, 'mana': 334, 'melee': 550, 'armor': 18.72}
+len(lux)
+4
+len({'health': 490, 'mana': 334, 'melee': 550, 'armor': 18.72})
+4
+```
+
+
+
+### 연습문제: 딕셔너리에 게임 캐릭터 능력치 저장하기
+
+* 게임 캐릭터의 체력(health)과 이동 속도(movement speed)가 출력되게 만드세요. 
+
+```python
+camille = {
+    'health': 575.6,
+    'health_regen': 1.7,
+    'mana': 338.8,
+    'mana_regen': 1.63,
+    'melee': 125,
+    'attack_damage': 60,
+    'attack_speed': 0.625,
+    'armor': 26,
+    'magic_resistance': 32.1,
+    'movement_speed': 340
+}
+print(camille['health'])
+print(camille['movement_speed'])
+# 실행 결과
+575.6
+340
+```
+
+
+
+### 심사문제: 딕셔너리에 게임 캐릭터 능력치 저장하기
+
+```python
+key = input().split()
+value = map(float, input().split())
+lux = dict(zip(key, value))
+print(lux)
+# 입력
+health health_regen mana mana_regen
+575.6 1.7 338.8 1.63
+# 실행 결과
+{'health': 575.6, 'health_regen': 1.7, 'mana': 338.8, 'mana_regen': 1.63}
+# 입력
+health mana melee attack_speed magic_resistance
+573.6 308.8 600 0.625 35.7
+# 실행 결과
+{'health': 573.6, 'mana': 308.8, 'melee': 600.0, 'attack_speed': 0.625, 'magic_resistance': 35.7}
+```
+

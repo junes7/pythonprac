@@ -38,3 +38,8 @@ print(x[1::2] + y[0::2])
 # 딕셔너리 만들기
 lux = {'health': 490, 'mana': 334, 'melee': 550, 'armor': 18.72}
 print(lux)
+# 심사문제: 딕셔너리에 게임 캐릭터 능력치 저장하기
+key = input().split()
+value = map(float, input().split())
+lux = dict(zip(key, value))
+print(lux)
