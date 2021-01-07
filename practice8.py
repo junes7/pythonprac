@@ -22,12 +22,22 @@ if written_test >= 80 and coding_test == True:
 else:
    	print('불합격')
 # 심사문제: 합격 여부 판단하기
-korean, english, math, science = map(int, input().split())
-if (0 <= korean <= 100) and (0 <= english <= 100) and (0 <= math <= 100) and (0 <= science <= 100):
-    avg = (korean + english + math + science)/4.0
-    if avg >= 80:
-        print('합격')
-    else:
-        print('불합격')
-else:
-    print('잘못된 점수')
+# korean, english, math, science = map(int, input().split())
+# if (0 <= korean <= 100) and (0 <= english <= 100) and (0 <= math <= 100) and (0 <= science <= 100):
+#     avg = (korean + english + math + science)/4.0
+#     if avg >= 80:
+#         print('합격')
+#     else:
+#         print('불합격')
+# else:
+#     print('잘못된 점수')
+# 심사문제: 교통카드 시스템 만들기
+age = int(input())
+balance = 9000		# 교통카드 잔액
+if 7 <= age <= 12: 
+	balance -= 650
+elif 13 <= age <= 18:
+    balance -= 1050
+elif 19 <= age:
+	balance -= 1250
+print(balance)
