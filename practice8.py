@@ -41,8 +41,3 @@ elif 13 <= age <= 18:
 elif 19 <= age:
 	balance -= 1250
 print(balance)
-# 입력한 횟수대로 반복하기
-count = int(input('반복할 횟수를 입력하세요: '))
-for i in range(count):
-    print('Hello, world!', i)
-    

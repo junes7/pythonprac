@@ -3048,3 +3048,132 @@ Hello, world! 2
 
 ### 시퀀스 객체로 반복하기
 
+* for에 range대신 리스트, 튜플, 문자열 등 시퀀스 객체로 반복할 수 있습니다.
+
+* for에 range대신 리스트를 넣으면 리스트의 요소를 꺼내면서 반복합니다.
+
+```python
+a = [10, 20, 30, 40, 50]	# 리스트
+for i in a:
+	print(i)
+# 실행 결과
+10
+20
+30
+40
+50
+```
+
+* 튜플도 마찬기지로 튜플의 요소를 꺼내면서 반복합니다.
+
+```python
+fruits = ('apple', 'orange', 'grape')	# 튜플
+for fruit in fruits:
+    print(fruit)
+# 실행 결과
+apple
+orange
+grape
+```
+
+* 문자열도 시퀀스 객체이기 때문에 for에 문자열을 지정하면 문자를 하나씩 꺼내면서 반복합니다.
+* 여기서는 print에 end=' '을 지정했으므로 줄바꿈이 되지 않고, 각 문자가 공백으로 띄워져서 출력됩니다.
+
+```python
+for letter in 'Python':
+    print(letter, end=' ')
+# 실행 결과
+P y t h o n
+```
+
+* 'Python'을 뒤집어서 문자를 출력하려면 앞에서 배운 reversed를 활용하면 됩니다.
+  * reversed(시퀀스객체)
+
+```python
+for letter in reversed('Python'):
+    print(letter, end=' ')
+# 실행 결과
+n o h t y P
+```
+
+
+
+* for로 10번 반복하는 방법으로 올바른 것
+  * for i in range(10):
+  * for i in range(20, 40, 2):
+
+* 20부터 10까지 출력하는 방법
+
+```python
+for i in range(20, 9, -1):
+    print(i, end=' ')
+for i in reversed(range(10, 21)):
+	print(i, end=' ')
+```
+
+* 다음 소스 코드에서 잘못된 부분을 모두 고르시오.
+
+```python
+a. count = input()
+b.
+c. for i in range(count)
+d.     print('i의 값은', end=' ')
+e.     print(i)
+```
+
+* 올바른 정답은
+
+  * a. count = int(input( ))
+
+  * c. for i in range(count):
+
+* input으로 입력받은 값은 문자열입니다. 따라서 int를 사용하여 정수로 변환해주어야 합니다. 그리고 for 반복문은 끝에 :(콜론)을 붙여야 합니다.
+
+* for 반복문을 실행했을 때의 출력 결과
+
+```python
+for i in reversed('Python'):
+    print(i, end='.')
+# 실행 결과
+n.o.h.t.y.P
+```
+
+
+
+### 연습문제: 리스트의 요소에 10을 곱해서 출력하기
+
+* 리스트 x에 들어있는 각 숫자(요소)에 10일 곱한 값이 출력되게 만드세요. 모든 숫자는 공백으로 구분하여 한 줄로 출력되어야 합니다.
+
+```python
+x = [49, -17, 25, 102, 8, 62, 21]
+for i in x:
+	print(i * 10, end=' ')
+# 실행 결과
+490 -170 250 1020 80 620 210
+```
+
+
+
+### 심사문제: 구구단 출력하기
+
+* 표준 입력으로 정수가 입력됩니다. 입력된 정수의 구구단을 출력하는 프로그램을 만드세요(input에서 안내 문자열은 출력하지 않아야 합니다). 출력 형식은 숫자 * 숫자 = 숫자처럼 만들고 숫자와 *, = 사이는 공백을 한 칸 띄웁니다.
+
+```python
+dan = int(input())
+for i in range(1, 10):
+    print(dan, '*', i, '=', dan*i)
+
+# 입력
+2
+# 실행 결과
+2 * 1 = 2
+2 * 2 = 4
+2 * 3 = 6
+2 * 4 = 8
+2 * 5 = 10
+2 * 6 = 12
+2 * 7 = 14
+2 * 8 = 16
+2 * 9 = 18
+```
+
