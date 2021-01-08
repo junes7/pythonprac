@@ -2842,9 +2842,209 @@ if 7 <= age <= 12:
 	balance -= 650
 elif 13 <= age <= 18:
     balance -= 1050
-elif 19 <= age
+elif 19 <= age:
 	balance -= 1250
-else:
 print(balance)
 ```
+
+
+
+### for와 range 사용하기
+
+* 'Hello, world!' 문자열을 100번 출력하려면 어떻게 해야 할까요? 가장 간단한 방법은 print를 100번 사용해서 출력하는 것입니다. 복사 붙여넣기로 어렵지 않게 완성할 수 있습니다. 하지만 1,000번 또는 10,000번을 출력한다면 어떻게 될까요? 코드를 붙여 넣는데 시간이 너무 오래 걸리기도 하고, 프로그래밍 측면에서도 비효율적입니다. 그래서 반복되는 작업을 간단하게 처리하기 위해 반복문이라는 기능을 제공해줍니다. 반복문은 반복 횟수, 반복 및 정지 조건을 자유자재로 제어할 수 있습니다.
+
+* for 반복문은 다양한 사용 방법이 있지만, 먼저 range와 함께 사용하는 방법부터 알아보겠습니다. for 반복문은 range에 반복할 횟수를 지정하고 앞에 in과 변수를 입력합니다. 그리고 끝에 :(콜론)을 붙인 뒤 다음 줄에 반복할 코드를 넣습니다.
+
+```python
+for 변수 in range(횟수):
+	반복할 코드
+```
+
+* for 다음 줄에 오는 코드는 반드시 들여쓰기를 해줍니다(들여쓰기 규칙은 if, elif, else와 같습니다). 이제 for 반복문으로 `Hello, world!`를 100번 출력해볼까요?
+
+```python
+for i in range(100):
+    print('Hello, world!')
+# 실행 결과
+Hello, world!
+... (생략)
+Hello, world!
+Hello, world!
+Hello, world!
+```
+
+
+
+* SyntaxError: invalid syntax: for 반복문의 형식을 지키지 않았을 때 발생하는 구문 에러입니다. for 반복문의 형식에 맞는지 확인해주세요. 특히 for 끝에: (콜론)을 빠뜨리지 않았는지 확인해주세요.
+
+* SyntaxError: expected an indented block: for 다음 줄에 오는 반복할 코드의 들여쓰기가 맞지 않아서 발생하는 구문 에러입니다. 반복할 코드에서 들여쓰기 4칸을 했는지 확인해주세요.
+
+
+
+### 반복문에서 변수의 변화 알아보기
+
+* 앞에서 'Hello, world!' 문자열만 여러 번 출력했는데 이번에는 range에서 꺼낸 숫자를 눈으로 확인해보겠습니다.
+
+```python
+for i in range(100):
+    print('Hello, world!', i)
+# 실행 결과
+Hello, world! 0
+Hello, world! 1
+Hello, world! 2
+... (생략)
+Hello, world! 98
+Hello, world! 99
+```
+
+* 'Hello, world!'에 0부터 99까지 출력되었죠? 즉, range에서 꺼낸 숫자는 변수 i 에 저장되며 반복할 코드에서 사용할 수 있습니다.
+
+#### 반복문의 변수 i
+
+변수 i를 루프 인덱스(index)라고도 부르며 index의 첫 머리글자를 따서 i를 주로 사용합니다.
+
+#### 버전별 range의 차이점
+
+파이썬 2.7과 파이썬 3에서 range는 결과가 조금 다릅니다. 파이썬 2.7에서는 range를 사용하면 실제로 연속된 숫자가 들어있는 리스트를 만들어내지만 파이썬 3에서는 range객체(반복 가능한 객체)를 만들어냅니다.
+
+```python
+# 파이썬 2.7
+range(10)
+# 실행 결과
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+
+
+```python
+# 파이썬 3.0
+>>> range(10)
+# 실행 결과
+range(0, 10)
+>>> list(range(10))	# range 객체를 리스트로 만듦
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+* 파이썬 2.7의 range는 리스트를 만들어내므로 아주 큰 숫자를 지정하면 메모리를 많이 사용하게 됩니다. 그래서 보통 파이썬 2.7에서 리스트 대신 객체를 생성할 때는 xrange를 사용합니다. 특히 파이썬 3에서는 range가 객체를 생성하는 방식으로 바뀌었습니다.
+
+
+
+## for와 range 응용하기
+
+### 시작하는 숫자와 끝나는 숫자 지정하기
+
+* range에 횟수만 지정하면 숫자가 0부터 시작하지만, 다음과 같이 시작하는 숫자와 끝나는 숫자를 지정해서 반복할 수도 있습니다.
+* 아래 출력 결과처럼 마지막 숫자는 range의 끝나는 숫자보다 1이 작습니다(끝나는 숫자는 생성된 숫자에 포함되지 않음).
+  * for 변수 in range(시작, 끝)
+
+```python
+>>> for i in range(5, 12): # 5부터 11까지 반복
+	print('Hello, world!', i)
+# 실행 결과
+Hello, world! 5
+Hello, world! 6
+Hello, world! 7
+Hello, world! 8
+Hello, world! 9
+Hello, world! 10
+Hello, world! 11
+```
+
+
+
+### 증가폭 사용하기
+
+* range는 증가폭을 지정해서 해당 값만큼 숫자를 증가시킬 수 있죠? 이번에는 0부터 9까지의 숫자 중에서 짝수만 출력해보겠습니다.
+* range에 0, 10, 2를 넣으면 0부터 8까지 2씩 증가합니다. 따라서 숫자는 0, 2, 4, 6, 8이나오고 5번 반복하죠.
+  * for 변수 in range(시작, 끝, 증가폭):
+
+```python
+>>> for i in range(0, 10, 2):	# 0부터 8까지 2씩 증가
+    print('Hello, world!', i)
+# 실행 결과
+Hello, world! 0
+Hello, world! 2
+Hello, world! 4
+Hello, world! 6
+Hello, world! 8
+```
+
+
+
+### 숫자를 감소시키기
+
+* range는 숫자를 증가하는 기본 값이 양수 1이기 때문에 range(10, 0)을 실행을 해보면 아무것도 출력되지 않습니다.
+
+```python
+for i in range(10, 0): # range(10, 0)은 동작하지 않음
+	print('Hello, world!', i)
+```
+
+* range의 증가폭을 음수로 지정해서 반복해주면 숫자가 감소하는데 끝나는 숫자는 생성되는 숫자에 포함되지 않으므로 range(10, 0, -1)을 설정하면 10부터 1까지 1씩 감소하면서 반복합니다.
+
+```python
+for i in range(10, 0, -1):	# 10에서 1까지 1씩 감소
+	print('Hello, world!', i)
+# 실행 결과
+Hello, world! 10
+Hello, world! 9
+Hello, world! 8
+... (생략)
+Hello, world! 2
+Hello, world! 1
+```
+
+* 증가폭을 음수로 지정하는 방법 말고도 reversed를 사용하면 숫자의 순서를 반대로 뒤집을 수 있습니다.
+
+  * for 변수 in reversed(range(횟수))
+
+  * for 변수 in reversed(range(시작, 끝))
+  * for 변수 in reversed(range(시작, 끝, 증가폭))
+
+```python
+# range에 reversed를 사용하여 숫자의 순서를 반대로 뒤집음
+for i in reversed(range(10)):
+# 9부터 0까지 10번 반복
+	print('Hello, world!', i)
+# 실행 결과
+Hello, world! 9
+Hello, world! 8
+Hello, world! 7
+... (생략)
+Hello, world! 1
+Hello, world! 0
+```
+
+
+
+#### 반복문의 변수 i를 변경할 수 있을까?
+
+```python
+for i in range(10):
+    print(i, end=' ')
+	i = 10
+# 실행 결과
+0 1 2 3 4 5 6 7 8 9
+```
+
+* 반복할 코드에서 변수 i에 10을 할당하여 10이 출력될 것 같은데, 0부터 9까지 출력되었습니다. 왜냐하면 변수 i는 반복할 때마다 다음 값으로 덮어써지기 때문에 값을 할당해도 변수에 영항을 주지 못합니다.
+
+
+
+### 입력한 횟수대로 반복하기
+
+```python
+count = int(input('반복할 횟수를 입력하세요: '))
+for i in range(count):
+    print('Hello, world!', i)
+# 실행 결과
+반복할 횟수를 입력하세요: 3 (입력)
+Hello, world! 0
+Hello, world! 1
+Hello, world! 2
+```
+
+
+
+### 시퀀스 객체로 반복하기
 
