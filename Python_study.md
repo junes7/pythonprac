@@ -3177,3 +3177,259 @@ for i in range(1, 10):
 2 * 9 = 18
 ```
 
+
+
+### while 반복문으로 Hello, world! 100번 출력하기
+
+* while 반복문은 조건식으로만 동작하며 반복할 코드 안에 조건식에 영향을 주는 변화식이 들어갑니다.
+
+```python
+i = 0						# 초기식
+while i < 100:				# while 조건식
+    print('Hello, world!')	# 반복할 코드
+	i += 1					# 변화식
+# 실행 결과
+Hello, world!
+... (생략)
+Hello, world!
+Hello, world!
+Hello, world!
+```
+
+* SyntaxError: invalid syntax: while 반복문의 형식을 지키지 않았을 때 발생하는 구문 에러입니다. while 반복문의 형식에 맞는지 확인해주세요. 특히 while 끝에: (콜론)을 빠뜨리지 않았는지 확인해주세요.
+
+* SyntaxError: expected an indented block: while 다음 줄에 오는 반복할 코드의 들여쓰기가 맞지 않아서 발생하는 구문 에러입니다. 반복할 코드에서 들여쓰기 4칸을 했는지 확인해주세요.
+
+
+
+### 초깃값을 1부터 시작하기
+
+* i에 1을 넣었으므로 i가 1부터 100까지 증가하므로 100번 반복하게 됩니다. 만약 i가 101이 되면 i <=100은 거짓(False)이므로 반복문을 끝냅니다.
+
+```python
+i = 1						# 초기식
+while i <= 100:				# while 조건식
+    print('Hello, world!', i)	# 반복할 코드
+	i += 1					# 변화식
+# 실행 결과
+Hello, world! 1
+Hello, world! 2
+Hello, world! 3
+...  (생략)
+Hello, world! 99
+Hello, world! 100
+```
+
+
+
+### 초깃값을 감소시키기
+
+* 초깃값을 크게 주고, 변수를 감소시키면서 반복할 수도 있습니다. 아래와 같이 식을 작성하면 i가 100부터 1까지 감소하면서 반복합니다. 만약 i가 0이 되면 i > 0은 거짓이므로 반복문을 끝냅니다.
+
+```python
+i = 100
+while i > 0:
+    print('Hello, world!', i)
+	i -= 1
+Hello, world! 100
+Hello, world! 99
+Hello, world! 98
+... (생략)
+Hello, world! 2
+Hello, world! 1
+```
+
+
+
+### 입력한 횟수대로 반복하기
+
+```python
+count = int(input('반복할 횟수를 입력하세요: '))
+i = 0
+while i < count:	# i가 count보다 작을 때 반복
+	print('Hello, world!', i)
+	i += 1
+# 실행 결과
+반복할 횟수를 입력하세요: 3 (입력)
+Hello, world! 0
+Hello, world! 1
+Hello, world! 2
+```
+
+* 이번에는 초깃값을 받은 뒤 초깃값만큼 출력해보겠습니다.
+
+```python
+count = int(input('반복할 횟수를 입력하세요: '))
+while count > 0		# count가 0보다 클 때 반복
+	print('Hello, world!', count)
+	count -= 1		# count를 1씩 감소시킴
+# 실행 결과
+반복할 횟수를 입력하세요: 3 (입력)
+Hello, world! 3
+Hello, world! 2
+Hello, world! 1
+```
+
+
+
+### 반복 횟수가 정해지지 않은 경우
+
+* while 반복문은 반복 횟수가 정해지지 않았을 때 주로 사용합니다. 이번에는  난수를 생성해서 숫자에 따라 반복을 끝내 보겠습니다. 난수(random number)란 특정 주기로 반복되지 않으며 규칙 없이 무작위로 나열되는 숫자를 뜻합니다. 현실에서 쉽게 접할 수 있는 난수가 바로 주사위를 굴려서 나온 숫자입니다.
+
+* 파이썬에서 난수를 생성하려면 random 모듈이 필요합니다. 모듈은 다음과 같이 import 키워드를 사용하여 가져올 수 있습니다.
+  * import 모듈
+
+```python
+import random # random 모듈을 가져옴
+```
+
+* 이제 random.random( )으로 random 모듈의 random 함수를 호출해봅니다.
+
+```python
+>>> random.random()
+0.002383731799935007
+>>> random.random()
+0.3297914484498006
+>>> random.random()
+0.6923390064955324
+```
+
+* random.random( )을 실행할 때마다 계속 다른 실수가 출력되죠? 바로 이 숫자가 바로 난수입니다. 
+
+* 숫자를 좀 더 알아보기 쉽도록 정수를 생성하는 random 모듈의 randint 함수를 사용해보겠습니다. randint 함수는 난수를 생성할 범위를 지정하며, 범위에 지정한 숫자도 난수에 포함됩니다.
+  * random.randint(a, b)
+
+```python
+>>> random.randint(1, 6)
+4
+>>> random.randint(1, 6)
+1
+>>> random.randint(1, 6)
+5
+```
+
+* 이제 random모듈의 random.randint함수를 while 반복문에 사용해보겠습니다.
+
+```python
+import random	# random 모듈을 가져옴
+i = 0
+while i != 3:	# 3이 아닐 때 계속 반복
+    i = random.randint(1, 6) # randint를 사용하여 1과 6 사이의 난수를 생성
+    print(i)
+# 실행 결과
+5
+1
+4
+1
+1
+3
+```
+
+
+
+#### random.choice
+
+* random.choice 함수를 사용하면 시퀀스 객체에서 요소를 무작위로 선택할 수 있습니다. 다음은 1, 2, 3, 4, 5, 6이 들어있는 리스트에서 무작위로 숫자를 선택합니다.
+  * random.choice(시퀀스 객체)
+
+```python
+>>> dice = [1, 2, 3, 4, 5, 6]
+>>> random.choice(dice)
+1
+>>> random.choice(dice)
+4
+>>> random.choice(dice)
+3
+```
+
+* 물론 random.choice 함수는 시퀀스 객체를 받으므로 리스트뿐만 아니라 튜플, range, 문자열 등을 넣어도 됩니다.
+
+
+
+### while 반복문으로 무한 루프 만들기
+
+* while 반복문으로 무한 루프를 만들어보겠습니다.
+
+```python
+while True:    # while에 True를 지정하면 무한 루프
+    print('Hello, world!')
+# 실행 결과
+... (생략)
+Hello, world!
+Hello, world!
+Hello, world!
+Hello, world!
+... (계속 반복)
+```
+
+
+
+#### 에러
+
+NameError: name 'true' is not defined: True는 첫 글자만 대문자입니다. T를 소문자로 입력하지 않았는지, 전부 대문자로 입력하지 않았는지 확인해주세요.
+
+*  while에 조건식 대신 True를 지정하면 무한히 반복하는 무한 루프가 만들어집니다. 따라서 조건식이 항상 참(True)이므로 변화식도 필요 없습니다.
+
+* 이 스크립트 파일을 실행한 상태로 두면 'Hello, world!'는 끝나지 않고 계속 출력됩니다. 따라서 IDLE이나 콘솔(터미널, 명령 프롬프트)에서 Ctrl+C를 입력하여 무한 루프를 끝냅니다.
+
+* while에 True 대신 True로 취급하는 값을 사용해도 무한 루프로 동작합니다.
+
+```python
+# 0이 아닌 숫자는 True로 취급하여 무한 루프로 동작
+while 1:
+    print('Hello, world!')
+# 내용이 있는 문자열은 True로 취급하여 무한 루프로 동작
+while 'Hello':
+	print('Hello, world!')
+```
+
+
+
+### 연습문제: 변수 두 개를 다르게 반복하기
+
+* 정수 2 5, 4 4, 8 3, 16 2, 32 1이 각 줄에 출력되게 만드세요.
+
+```python
+i = 2
+j = 5
+while i <= 32 or j >= 1:
+    print(i, j)
+    i *= 2
+    j -= 1
+```
+
+
+
+### 심사문제: 교통카드 잔액 출력하기
+
+* 표준 입력으로 금액(정수)이 입력됩니다. 1회당 요금은 1,350원이고, 교통카드를 사용했을 때마다의 잔액을 각 줄에 출력하는 프로그램을 만드세요(input에서 안내 문자열은 출력하지 않아야 합니다). 단, 최초 금액은 출력하지 않아야 합니다. 그리고 잔액은 음수가 될 수 없으며 잔액이 부족하면 출력을 끝냅니다.
+
+```python
+
+
+
+# 입력
+10000
+# 실행 결과
+8650
+7300
+5950
+4600
+3250
+1900
+550
+# 입력
+13500
+# 실행 결과
+12150
+10800
+9450
+8100
+6750
+5400
+4050
+2700
+1350
+0
+```
+

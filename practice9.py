@@ -18,3 +18,20 @@ print('\n')
 dan = int(input())
 for i in range(1, 10):
     print(dan, '*', i, '=', dan*i)
+# while 반복문으로 Hello, world! 100번 출력하기
+# i = 0
+# while i < 100:
+#     print('Hello, world!', i)
+#     i += 1
+# 연습문제: 변수 두 개를 다르게 반복하기
+i = 2
+j = 5
+while i <= 32 or j >= 1:
+    print(i, j)
+    i *= 2
+    j -= 1
+# 심사문제: 교통카드 잔액 출력하기
+price = int(input())
+while price >= 1350:
+    price -= 1350
+    print(price)
