@@ -35,3 +35,8 @@ price = int(input())
 while price >= 1350:
     price -= 1350
     print(price)
+# for에서 break으로 반복문 끝내기
+for i in range(10000):
+    print(i)
+    if i == 100:
+        break
