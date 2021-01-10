@@ -40,3 +40,15 @@ for i in range(10000):
     print(i)
     if i == 100:
         break
+# 연습문제: 3으로 끝나는 숫자만 출력하기
+# 0과 73 사이의 숫자 중 3으로 끝나는 숫자만 출력되게 만드세요.
+i = 0
+while True:
+    # 3으로 끝나지 않는 숫자는 1증가하고 건너뛴다.
+    if i % 10 != 3:
+        i += 1
+        continue
+    if i > 74:  
+        break
+    print(i, end=' ')
+    i += 1
