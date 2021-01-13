@@ -17,12 +17,12 @@ for i in range(4):
 print()
 # 계단식으로 별 출력하기
 # 오른쪽 계단
-# for i in range(5):
-#     for j in range(5):
-#         if j <= i:
-#             print('*', end='')
-#     print()
-# print()
+for i in range(5):
+    for j in range(5):
+        if j <= i:
+            print('*', end='')
+    print()
+print()
 # 왼쪽 계단
 # for i in range(1, 6):
 #     for j in range(5-i):
