@@ -32,7 +32,21 @@ for i in range(1, 6):
     print()
 print()
 # 역삼각형 왼쪽 계단
-
+for i in range(5):
+    for j in range(5):
+        if j < i:
+            print(' ', end='')
+        else:
+            print('*', end='')
+    print()
+print()
+# 역삼삭형 오른쪽 계단
+# for i in range(5):
+#     for j in range(5):
+#         if i <= j:
+#             print('*', end='')
+#     print()
+# print()
 # 대각선으로 별 출력하기
 for i in range(5):
     for j in range (5):
@@ -41,3 +55,10 @@ for i in range(5):
         else:
             print(' ', end='')
     print()
+print()
+# 정사각형 모양으로 별 출력하기
+for i in range(5):
+    for j in range(5):
+        print('*', end='')
+    print()
+
