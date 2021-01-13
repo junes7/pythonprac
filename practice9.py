@@ -40,6 +40,14 @@ for i in range(10000):
     print(i)
     if i == 100:
         break
+# while에서 break으로 반복문 끝내기
+i = 0
+while True:
+    print('Hello, world!', i)
+    i += 1
+    if i == 100:
+        break
+
 # 연습문제: 3으로 끝나는 숫자만 출력하기
 # 0과 73 사이의 숫자 중 3으로 끝나는 숫자만 출력되게 만드세요.
 i = 0
