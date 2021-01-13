@@ -41,12 +41,12 @@ for i in range(5):
     print()
 print()
 # 역삼삭형 오른쪽 계단
-# for i in range(5):
-#     for j in range(5):
-#         if i <= j:
-#             print('*', end='')
-#     print()
-# print()
+for i in range(5):
+    for j in range(5):
+        if i <= j:
+            print('*', end='')
+    print()
+print()
 # 대각선으로 별 출력하기
 for i in range(5):
     for j in range (5):
