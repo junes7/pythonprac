@@ -24,13 +24,13 @@ for i in range(5):
     print()
 print()
 # 왼쪽 계단
-# for i in range(1, 6):
-#     for j in range(5-i):
-#         print(' ', end='')
-#     for j in range(i):
-#         print('*', end='')
-#     print()
-# print()
+for i in range(1, 6):
+    for j in range(5-i):
+        print(' ', end='')
+    for j in range(i):
+        print('*', end='')
+    print()
+print()
 # 역삼각형 왼쪽 계단
 
 # 대각선으로 별 출력하기
