@@ -61,4 +61,31 @@ for i in range(5):
     for j in range(5):
         print('*', end='')
     print()
-
+print('-------')
+# 심사문제: 산 모양으로 별 출력하기
+height = int(input())
+blank = height - 1
+# 세로 방향
+for i in range(height):
+# 가로 방향
+    for j in range(height+i):
+# 공백 출력. end에 ''를 지정하여 줄바꿈을 하지 않음
+        if j < blank:
+            print(' ', end='')
+# 별 출력. end에 ''를 지정하여 줄바꿈을 하지 않음
+        else:
+            print('*', end='')
+# 가로 방향으로 별을 다 그린 뒤 다음 줄로 넘어감
+    print()
+# 밑으로 갈 수록 공백이 하나씩 줄어들도록 한다.
+    blank-=1
+# 연습문제: 역삼각형 모양으로 별 출력하기
+# 세로방향
+for i in range(5):
+# 가로방향
+    for j in range(5):
+        if j < i:
+            print(' ', end='')
+        else:
+            print('*', end='')
+    print()

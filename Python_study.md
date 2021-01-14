@@ -3763,6 +3763,34 @@ for i in range(5):        # 0부터 4까지 5번 반복. 세로 방향
 
 
 
+### 연습문제: 역삼각형 모양으로 별 출력하기
+
+```python
+# 세로방향
+for i in range(5):
+# 가로방향
+    for j in range(5):
+        if j < i:
+            print(' ', end='')
+        else:
+            print('*', end='')
+    print()
+# 실행 결과
+*****
+ ****
+  ***
+   **
+    *
+```
+
+
+
+### 
+
+
+
+
+
 ### FizzBuzz 문제
 
 * FizzBuzz는 매우 간단한 프로그래밍 문제이며 규칙은 다음과 같습니다.
