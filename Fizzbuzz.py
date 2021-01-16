@@ -22,7 +22,7 @@ for i in range(1, 101):
         print('Buzz')
     else:
         print(i)
-print()
+print('-------------------')
 # 논리 연산자를 사용하지 않고 3과 5의 공배수 처리하기
 for i in range(1, 101):
     if i % 15 == 0:
@@ -38,4 +38,14 @@ print()
 for i in range(1, 101):
     print('Fizz' * (i % 3 == 0) + 'Buzz' * (i % 5 == 0) or i)
     # 문자열 곱셈과 덧셈을 이용하여 print 안에서 처리
-
+# 1부터 100까지 숫자 중 5와 10의 공배수 처리하기
+for i in range(1, 101):
+    if i % 5 == 0 and i % 10 == 0:
+        print('FizzBuzz')
+    elif i % 5 == 0:
+        print('Fizz')
+    elif i % 10 == 0:
+        print('Buzz')
+    else:
+        print(i)
+print('-------------------')
