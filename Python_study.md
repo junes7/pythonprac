@@ -3963,16 +3963,31 @@ Buzz
 
 
 
-### 코드 단축하기
+### 코드 단축하기(Code Shortening)
 
 * 이번에는 코드를 매우 단축하여 `FizzBuzz` 문제를 풀어보겠습니다.
 
 ```python
-
-
-
-
-
+# 코드를 매우 단축하여 FizzBuzz 문제 풀기
+for i in range(1, 101):
+    print('Fizz' * (i % 3 == 0) + 'Buzz' * (i % 5 == 0) or i)
+    # 문자열 곱셈과 덧셈을 이용하여 print 안에서 처리
+# 실행 결과
+1
+2
+Fizz
+... (생략)
+FizzBuzz
+91
+92
+Fizz
+94
+Buzz
+Fizz
+97
+98
+Fizz
+Buzz
 ```
 
 
