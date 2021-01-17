@@ -11,23 +11,23 @@
 # t.forward(100)
 # input()
 # 축약 코드로 사각형 구현
-import turtle as t
-t= t.Turtle()
-t.shape('turtle')
-t.fd(100)
-t.rt(90)
-t.fd(100)
-t.rt(90)
-t.fd(100)
-t.rt(90)
-t.fd(100)
-input()
-# 반복 코드로 사각형 구현
+# import turtle as t
+# t= t.Turtle()
 # t.shape('turtle')
-# for i in range(4):
-#     t.fd(100)
-#     t.rt(90)
+# t.fd(100)
+# t.rt(90)
+# t.fd(100)
+# t.rt(90)
+# t.fd(100)
+# t.rt(90)
+# t.fd(100)
 # input()
+# 반복 코드로 사각형 구현
+t.shape('turtle')
+for i in range(4):
+    t.fd(100)
+    t.rt(90)
+input()
 # 반복 코드로 오각형 구현
 # import turtle as t
 # t= t.Turtle()
