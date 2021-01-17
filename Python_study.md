@@ -4237,7 +4237,7 @@ input()
 t.color('#FF69B4')    # 핫핑크(hotpink)
 ```
 
-
+![image-20210118003403434](images/image-20210118003403434.png)
 
 ## 복잡한 도형 그리기
 
@@ -4246,11 +4246,16 @@ t.color('#FF69B4')    # 핫핑크(hotpink)
 * 이번에는 원을 그려보겠습니다. 터틀에서 원을 그릴 때는 circle을 사용합니다.
 
 ```python
-
-
-
-
+# 초록색 원 그리기
+import turtle as t
+t = t.Turtle()
+t.shape('turtle')
+t.color('green')
+t.begin_fill()
+t.circle(120)
+t.end_fill()
+input()
 ```
 
-
+![image-20210118004933150](images/image-20210118004933150.png)
 
