@@ -4250,6 +4250,7 @@ t = t.Turtle()
 t.shape('turtle')
 t.color('green')
 t.begin_fill()
+# 반지름이 120인 원을 그리기 
 t.circle(120)
 t.end_fill()
 input()
@@ -4330,4 +4331,42 @@ t.shape('arrow')	# 화살표 모양 사용
 t.shape()			# 현재 모양 알아내기
 'arrow'
 ```
+
+
+
+### 연습문제: 오각별 그리기
+
+* 각 변의 길이는 100
+* 별의 꼭지점은 72도를 두 번 회전해서 144도 회전
+* 별의 다음 꼭지점을 그릴 때는 72도 회전
+
+```python
+# 연습문제: 오각별 그리기
+import turtle as t
+n = 5
+t = t.Turtle()
+t.shape('turtle')
+# 핫핑크 색
+t.color('#FF69B4')
+for i in range(n):
+    t.fd(100)
+    t.rt((360/n)*2)
+    t.fd(100)
+    t.lt(360/n)
+input()
+```
+
+* 실행 결과
+
+![image-20210118024001390](images/image-20210118024001390.png)
+
+
+
+
+
+
+
+
+
+
 

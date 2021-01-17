@@ -80,18 +80,29 @@
 # input()
 # 선으로 복잡한 무늬 그리기
 # 300번 반복, 오른쪽 91도, 반복할 때마다 forward i 증가
+# import turtle as t
+# n = 300
+# t = t.Turtle()
+# t.shape('turtle')
+# t.speed('fastest')
+# t.color('brown')
+# for i in range(n):
+#     t.forward(i)
+#     t.right(91)
+# input()
+# 연습문제: 오각별 그리기
 import turtle as t
-n = 300
+n = 5
 t = t.Turtle()
 t.shape('turtle')
-t.speed('fastest')
-t.color('brown')
+# 핫핑크 색
+t.color('#FF69B4')
 for i in range(n):
-    t.forward(i)
-    t.right(91)
+    t.fd(100)
+    t.rt((360/n)*2)
+    t.fd(100)
+    t.lt(360/n)
 input()
-
-
 
 
 
