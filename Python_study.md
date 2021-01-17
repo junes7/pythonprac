@@ -4223,8 +4223,6 @@ input()
 
 #### 참고 | color에 색깔 지정하기
 
-
-
 * color에 색깔을 지정할 때 `'red', 'green', 'blue', 'yellow', 'purple', 'brown', 'gray'`등 영어로 색 이름을 지정합니다. 하지만 색 이름만으로는 다양한 색상을 표현하기가 힘듭니다. 이때는 웹 색상(web color)을 사용하면 됩니다.
 *  웹 색상은 #으로 시작하며 빨강(R), 초록(G), 파랑(B)에 해당하는 두 자리 16진수 세 쌍으로 구성되어 있습니다.
   * #000000: 검정
@@ -4273,7 +4271,7 @@ n = 60
 t.shape('turtle')
 # 거북이 속도를 가장 빠르게 설정
 t.speed('fastest')
-# 색깔은 파란색으로 설정
+# 선 색깔은 파란색으로 설정
 t.color('blue')
 for i in range(n):
 # 반지름이 120인 원을 그림
@@ -4291,4 +4289,45 @@ input()
   * 'slowest': 1
 
 ![image-20210118020632288](images/image-20210118020632288.png)
+
+
+
+### 선으로 복잡한 무늬 그리기
+
+* 이번에는 선을 이용해서 복잡한 무늬를 그려보겠습니다. 300번 반복하고 반복할 때마다  `i`만큼 선이 길어지고 오른쪽으로 91도 회전합니다.
+
+```python
+# 선으로 복잡한 무늬 그리기
+# 300번 반복, 오른쪽 91도, 반복할 때마다 forward i 증가
+import turtle as t
+n = 300
+t = t.Turtle()
+t.shape('turtle')
+# 거북이 속도를 가장 빠르게 설정
+t.speed('fastest')
+# 선 색깔은 갈색으로 설정
+t.color('brown')
+# 300번 반복
+for i in range(n):
+  	# i만큼 앞으로 이동. 반복할 때마다 선이 길어짐  
+    t.forward(i)
+    # 오른쪽으로 91도 회전
+    t.right(91)
+input()
+```
+
+![image-20210118022110934](images/image-20210118022110934.png)
+
+
+
+#### 참고 | 터틀 모양 설정하기
+
+* 터틀의 shape에는 'arrow', 'turtle', 'circle', 'square', 'triangle', 'classic' 등을 지정하여 여러 가지 터틀 모양을 사용할 수 있습니다. 특히, t.shape()와 같이 shape를 그대로 호출하면 현재 모양을 알아낼 수 있습니다.
+
+```python
+import turtle as t
+t.shape('arrow')	# 화살표 모양 사용
+t.shape()			# 현재 모양 알아내기
+'arrow'
+```
 

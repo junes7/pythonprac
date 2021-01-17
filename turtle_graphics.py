@@ -68,16 +68,29 @@
 # t.end_fill()
 # input()
 # 파란색 원 60번 반복해서 그리기
+# import turtle as t
+# t = t.Turtle()
+# n = 60
+# t.shape('turtle')
+# t.speed('fastest')
+# t.color('blue')
+# for i in range(n):
+#     t.circle(120)
+#     t.rt(360/n)
+# input()
+# 선으로 복잡한 무늬 그리기
+# 300번 반복, 오른쪽 91도, 반복할 때마다 forward i 증가
 import turtle as t
+n = 300
 t = t.Turtle()
-n = 60
 t.shape('turtle')
 t.speed('fastest')
-t.color('blue')
+t.color('brown')
 for i in range(n):
-    t.circle(120)
-    t.rt(360/n)
+    t.forward(i)
+    t.right(91)
 input()
+
 
 
 
