@@ -23,11 +23,11 @@
 # t.fd(100)
 # input()
 # 반복 코드로 사각형 구현
-t.shape('turtle')
-for i in range(4):
-    t.fd(100)
-    t.rt(90)
-input()
+# t.shape('turtle')
+# for i in range(4):
+#     t.fd(100)
+#     t.rt(90)
+# input()
 # 반복 코드로 오각형 구현
 # import turtle as t
 # t= t.Turtle()
@@ -38,14 +38,14 @@ input()
 #     t.rt(360/5)
 # input()
 # 반복 구문으로 다각형 구현
-# import turtle as t
-# t = t.Turtle()
-# t.shape('turtle')
-# n = int(input())
-# for i in range(n):
-#     t.fd(100)
-#     t.rt(360/n)
-# input()
+import turtle as t
+t = t.Turtle()
+t.shape('turtle')
+n = int(input())
+for i in range(n):
+    t.fd(100)
+    t.rt(360/n)
+input()
 
 
 
