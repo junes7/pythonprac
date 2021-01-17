@@ -3992,17 +3992,34 @@ Buzz
 
 
 
+### 연습문제: 2와 11의 배수, 공배수 처리하기
 
+* 1부터 100까지 숫자를 출력하면서 2의 배수일 때는 'Fizz', 11의 배수일 때는 'Buzz', 2과 11의 공배수일 때는 'FizzBuzz'가 출력되게 만드세요.
 
-
-
-
+```python
+for i in range(1, 101):
+    if i % 2 == 0 and i % 11 == 0:
+        print('FizzBuzz')
+    elif i % 2 == 0:
+        print('Fizz')
+    elif i % 11 == 0:
+        print('Buzz')
+    else:
+        print(i)
+print()
+```
 
 
 
 ### 심사문제: 5와 7의 배수 공배수 처리하기
 
 * 표준 입력으로 정수 두 개가 입력됩니다(첫 번째 입력 값의 범위는 1~1000, 두 번째 입력 값의 범위는 10~1000이며 첫 번째 입력 값은 두 번째 입력 값보다 항상 작습니다). 첫 번째 정수부터 두 번째 정수까지 숫자를 출력하면서 5의 배수일 때는 'Fizz', 7의 배수일 때는 'Buzz', 5와 7의 공배수일 때는 'FizzBuzz'를 출력하는 프로그램을 만드세요(input에서 안내 문자열은 출력하지 않아야 합니다).
+
+```python
+a, b = map(int, input().split())
+for i in range(a, b+1):
+    print('Fizz' * (i % 5 == 0) + 'Buzz' * (i % 7 == 0) or i)
+```
 
 
 
@@ -4018,6 +4035,167 @@ Buzz
 
 ```python
 import turtle as t
+t = t.Turtle()
 t.shape('turtle')
 ```
+
+#### 에러
+
+```markdown
+ModuleNotFoundError:  No module named ... 모듈 이름을 잘못 입력했을 때 발생하는 에러입니다. turtle의 철자가 맞는지 확인해주세요.
+TurtleGraphicsError: There is no shape named ... 거북이의 모양을 잘못 지정해서 발생하는 에러입니다. t.shape에 'turtle'로 입력했는지 확인해주세요.
+# 그 밖의 Turtle이라는 모듈이 실행이 안 될 때의 에러
+ImportError: No module named turtle ... 제일 흔한 오류이다. 'turtle' 이라는 모듈을 제대로 입력하지 않았을 때 보통 발생하는 오류라고 한다. 따라서 import문장에 'turtle'이라는 철자를 한번 확인해보자!
+ImportError: No named `_tkinter` ... 리눅스를 사용할 때 처음 사용할 때 나타날 가능성이 높다고 생각한다. 에러를 보면 tkinter라는 패키지가 설치되지 않았을 때 나타날때도 발생할 수 있다.
+```
+
+* 터미널에서 다음과 같은 명령어를 쳐보자
+
+```bash
+#python 2.X라면 python-tk, python 3.X라면 python3-tk를 설치해주자!
+sudo apt-get install python-tk
+sudo apt-get install python3-tk
+```
+
+* 파이썬 터틀 그래픽스(Turtle graphics) 창을 끄지 않은 상태에서 IDLE의 파이썬 셸(Shell) 창에 다음과 같이 입력합니다.
+
+```python
+t.forward(100)
+```
+
+* t.forward(100)은 거북이를 100픽셀(pixel)만큼 앞으로(forward) 이동시킵니다. 화면을 보면 거북이가 오른쪽으로 이동하고 검은 색 선이 그려졌습니다.
+
+![image-20210117171813872](images/image-20210117171813872.png)
+
+#### 에러
+
+```markdown
+AttributeError: module 'turtle' has no attribute ... : 모듈의 변수나 함수 이름을 잘못 입력했을 때 발생하는 에러입니다(함수는 뒤에서 자세히 설명하겠습니다). t.forward의 철자가 맞는지 확인해주세요.
+```
+
+* t.right(90)은 거북이의 방향을 오른쪽(right)으로 90도 회전시킵니다. 여기서는 90을 지정했으므로 90도가 되는데 다른 각도를 입력하면 해당 각도만큼 방향이 바뀝니다.
+
+```python
+t.right(90)
+```
+
+![image-20210117173312009](images/image-20210117173312009.png)
+
+* 다시 거북이를 앞으로 100픽셀 이동시킵니다.
+
+```python
+t.forward(100)
+```
+
+기역(ㄱ)자 모양이 그려졌습니다.
+
+![image-20210117175552386](images/image-20210117175552386.png)
+
+* 지금까지 했던 것처럼 오른쪽으로 90도 바꾸기, 앞으로 100픽셀 이동을 사각형이 될 때까지 반복합니다.
+
+```python
+t.right(90)
+t.forward(100)
+t.right(90)
+t.forward(100)
+```
+
+* 드디어 사각형이 만들어졌습니다. 이렇게 거북이를 조정해서 그림을 그릴 수 있습니다.
+
+![image-20210117180811144](images/image-20210117180811144.png)
+
+
+
+* 터튤 모듈에서 앞으로 이동, 오른쪽 회전 이외에 다른 기능도 있겠죠? backward는 뒤로 이동, left는 왼쪽으로 회전입니다. 특히 forward, backward 등은 짧게 줄여서 입력할 수도 있습니다.
+
+```markdown
+# 앞으로 이동: forward, fd
+# 뒤로 이동: backward, bk, back
+# 왼쪽으로 회전: left, lt
+# 오른쪽으로 회전: right, rt
+```
+
+* 각자 fd, bk, lt, rt 등을 사용해서 자유롭게 그림을 그려 보세요. 지금까지 그린 사각형을 `fd`와 `rt`로 만들어보면 다음과 같은 코드가 됩니다.
+
+```python
+import turtle as t
+t = t.Turtle()
+t.shape('turtle')
+t.fd(100)
+t.rt(90)
+t.fd(100)
+t.rt(90)
+t.fd(100)
+t.rt(90)
+t.fd(100)
+```
+
+
+
+#### 참고 | 실행하자마자 터틀 창이 사라져요.
+
+* IDLE가 아닌 PyCharm 등의 파이썬 개발 도구를 사용한다면 터틀 창이 유지되지 않고 바로 사라질 수도 있습니다. 이때는 스크립트 파일 마지막 부분에 다음 코드를 넣어줍니다.
+
+```python
+t.mainloop()
+```
+
+* mainloop는 터틀 창이 종료될 때까지 마우스, 키보드 입력을 대기합니다.
+
+
+
+### 다각형 그리기
+
+* forward, right 등을 일일이 입력해서 그림을 그리려고 하니 좀 귀찮습니다. 이번에는 반복문을 사용해서 사각형을 그려보겠습니다.
+
+```python
+# 반복 코드로 구현
+t.shape('turtle')
+for i in range(4):	# 사각형이므로 4번 반복
+    t.fd(100)
+    t.rt(90)
+input()
+```
+
+![image-20210117183219508](images/image-20210117183219508.png)
+
+
+
+### 오각형 그리기
+
+* 다각형의 외각의 합은 항상 360도 입니다. 그래서 사각형은 90도가 4개 들어있습니다(90 * 4 = 360). 오각형은 360을 5로 나누면 외각을 구할 수 있습니다.
+
+```python
+# 반복 코드로 오각형 구현
+import turtle as t
+t= t.Turtle()
+# 오각형이므로 5번 반복
+for i in range(5):
+    t.fd(100)
+    # 360을 5로 나누어서 외각을 구함
+    t.rt(360/5)
+input()
+```
+
+
+
+### 다각형 그리기
+
+* 이 소스 코드를 응용해서 사용자가 숫자를 입력하면 해당 숫자에 해당하는 다각형을 그려보겠습니다.
+
+```python
+import turtle as t
+t = t.Turtle()
+t.shape('turtle')
+# 사용자의 입력을 받음
+n = int(input())
+# n번 반복
+for i in range(n):
+	t.fd(100)
+# 360을 n으로 나누어서 외각을 구함
+	t.rt(360/n)
+input()
+```
+
+
 
