@@ -4259,3 +4259,36 @@ input()
 
 ![image-20210118004933150](images/image-20210118004933150.png)
 
+
+
+### 원을 반복해서 그리기
+
+* 그럼 for를 사용해서 원을 반복해서 그려보겠습니다.
+
+```python
+import turtle as t
+t = t.Turtle()
+# 원을 60번 그림
+n = 60
+t.shape('turtle')
+# 거북이 속도를 가장 빠르게 설정
+t.speed('fastest')
+# 색깔은 파란색으로 설정
+t.color('blue')
+for i in range(n):
+# 반지름이 120인 원을 그림
+    t.circle(120)
+# 오른쪽으로 6도 회전
+    t.rt(360/n)
+input()
+```
+
+* speed는 거북이의 속도를 설정합니다. 속도는 다음과 같이 문자열 또는 숫자로 설정할 수 있습니다(숫자는 0.5부터 10까지 설정할 수 있습니다). 여기서는 'fastest'를 지정해서 가장 빠른 속도로 그렸습니다.
+  * 'fastest': 0
+  * 'fast': 10
+  * 'normal': 6
+  * 'slow': 3
+  * 'slowest': 1
+
+![image-20210118020632288](images/image-20210118020632288.png)
+

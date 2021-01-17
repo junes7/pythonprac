@@ -59,13 +59,24 @@
 # t.end_fill()		# 색칠할 영역 끝
 # input()
 # 초록색 원 그리기
+# import turtle as t
+# t = t.Turtle()
+# t.shape('turtle')
+# t.color('green')
+# t.begin_fill()
+# t.circle(120)
+# t.end_fill()
+# input()
+# 파란색 원 60번 반복해서 그리기
 import turtle as t
 t = t.Turtle()
+n = 60
 t.shape('turtle')
-t.color('green')
-t.begin_fill()
-t.circle(120)
-t.end_fill()
+t.speed('fastest')
+t.color('blue')
+for i in range(n):
+    t.circle(120)
+    t.rt(360/n)
 input()
 
 
