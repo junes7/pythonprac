@@ -91,20 +91,30 @@
 #     t.right(91)
 # input()
 # 연습문제: 오각별 그리기
+# import turtle as t
+# n = 5
+# t = t.Turtle()
+# t.shape('turtle')
+# # 핫핑크 색
+# t.color('#FF69B4')
+# for i in range(n):
+#     t.fd(100)
+#     t.rt((360/n)*2)
+#     t.fd(100)
+#     t.lt(360/n)
+# input()
+# 심사문제: 별 그리기
 import turtle as t
-n = 5
+n, line = map(int, input().split())
 t = t.Turtle()
 t.shape('turtle')
-# 핫핑크 색
-t.color('#FF69B4')
+t.color('purple')
+t.speed('fastest')
 for i in range(n):
-    t.fd(100)
+    t.forward(line)
     t.rt((360/n)*2)
-    t.fd(100)
+    t.forward(line)
     t.lt(360/n)
 input()
-
-
-
 
 
