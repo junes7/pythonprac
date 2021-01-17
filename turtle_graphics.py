@@ -38,15 +38,26 @@
 #     t.rt(360/5)
 # input()
 # 반복 구문으로 다각형 구현
+# import turtle as t
+# t = t.Turtle()
+# t.shape('turtle')
+# n = int(input())
+# for i in range(n):
+#     t.fd(100)
+#     t.rt(360/n)
+# input()
+# 다각형에 색칠하기
 import turtle as t
 t = t.Turtle()
 t.shape('turtle')
-n = int(input())
-for i in range(n):
+# t.color('green')
+t.color('#FF69B4')  # 핫핑크
+t.begin_fill()
+for i in range(6):
     t.fd(100)
-    t.rt(360/n)
+    t.rt(360/6)
+t.end_fill()
 input()
-
 
 
 
