@@ -8,3 +8,11 @@ print(a)
 # 덱의 왼쪽 요소 하나 삭제
 a.popleft()
 print(a)
+
+# sort 메서드와 sorted 함수
+a = [10, 20, 30, 15, 20, 40]
+a.sort()
+print(a)
+b = [10, 20, 30, 15, 20, 40]
+c = sorted(b)
+print(c)
