@@ -16,3 +16,11 @@ print(a)
 b = [10, 20, 30, 15, 20, 40]
 c = sorted(b)
 print(c)
+
+# 리스트의 모든 요소를 삭제하기
+a = [10, 20, 30]
+a.clear()
+print(a)
+b = [10, 20, 30]
+del b[:]
+print(b)
