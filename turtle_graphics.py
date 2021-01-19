@@ -116,5 +116,3 @@ for i in range(n):
     t.forward(line)
     t.lt(360/n)
 input()
-
-
