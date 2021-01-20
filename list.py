@@ -29,4 +29,10 @@ print(b)
 a = [10, 20, 30]
 a[len(a):] = [500]
 print(a)
-
+# 리스트가 비어 있는지 확인하기
+# seq = []
+seq = [10, 20, 30]
+if seq:
+    print(seq[-1])
+else:
+    print('empty list')
