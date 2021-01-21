@@ -72,3 +72,21 @@ for i in a:
     if i > largest:
         largest = i
 print('가장 큰 수:', largest)
+
+# 리스트 정렬하기
+a.sort()
+print(a[0])
+# 리스트 역순으로 정렬하기
+a.sort(reverse=True)
+print(a[0])
+# 최소값과 최대값 구하기
+print(min(a))
+print(max(a))
+
+# 요소의 합계 구하기
+b = [10, 10, 10, 10, 10]
+x = 0
+for i in b:
+    x += i
+print(x)
+print(sum(b))
