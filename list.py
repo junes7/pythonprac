@@ -52,3 +52,9 @@ for idx, val in enumerate(a, start=1):
 for i in range(len(a)):
     if i == 2:
         print(a[i])
+
+# while 반복문으로 요소 출력하기
+i = 0 # initialize variable
+while i < len(a):
+    print(a[i])
+    i += 1

@@ -4973,7 +4973,7 @@ for i in range(len(a)):
 a = [38, 21, 53, 62, 19]
 i = 0
 while i < len(a):
-    print(i)
+    print(a[i])
     i += 1
 # 실행 결과
 38
