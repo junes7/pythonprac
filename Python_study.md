@@ -5014,7 +5014,39 @@ while i < len(a):
 
 
 
+## 리스트의 가장 작은 수, 가장, 큰 수, 합계 구하기
 
+### 가장 작은 수와 가장 큰 수 구하기
+
+* 앞에서 배운 반복문을 이용해 요소를 모두 반복하면서 숫자를 찾아내 보겠습니다.
+
+```python
+a = [38, 21, 53, 62, 19]
+# 가장 작은 수
+smallest = a[0]
+for i in a:
+    if i < smallest:
+        smallest = i
+print('가장 작은 수:', smallest)
+# 실행 결과
+가장 작은 수: 19
+```
+
+* 먼저 리스트 a의 첫 번째 요소 a[0]를 변수 smallest에 저장합니다. 그리고 for로 리스트의 요소를 모두 반복하면서 i가 smallest보다 작으면 smallest에 i를 할당합니다. 즉, 숫자를 계속 비교해서 숫자가 작으면 smallest를 바꾸는 방식입니다.
+
+* 가장 큰 수는 부등호를 반대로 만들면 되겠죠?
+
+```python
+a = [38, 21, 53, 62, 19]
+# 가장 큰 수
+largest = a[0]
+for i in a:
+    if i > largest:
+        largest = i
+print('가장 큰 수:', largest)
+# 실행 결과
+가장 큰 수: 62
+```
 
 
 

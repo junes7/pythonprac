@@ -55,6 +55,20 @@ for i in range(len(a)):
 
 # while 반복문으로 요소 출력하기
 i = 0 # initialize variable
-while i < len(a):
+while i < len(a): 
     print(a[i])
     i += 1
+
+# 가장 작은 수와 가장 큰 수 구하기
+# 가장 작은 수
+smallest = a[0]
+for i in a:
+    if i < smallest:
+        smallest = i
+print('가장 작은 수:', smallest)
+# 가장 큰 수
+largest = a[0]
+for i in a:
+    if i > largest:
+        largest = i
+print('가장 큰 수:', largest)
