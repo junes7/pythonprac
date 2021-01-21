@@ -4900,7 +4900,7 @@ for i in [38, 21, 53, 62, 19]:
 
 ### 인덱스와 요소를 함께 출력하기
 
-* for 반복문으로 요소를 출력할 때 인덱스도 함께 출력하려면 어떻게 해야 할까요? 이때는 enumerate를 사용합니다.
+* for 반복문으로 요소를 출력할 때 인덱스도 함께 출력하려면 어떻게 해야 할까요? 이때는 `range` 대신에 `enumerate`를 사용합니다.
   * for 인덱스, 요소 in enumerate(리스트):
 
 ```python
@@ -4914,6 +4914,105 @@ for index, value in enumerate(a):
 3 62
 4 19
 ```
+
+* for index, value in enumerate(a):  와 같이 enumerate에 리스트를 넣으면 for 반복문에서 인덱스와 요소를 동시에 꺼내올 수 있습니다.
+
+* 앞의 코드는 인덱스를 0부터 출력하는데 1부터 출력하고 싶을 수도 있습니다. 다음과 같이 그냥 index + 1을 출력하면 되겠죠?
+
+```python
+for index, value in enumerate(a):
+    print(index + 1, value)
+# 실행 결과
+1 38
+2 21
+3 53
+4 62
+5 19
+```
+
+* 하지만 좀 더 파이썬 같은 방법이 있습니다. 다음과 같이 enumerate에 start를 지정해주면 됩니다.
+  * for 인덱스, 요소 in enumerate(리스트, start=숫자) :
+
+```python
+for index, value in enumerate(a, start=1):
+    print(index, value)
+# 실행 결과
+1 38
+2 21
+3 53
+4 62
+5 19
+```
+
+* enumerate(a, start=1)처럼 start에 1을 지정하여 인덱스가 1부터 시작하도록 만들었습니다. 이 코드는 enumerate(a, 1)과 같이 줄여 쓸 수도 있습니다.
+
+#### 참고 | for 반복문에서 인덱스로 요소를 출력하기
+
+* for에 리스트를 지정하면 요소를 바로 가져와서 편리한데, for에서 인덱스를 지정하여 요소를 가져올 수는 없을까요? 이때는 range에 len으로 리스트의 길이(요소 개수)를 구해서 넣어주면 인덱스를 순서대로 만들어줍니다. 따라서 a[i]와 같이 리스트에 인덱스를 지정하여 값을 가져올 수 있습니다.
+
+```python
+a = [38, 21, 53, 62, 19]
+for i in range(len(a)):
+    print(a[i])
+38
+21
+53
+62
+19
+```
+
+* 즉, for i in range(len(a))를 실행하면 i에는 요소가 아닌 0부터 마지막 인덱스까지 인덱스가 들어갑니다.
+
+
+
+###  while 반복문으로 요소 출력하기
+
+* 이번에는 while 반복문으로 리스트의 요소를 출력해보겠습니다.
+
+```python
+a = [38, 21, 53, 62, 19]
+i = 0
+while i < len(a):
+    print(i)
+    i += 1
+# 실행 결과
+38
+21
+53
+62
+19
+```
+
+* while 반복문으로 리스트의 요소를 출력할 때는 변수 i를 인덱스로 활용합니다. 먼저 변수 i를 0으로 만들어주고, i < len(a)처럼 i가 리스트의 길이(요소 개수) 직전까지만 반복하도록 만듭니다.
+
+* 즉, 리스트의 인덱스는 0부터 시작하고 마지막 인덱스는 리스트의 길이보다 1이 작으므로 <를 사용합니다. 만약 i <= len(a)처럼 <=을 사용하면 리스트의 범위를 벗어나게 되므로 주의해야 합니다.
+
+```python
+a = [38, 21, 53, 62, 19]
+i = 0
+while i <= len(a):
+    print(a[i])
+    i += 1
+# 실행 결과
+38
+21
+53
+62
+19
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+IndexError: list index out of range
+```
+
+* while 반복문 안에서 요소를 출력할 때는 print(a[i])와 같이 리스트의 인덱스 부분에 i를 지정하여 출력합니다. 그다음에는 i가 1씩 증가하도록 만들면 됩니다.
+
+```python
+while i < len(a):
+    print(a[i])
+    i += 1
+```
+
+
 
 
 
