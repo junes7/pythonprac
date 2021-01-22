@@ -15,3 +15,8 @@ print(a)
 # 0~9 숫자 중 홀수에 5를 더하여 리스트 생성
 b = [i + 5 for i in range(10) if i % 2 ==1]
 print(b)
+# 반복문과 if 조건문을 여러 번 사용하기
+# 2단부터 9단까지 구구단을 리스트 생성합니다.
+a = [i * j for j in range(2, 10)
+           for i in range(1, 10)]
+print(a)
