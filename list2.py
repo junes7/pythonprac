@@ -63,13 +63,13 @@ a = ['alpha', 'bravo', 'charlie', 'delta', 'echo', 'foxtrot', 'golf', 'hotel', '
 b = [i for i in a if len(i) == 5]
 print(b)
 
-# 심사문제: 2의 거듭제곱 리스트 생성하기
-# a, b = map(int, input().split())
-# # c = [2**i for i in range(a, b+1) if i != a+1 and i != b-1]
-# # print(c)
-# # 다른 방법
-# c = [2**i for i in range(a, b+1)]
-# c.pop(1)
-# c.pop(-2)
+심사문제: 2의 거듭제곱 리스트 생성하기
+a, b = map(int, input().split())
+# c = [2**i for i in range(a, b+1) if i != a+1 and i != b-1]
 # print(c)
+# 다른 방법
+c = [2**i for i in range(a, b+1)]
+c.pop(1)
+c.pop(-2)
+print(c)
 
