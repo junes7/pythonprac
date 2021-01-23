@@ -41,3 +41,14 @@ print(a.index(53))
 # 튜플에서 특정 값의 개수 구하기
 b = (10, 20, 30, 15, 20, 40)
 print(b.count(20))
+
+# 튜플 표현식 사용하기
+# 0~9 숫자 중 2의 배수인 숫자(짝수)로 튜플 생성
+a = tuple(i for i in range(10) if i % 2 == 0)
+print(a)
+print(i for i in range(10) if i % 2 == 0)
+
+# tuple에 map 사용하기
+a = (1.2, 2.5, 3.7, 4.6)
+a = tuple(map(int, a))
+print(a)

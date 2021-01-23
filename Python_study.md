@@ -5364,11 +5364,68 @@ print(b.count(20))
 * for 반복문으로 요소를 출력하는 방법은 리스트와 같습니다.
 
 ```python
-
-
-
-
+a = (38, 21, 53, 62, 19)
+for i in a:
+    print(i, end=' ')
+# 실행 결과
+38 21 53 62 19
 ```
+
+
+
+### 튜플 표현식 사용하기
+
+* 튜플을 리스트 표현식처럼 생성할 때는 다음과 같이 tuple 안에 for 반복문과 if 조건문을  지정합니다.
+  * tuple(식 for 변수 in 리스트 if 조건식)
+
+```python
+# 0~9 숫자 중 2의 배수인 숫자(짝수)로 튜플 생성
+a = tuple(i for i in range(10) if i % 2 == 0)
+print(a)
+# 실행 결과
+(0, 2, 4, 6, 8)
+```
+
+* 참고로 ( )(괄호) 안에 표현식을 넣으면 튜플이 아니라 제너레이터 표현식이 됩니다.
+
+```python
+print(i for i in range(10) if i % 2 == 0)
+# 실행 결과
+<generator object <genexpr> at 0x0000020F18AF1148>
+# genexpr: generator expression
+```
+
+
+
+### tuple에 map 사용하기
+
+* 튜플에 map을 사용하는 방법도 리스트와 같습니다.
+
+```python
+# tuple에 map 사용하기
+a = (1.2, 2.5, 3.7, 4.6)
+a = tuple(map(int, a))
+print(a)
+(1, 2, 3, 4)
+```
+
+
+
+### 튜플에서 가장 작은 수, 가장 큰 수, 합계 구하기
+
+* 물론 튜플도 min, max 함수로 가장 작은 수와 가장 큰 수를 구하고, sum 함수로 요소의 합계를 구할 수 있습니다.
+
+```python
+a = (38, 21, 53, 62, 19)
+print(min(a))
+19
+print(max(a))
+62
+print(sum(a))
+193
+```
+
+
 
 
 
