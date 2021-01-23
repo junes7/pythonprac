@@ -52,3 +52,24 @@ print(i for i in range(10) if i % 2 == 0)
 a = (1.2, 2.5, 3.7, 4.6)
 a = tuple(map(int, a))
 print(a)
+
+# tuple에서 가장 작은 수, 가장 큰 수, 합계 구하기
+a = (38, 21, 53, 62, 19)
+print(min(a), max(a), sum(a), sep=', ')
+
+# 연습문제: 리스트에서 특정 요소만 뽑아내기
+a = ['alpha', 'bravo', 'charlie', 'delta', 'echo', 'foxtrot', 'golf', 'hotel', 'india']
+# b = [a[i] for i in range(len(a)) if len(a[i]) == 5]
+b = [i for i in a if len(i) == 5]
+print(b)
+
+# 심사문제: 2의 거듭제곱 리스트 생성하기
+# a, b = map(int, input().split())
+# # c = [2**i for i in range(a, b+1) if i != a+1 and i != b-1]
+# # print(c)
+# # 다른 방법
+# c = [2**i for i in range(a, b+1)]
+# c.pop(1)
+# c.pop(-2)
+# print(c)
+
