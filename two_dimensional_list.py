@@ -23,18 +23,20 @@ a[1].append(600)
 a[1].append(700)
 print(a)
 
-# from pprint import pprint
-# a = [[10, 20], [30, 40], [50, 60]]
-# pprint(a, indent=1, width=20)
+from pprint import pprint
+a = [[10, 20], [30, 40], [50, 60]]
+pprint(a, indent=1, width=20)
 
 # for 반복문을 한 번만 사용하기
-# for x, y in a:
-#     print(x, y)
+for x, y in a:
+    print(x, y)
+
 # for 반복문을 두 번 사용하기
-# for i in a:
-#     for j in i:
-#         print(j, end=' ')
-#     print()
+for i in a:
+    for j in i:
+        print(j, end=' ')
+    print()
+
 # while 반복문을 한 번 사용하기
 # i = 0
 # while i < len(a):
