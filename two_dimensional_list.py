@@ -133,30 +133,30 @@ print(b)
 a = [[[0 for col in range(3)] for row in range(4)] for depth in range(2)]
 print(a)
 
-# # 심사문제: 지뢰찾기(Minesweeper)
-# col, row = map(int, input().split())
-# matrix = []
-# for i in range(row):
-#     matrix.append(list(input()))
-# print('입력 결과 확인:')
-# # 입력 결과 확인
-# for i in matrix:
-#     for j in i:
-#         print(j, end='')
-#     print()
-# print('값 변경 후 출력:')
-# # 값 변경하여 출력하기
-# for i in range(row):
-#     for j in range(col):
-#         if matrix[i][j] == '*':
-#             print(matrix[i][j], sep='', end='')
-#         else:
-#             count = 0
-#             for x in range(i-1, i+2):
-#                 for y in range(j-1, j+2):
-#                     if x < 0 or y < 0 or x >= row or y >= col:
-#                         continue 
-#                     elif matrix[x][y] == '*':
-#                         count += 1
-#             print(count, sep='', end='')
-#     print()
+# 심사문제: 지뢰찾기(Minesweeper)
+col, row = map(int, input().split())
+matrix = []
+for i in range(row):
+    matrix.append(list(input()))
+print('입력 결과 확인:')
+# 입력 결과 확인
+for i in matrix:
+    for j in i:
+        print(j, end='')
+    print()
+print('값 변경 후 출력:')
+# 값 변경하여 출력하기
+for i in range(row):
+    for j in range(col):
+        if matrix[i][j] == '*':
+            print(matrix[i][j], sep='', end='')
+        else:
+            count = 0
+            for x in range(i-1, i+2):
+                for y in range(j-1, j+2):
+                    if x < 0 or y < 0 or x >= row or y >= col:
+                        continue 
+                    elif matrix[x][y] == '*':
+                        count += 1
+            print(count, sep='', end='')
+    print()
