@@ -70,13 +70,13 @@ for i in range(3):
 pprint(a, indent=1, width=20)
 
 # 리스트 표현식으로 2차원 리스트 만들기
-# a = [[0 for j in range(2)] for i in range(3)]
-# pprint(a, indent=1, width=20)
+a = [[0 for j in range(2)] for i in range(3)]
+pprint(a, indent=1, width=20)
 
 # for 반복문을 한 번만 사용하고 싶다면
 # 식 부분에서 리스트 자체를 곱해주면 됩니다.
-# a = [[0] * 2 for i in range(3)]
-# print(a)
+a = [[0] * 2 for i in range(3)]
+print(a)
 
 # 톱니형 리스트 만들기
 # 가로 크기를 저장한 리스트
