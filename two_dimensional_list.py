@@ -55,19 +55,19 @@ while i < len(a):
     i += 1
 
 # for 반복문으로 1차원 리스트 만들기
-# a = []
-# for i in range(10):
-#     a.append(0)
-# print(a)
+a = []
+for i in range(10):
+    a.append(0)
+print(a)
 
 # for 반복문으로 2차원 리스트(2 X 3) 만들기
-# a = []
-# for i in range(3):
-#     line = []
-#     for j in range(2):
-#         line.append(0)
-#     a.append(line)
-# pprint(a, indent=1, width=20)
+a = []
+for i in range(3):
+    line = []
+    for j in range(2):
+        line.append(0)
+    a.append(line)
+pprint(a, indent=1, width=20)
 
 # 리스트 표현식으로 2차원 리스트 만들기
 # a = [[0 for j in range(2)] for i in range(3)]
