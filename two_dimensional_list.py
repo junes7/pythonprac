@@ -38,20 +38,21 @@ for i in a:
     print()
 
 # while 반복문을 한 번 사용하기
-# i = 0
-# while i < len(a):
-#     x, y = a[i]
-#     print(x, y)
-#     i += 1
+i = 0
+while i < len(a):
+    x, y = a[i]
+    print(x, y)
+    i += 1
+
 # while 반복문을 두 번 사용하기
-# i = 0
-# while i < len(a):
-#     j = 0
-#     while j < len(a[i]):
-#         print(a[i][j], end=' ')
-#         j += 1
-#     print()
-#     i += 1
+i = 0
+while i < len(a):
+    j = 0
+    while j < len(a[i]):
+        print(a[i][j], end=' ')
+        j += 1
+    print()
+    i += 1
 
 # for 반복문으로 1차원 리스트 만들기
 # a = []
