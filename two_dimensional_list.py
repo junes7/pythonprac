@@ -13,18 +13,20 @@ b[0][1] = 1000
 print(b[0][1])
 
 # 톱니형 리스트
-# a = []
-# a.append([])
-# a[0].append(10)
-# a[0].append(20)
-# a.append([])
-# a[1].append(500)
-# a[1].append(600)
-# a[1].append(700)
-# print(a)
+a = []
+a.append([])
+a[0].append(10)
+a[0].append(20)
+a.append([])
+a[1].append(500)
+a[1].append(600)
+a[1].append(700)
+print(a)
+
 # from pprint import pprint
-a = [[10, 20], [30, 40], [50, 60]]
+# a = [[10, 20], [30, 40], [50, 60]]
 # pprint(a, indent=1, width=20)
+
 # for 반복문을 한 번만 사용하기
 # for x, y in a:
 #     print(x, y)
