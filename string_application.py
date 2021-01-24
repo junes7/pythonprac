@@ -5,13 +5,13 @@ s = s.replace('world', 'Python')
 print(s)
 
 # 문자 바꾸기
-# table = str.maketrans('aeiou', '12345')
-# print('apple'.translate(table))
+table = str.maketrans('aeiou', '12345')
+print('apple'.translate(table))
 
-# 문자열 분리하기
-# print('apple pear graph pineapple orange'.split())
+# 문자열 분리하기 - 기준 문자열이 공백일 때
+print('apple pear graph pineapple orange'.split())
 # 기준 문자열이 ,(콤마)와 공백일 때
-# print('apple, pear, graph, pineapple, orange'.split(', '))
+print('apple, pear, graph, pineapple, orange'.split(', '))
 
 # 구분자 문자열과 문자열 리스트 연결하기
 # 구분자 문자열이 공백일 때
