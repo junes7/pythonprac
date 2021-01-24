@@ -1,8 +1,8 @@
 # 문자열 바꾸기
-# print('Hello, world!'.replace('world', 'Python'))
-# s = 'Hello, world!'
-# s = s.replace('world', 'Python')
-# print(s)
+print('Hello, world!'.replace('world', 'Python'))
+s = 'Hello, world!'
+s = s.replace('world', 'Python')
+print(s)
 
 # 문자 바꾸기
 # table = str.maketrans('aeiou', '12345')
