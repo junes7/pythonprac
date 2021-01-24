@@ -80,15 +80,15 @@ print(a)
 
 # 톱니형 리스트 만들기
 # 가로 크기를 저장한 리스트
-# a = [3, 1, 3, 2, 5]
-# b= []
-# for i in a:
-#     line = []
-#     for j in range(i):
-#         line.append(0)
-#     b.append(line)
-# print(b)
+a = [3, 1, 3, 2, 5]
+b= []
+for i in a:
+    line = []
+    for j in range(i):
+        line.append(0)
+    b.append(line)
+print(b)
 
 # 리스트 표현식을 활용해 톱니형 리스트 만들기
-# a = [[0] * i for i in a]
-# print(a)
+a = [[0] * i for i in a]
+print(a)
