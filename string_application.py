@@ -15,9 +15,9 @@ print('apple, pear, graph, pineapple, orange'.split(', '))
 
 # 구분자 문자열과 문자열 리스트 연결하기
 # 구분자 문자열이 공백일 때
-# print(' '.join(['apple', 'pear', 'graph', 'pineapple', 'orange']))
+print(' '.join(['apple', 'pear', 'graph', 'pineapple', 'orange']))
 # 구분자 문자열이 -(하이픈)일 때
-# print('-'.join(['apple', 'pear', 'graph', 'pineapple', 'orange']))
+print('-'.join(['apple', 'pear', 'graph', 'pineapple', 'orange']))
 
 # 소문자를 대문자로 바꾸기
 # print('python'.upper())
