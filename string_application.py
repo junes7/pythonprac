@@ -20,10 +20,10 @@ print(' '.join(['apple', 'pear', 'graph', 'pineapple', 'orange']))
 print('-'.join(['apple', 'pear', 'graph', 'pineapple', 'orange']))
 
 # 소문자를 대문자로 바꾸기
-# print('python'.upper())
+print('python'.upper())
 
 # 대문자를 소문자로 바꾸기
-# print('PYTHON'.lower())
+print('PYTHON'.lower())
 
 
 

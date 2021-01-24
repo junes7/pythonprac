@@ -6068,7 +6068,7 @@ print('apple, pear, graph, pineapple, orange'.split(', '))
 
 
 
-### 구분자 문자열과 문자열 리스트 연결하기
+### 구분자 문자열(separator string)과 문자열 리스트(string list) 연결하기
 
 * **join(리스트)**는 구분자 문자열과 문자열 리스트의 요소를 연결하여 문자열로 만듭니다. 다음은 공백 ' '에 join을 사용하여 각 문자열 사이에 공백이 들어가도록 만듭니다.
 
