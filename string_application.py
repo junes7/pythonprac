@@ -63,5 +63,15 @@ print('python'.rjust(10).upper())
 # 문자열을 가운데 정렬하기
 print('python'.center(10))
 
+# 문자열 왼쪽에 0 채우기
+# 숫자 앞에 0을 채움
+print('35'.zfill(4))
+
+# 숫자 앞에 0을 채움
+print('3.5'.zfill(6))
+
+# 문자열 앞에 0을 채울 수도 있음
+print('hello'.zfill(10))
+
 
 
