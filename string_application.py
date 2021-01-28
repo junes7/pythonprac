@@ -52,6 +52,14 @@ print(', python.'.strip(string.punctuation + ' '))
 # 메서드 체이닝 이용하기
 print(', python.'.strip(string.punctuation).strip())
 
+# 문자열을 왼쪽 정렬하기
+print('python'.ljust(10))
+
+# 문자열을 오른쪽 정렬하기
+print('python'.rjust(10))
+
+# 문자열을 가운데 정렬하기
+print('python'.center(10))
 
 
 
