@@ -57,6 +57,8 @@ print('python'.ljust(10))
 
 # 문자열을 오른쪽 정렬하기
 print('python'.rjust(10))
+# 메서드 체이닝 사용해서 대문자로 오른쪽 정렬하기
+print('python'.rjust(10).upper())
 
 # 문자열을 가운데 정렬하기
 print('python'.center(10))
