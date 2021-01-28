@@ -44,7 +44,13 @@ print(', python.'.rstrip(',.'))
 print(', python.'.strip(',.'))
 
 # 구두점을 간단하게 삭제하기
-
+import string
+print(', python.'.strip(string.punctuation))
+print(string.punctuation)
+# 구두점이랑 공백 삭제하기
+print(', python.'.strip(string.punctuation + ' '))
+# 메서드 체이닝 이용하기
+print(', python.'.strip(string.punctuation).strip())
 
 
 
