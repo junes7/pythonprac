@@ -25,6 +25,23 @@ print('python'.upper())
 # 대문자를 소문자로 바꾸기
 print('PYTHON'.lower())
 
+# 왼쪽 공백 삭제하기
+print('   Python   '.lstrip())
+
+# 오른쪽 공백 삭제하기
+print('   Python   '.rstrip())
+
+# 양쪽 공백 삭제하기
+print('   Python   '.strip())
+
+# 왼쪽의 특정 문자 삭제하기
+print(', python.'.lstrip(',.'))
+
+# 오른쪽의 특정 문자 삭제하기
+print(', python.'.rstrip(',.'))
+
+# 양쪽의 특정 문자 삭제하기
+print(', python.'.strip(',.'))
 
 
 
