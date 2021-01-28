@@ -43,5 +43,9 @@ print(', python.'.rstrip(',.'))
 # 양쪽의 특정 문자 삭제하기
 print(', python.'.strip(',.'))
 
+# 구두점을 간단하게 삭제하기
+
+
+
 
 

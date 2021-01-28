@@ -6197,5 +6197,24 @@ print(string.punctuation)
 '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
 ```
 
+* 만약 공백까지 삭제하고 싶다면 string.punctuation에 공백 ' '을 연결해서 넣어주면 되겠죠?
 
+```python
+', python.'.strip(string.punctuation + ' ')
+'python'
+# 물론 메서드 체이닝을 활용해도 됩니다.
+', python.'.strip(string.punctuation).strip()
+'python'
+```
+
+
+
+### 문자열을 왼쪽 정렬하기
+
+* **ljust(길이)**는 문자열을 지정된 길이로 만든 뒤 왼쪽으로 정렬하며 남는 공간을 공백으로 채웁니다(l은 왼쪽(**l**eft)을 의미). 다음은 문자열 'python'의 길이를 10으로 만든 뒤 왼쪽으로 정렬하고 남는 공간을 공백 4칸으로 채웁니다.
+
+```python
+'python'.ljust(10)
+'python    '
+```
 
