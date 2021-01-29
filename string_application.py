@@ -73,5 +73,14 @@ print('3.5'.zfill(6))
 # 문자열 앞에 0을 채울 수도 있음
 print('hello'.zfill(10))
 
+# 문자열 위치 찾기
+print('apple pineapple'.find('pl'))
+print('apple pineapple'.find('xy'))
 
+# 오른쪽에서부터 문자열 위치 찾기
+print('apple pineapple'.rfind('pl'))
+print('apple pineapple'.rfind('xy'))
+
+# 문자열 개수 세기
+print('apple pineapple'.count('pl'))
 
