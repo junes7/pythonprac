@@ -19,5 +19,6 @@ print('I am %d years old.' % 20)
 print('%f' % 2.3)
 
 
+print('%10d' % 150)
 
-
+print('%10d' % 15000)
