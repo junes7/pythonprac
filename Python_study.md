@@ -6363,7 +6363,7 @@ print('apple pineapple'.count('pl'))
   * '%s' % '문자열'
 
 ```python
-'I am %s.' % 'james'
+print('I am %s.' % 'james')
 'I am james.'
 ```
 
@@ -6373,7 +6373,24 @@ print('apple pineapple'.count('pl'))
 
 ```python
 name = 'maria'
-'I am %s.' % name
+print('I am %s.' % name)
 'I am maria.'
 ```
 
+
+
+### 서식 지정자로 숫자 넣기
+
+* 그럼 문자열 안에 숫자는 어떻게 넣을까요?
+  * '%d' % 숫자
+
+```python
+print('I am %d years old.' % 20)
+'I am 20 years old.'
+```
+
+* 숫자는 %d를 넣고 % 뒤에 숫자를 지정하면 됩니다. %d는 10진 정수 **d**ecimal integer의 d입니다.
+
+
+
+###  
