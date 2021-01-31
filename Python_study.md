@@ -6492,3 +6492,12 @@ print('Hello, {} {} {}'.format('Python', 'Script', 3.6))
 'Hello, Python Script 3.6'
 ```
 
+
+
+### format 메서드에서 인덱스 대신 이름 지정하기
+
+```python
+print('Hello, {language} {version}'.format(language='Python', version=3.6))
+'Hello, Python 3.6'
+```
+
