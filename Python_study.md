@@ -6501,3 +6501,14 @@ print('Hello, {language} {version}'.format(language='Python', version=3.6))
 'Hello, Python 3.6'
 ```
 
+
+
+### format 메서드로 문자열 정렬하기
+
+
+
+```python
+print('{0:<10}'.format('python'))
+'python    '
+```
+
