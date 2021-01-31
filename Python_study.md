@@ -6474,3 +6474,12 @@ print('Hello, {0} {2} {1}'.format('Python', 'Script', 3.6))
 'Hello, Python 3.6 Script'
 ```
 
+
+
+### format 메서드로 같은 값을 여러 개 넣기
+
+```python
+'{0} {0} {1} {1}'.format('Python', 'Script')
+'Python Python Script Script'
+```
+
