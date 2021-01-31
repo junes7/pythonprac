@@ -6462,3 +6462,15 @@ print('Hello, {0}'.format(100))
 ```
 
 * 이렇게 문자열 안에 { }를 넣고 인덱스를 지정합니다. 그리고 format에는 { } 부분에 넣을 값을 지정하면 됩니다.
+
+
+
+
+
+### format 메서드로 값을 여러 개 넣기
+
+```python
+print('Hello, {0} {2} {1}'.format('Python', 'Script', 3.6))
+'Hello, Python 3.6 Script'
+```
+
