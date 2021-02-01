@@ -18,7 +18,6 @@ print('I am %d years old.' % 20)
 # express decimal point by using format specifier
 print('%f' % 2.3)
 
-
 print('%10d' % 150)
 
 print('%10d' % 15000)
