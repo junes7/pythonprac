@@ -28,3 +28,9 @@ print('Hello, {0}'.format('world!'))
 print('Hello, {0}'.format(100))
 'Hello, 100'
 
+# input multiple value to format method
+print('Hello, {0} {2} {1}'.format('Python', 'Script', 3.6))
+'Hello, Python 3.6 Script'
+
+
+
