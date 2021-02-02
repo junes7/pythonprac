@@ -24,13 +24,13 @@ print('%10d' % 15000)
 
 # use format method
 print('Hello, {0}'.format('world!'))
-'Hello, world!'
 print('Hello, {0}'.format(100))
-'Hello, 100'
+
 
 # input multiple value to format method
 print('Hello, {0} {2} {1}'.format('Python', 'Script', 3.6))
-'Hello, Python 3.6 Script'
 
+# input multiple same value to format method
+print('{0} {0} {1} {1}'.format('Python', 'Script'))
 
 
