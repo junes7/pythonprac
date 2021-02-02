@@ -36,4 +36,11 @@ print('{0} {0} {1} {1}'.format('Python', 'Script'))
 # omit index by using format method
 print('Hello, {} {} {}'.format('Python', 'Script', 3.6))
 
+# set name instead of index in format method
+print('Hello, {language} {version}'.format(language='Python', version=3.6))
+
+# sort string by using format method
+print('{0:<10}'.format('python'))
+
+
 
