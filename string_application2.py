@@ -33,4 +33,7 @@ print('Hello, {0} {2} {1}'.format('Python', 'Script', 3.6))
 # input multiple same value to format method
 print('{0} {0} {1} {1}'.format('Python', 'Script'))
 
+# omit index by using format method
+print('Hello, {} {} {}'.format('Python', 'Script', 3.6))
+
 
