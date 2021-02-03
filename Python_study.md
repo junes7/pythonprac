@@ -6501,7 +6501,7 @@ print('Hello, {language} {version}'.format(language='Python', version=3.6))
 'Hello, Python 3.6'
 ```
 
-dfdf
+
 
 ### format 메서드로 문자열 정렬하기
 
@@ -6600,6 +6600,8 @@ x
 {}
 ```
 
+
+
 ### 딕셔너리에서 키의 값을 가져오기
 
 * **get(키)**는 딕셔너리에서 특정 키의 값을 가져옵니다. 다음은 딕셔너리 x에서 키 'a'의 값을 가져옵니다.
@@ -6608,5 +6610,19 @@ x
 x = {'a': 10, 'b': 20, 'c': 30, 'd': 40}
 x.get('a')
 10
+```
+
+
+
+### 리스트와 튜플로 딕셔너리 만들기
+
+* 먼저 keys = ['a', 'b', 'c', 'd']처럼 키가 들어있는 리스트를 준비합니다(튜플도 됩니다). 그리고 dict.fromkeys에 키가 들어있는 리스트를 넣으면 딕셔너리를 생성합니다.
+* **dict.fromkeys(키리스트)**는 키 리스트로 딕셔너리를 생성하며 값은 모두 None으로 저장합니다.
+
+```python
+keys = ['a', 'b', 'c', 'd']
+x = dict.fromkeys(keys)
+x
+{'a': None, 'b': None, 'c': None, 'd': None}
 ```
 
