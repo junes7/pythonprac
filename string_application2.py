@@ -43,4 +43,8 @@ print('Hello, {language} {version}'.format(language='Python', version=3.6))
 print('{0:<10}'.format('python'))
 
 
+x = {'a': 10, 'b': 20, 'c': 30, 'd': 40}
+for key in x.keys():
+	print(key, end=' ')
+
 
