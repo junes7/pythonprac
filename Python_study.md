@@ -6626,3 +6626,27 @@ x
 {'a': None, 'b': None, 'c': None, 'd': None}
 ```
 
+
+
+### 반복문으로 딕셔너리의 키-값 쌍을 모두 출력하기
+
+```python
+x = {'a': 10, 'b': 20, 'c': 30, 'd': 40}
+for i in x:
+    print(i, end=' ')
+a b c d
+```
+
+
+
+### 딕셔너리의 키만 출력하기
+
+```python
+x = {'a': 10, 'b': 20, 'c': 30, 'd': 40}
+for key in x.keys():
+	print(key, end=' ')
+# 실행 결과
+a b c d
+
+```
+
