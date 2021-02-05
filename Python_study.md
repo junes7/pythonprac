@@ -6664,3 +6664,16 @@ x = {'a': 10, 'b': 20, 'c': 30, 'd': 40}
 
 
 
+## 세트 사용하기
+
+### 세트 만들기
+
+* 세트는 { } (중괄호) 안에 값을 저장하며 각 값은 ,(콤마)로 구분해줍니다.
+  * 세트 = {값1, 값2, 값3}
+
+```python
+fruits = {'strawberry', 'grape', 'orange', 'pineapple', 'cherry'}
+print(fruits)
+{'pineapple', 'orange', 'grape', 'strawberry', 'cherry'}
+```
+
