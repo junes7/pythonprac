@@ -6677,3 +6677,17 @@ print(fruits)
 {'pineapple', 'orange', 'grape', 'strawberry', 'cherry'}
 ```
 
+
+
+### set를 사용하여 세트 만들기
+
+* set('apple')과 같이 영문 문자열을 세트로 만들면 'apple'에서 유일한 문자인 'a', 'p', 'l', 'e'만 세트로 만들어집니다. 즉, 중복된 문자는 포함되지 않습니다.
+  * set(반복가능한객체)
+
+```python
+a = set('apple')
+print(a)
+# 실행 결과
+{'e', 'a', 'p', 'l'}
+```
+
