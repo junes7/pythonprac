@@ -6679,6 +6679,22 @@ print(fruits)
 
 
 
+### 세트에 특정 값이 있는지 확인하기
+
+* 세트에 특정 값이 있는지 확인하려면 지금까지 리스트, 튜플, 딕셔너리에 사용했던 in 연산자를 사용하면 됩니다.
+  * 값 in 세트
+
+```python
+fruits = {'strawberry', 'grape', 'orange', 'pineapple', 'cherry'}
+print('orange' in fruits)
+print('peach' in fruits)
+# 실행 결과
+True
+False
+```
+
+
+
 ### set를 사용하여 세트 만들기
 
 * set('apple')과 같이 영문 문자열을 세트로 만들면 'apple'에서 유일한 문자인 'a', 'p', 'l', 'e'만 세트로 만들어집니다. 즉, 중복된 문자는 포함되지 않습니다.
@@ -6689,5 +6705,32 @@ a = set('apple')
 print(a)
 # 실행 결과
 {'e', 'a', 'p', 'l'}
+```
+
+
+
+#### 참고|한글 문자열을 세트로 만들기
+
+* set을 사용하여 한글 문자열을 세트로 만들면 다음과 같이 음절 단위로 세트가 만들어집니다.
+
+```python
+set('안녕하세요')
+{'녕', '요', '안', '세', '하'}
+```
+
+
+
+
+
+#### 참고 | 세트 안에 세트 넣기
+
+* 세트는 리스트, 딕셔너리와 달리 세트 안에 세트를 넣을 수 없습니다.
+
+``` python
+a = {{1, 2}, {3, 4}}
+Traceback (most recent call last):
+  File "<pyshell#3>", line 1, in <module>
+    a = {{1, 2}, {3, 4}}
+TypeError: unhashable type: 'set'
 ```
 
