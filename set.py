@@ -10,3 +10,13 @@ print(a)
 fruits = {'strawberry', 'grape', 'orange', 'pineapple', 'cherry'}
 print('orange' in fruits)
 print('peach' in fruits)
+
+a & b
+{3, 4}
+>>> set.intersection(a, b)
+{3, 4}
+
+a - b
+{1, 2}
+>>> set.difference(a, b)
+{1, 2}
