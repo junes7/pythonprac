@@ -6737,3 +6737,14 @@ TypeError: unhashable type: 'set'
 
 
 #### 참고 | 프로즌 세트
+
+* 파이썬은 내용을 변경할 수 없는 세트도 제공합니다.
+
+* 프로즌세트 = frozenset(반복가능한객체)
+
+```python
+a = frozenset(range(10))
+print(a)
+frozenset({0, 1, 2, 3, 4, 5, 6, 7, 8, 9})
+```
+
