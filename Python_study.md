@@ -6756,10 +6756,10 @@ frozenset({0, 1, 2, 3, 4, 5, 6, 7, 8, 9})
 
 ```python
 a = {1, 2, 3, 4}
->>> b = {3, 4, 5, 6}
->>> a | b
+b = {3, 4, 5, 6}
+print(a | b)
 {1, 2, 3, 4, 5, 6}
->>> set.union(a, b)
+print(set.union(a, b))
 {1, 2, 3, 4, 5, 6}
 ```
 
@@ -6771,12 +6771,12 @@ a = {1, 2, 3, 4}
 
 a & b
 {3, 4}
->>> set.intersection(a, b)
+print(set.intersection(a, b))
 {3, 4}
 
 a - b
 {1, 2}
->>> set.difference(a, b)
+print(set.difference(a, b))
 {1, 2}
 ```
 

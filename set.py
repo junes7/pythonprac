@@ -11,12 +11,8 @@ fruits = {'strawberry', 'grape', 'orange', 'pineapple', 'cherry'}
 print('orange' in fruits)
 print('peach' in fruits)
 
-a & b
-{3, 4}
->>> set.intersection(a, b)
-{3, 4}
-
-a - b
-{1, 2}
->>> set.difference(a, b)
-{1, 2}
+# 집합 연산 사용하기
+a = {1, 2, 3, 4}
+b = {3, 4, 5, 6}
+print(a | b)
+print(set.union(a, b))
