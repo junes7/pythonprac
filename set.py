@@ -16,3 +16,10 @@ a = {1, 2, 3, 4}
 b = {3, 4, 5, 6}
 print(a | b)
 print(set.union(a, b))
+
+# intersection(교집합)
+print(a & b)
+print(set.intersection(a, b))
+# difference(차집합)
+print(a - b)
+print(set.difference(a, b))

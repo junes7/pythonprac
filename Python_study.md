@@ -6769,12 +6769,12 @@ print(set.union(a, b))
 
 ```python
 
-a & b
+print(a & b)
 {3, 4}
 print(set.intersection(a, b))
 {3, 4}
 
-a - b
+print(a - b)
 {1, 2}
 print(set.difference(a, b))
 {1, 2}
