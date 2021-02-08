@@ -23,3 +23,7 @@ print(set.intersection(a, b))
 # difference(차집합)
 print(a - b)
 print(set.difference(a, b))
+
+# 대칭자집합(symmetric difference)
+print(a ^ b)
+print(set.symmetric_difference(a, b))
