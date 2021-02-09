@@ -27,3 +27,8 @@ print(set.difference(a, b))
 # 대칭자집합(symmetric difference)
 print(a ^ b)
 print(set.symmetric_difference(a, b))
+
+# 세트에서 임의의 요소 삭제하기
+a = {1, 2, 3, 4}
+a.pop()
+print(a)
