@@ -32,3 +32,7 @@ print(set.symmetric_difference(a, b))
 a = {1, 2, 3, 4}
 a.pop()
 print(a)
+
+# 세트의 요소의 개수 구하기
+a = {1, 2, 3, 4}
+print(len(a))
