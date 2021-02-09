@@ -6780,3 +6780,26 @@ print(set.difference(a, b))
 {1, 2}
 ```
 
+* 대칭자집합(symmetric difference)
+
+```python
+print(a ^ b)
+{1, 2, 5, 6}
+print(set.symmetric_difference(a, b))
+{1, 2, 5, 6}
+```
+
+
+
+### 세트에 요소 추가하기(add element in set)
+
+* **add(요소)**는 세트에 요소를 추가합니다.
+
+```python
+>>> a = {1, 2, 3, 4}
+>>> a.add(5)
+>>> a
+{1, 2, 3, 4, 5}
+
+```
+
