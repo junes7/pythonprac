@@ -41,3 +41,6 @@ print(len(a))
 a = {1, 2, 3, 4}
 for i in a:
     print(i)
+# 세트 표현식 사용하기
+a = {i for i in 'apple'}
+print(a)
