@@ -41,6 +41,11 @@ print(len(a))
 a = {1, 2, 3, 4}
 for i in a:
     print(i)
+
 # 세트 표현식 사용하기
 a = {i for i in 'apple'}
+print(a)
+
+# 세트 표현식에 if 조건문 사용하기
+a = {i for i in 'pineapple' if i not in 'apl'}
 print(a)
