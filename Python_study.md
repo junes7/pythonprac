@@ -6954,3 +6954,14 @@ Hello, world!
 ```
 
 * 
+
+### 자동으로 파일 객체 닫기
+
+* 파일을 열 때마다 매번 close로 닫으려니 좀 귀찮습니다. 파이썬에서는 with as를 사용하면 파일을 사용한 뒤 자동으로 파일 객체를 닫아줍니다. 다음과 같이 with 다음에 open으로 파일을 열고 as 뒤에 파일 객체를 지정합니다.
+
+```python
+with open('hello.txt', 'r') as file:    # hello.txt 파일을 읽기 모드(r)로 열기
+    s = file.read()                     # 파일에서 문자열 읽기
+    print(s)                            # Hello, world!
+```
+
