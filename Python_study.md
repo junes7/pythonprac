@@ -6994,3 +6994,18 @@ with open('hello.txt', 'w') as file:    # hello.txt 파일을 쓰기 모드(w)�
     file.writelines(lines)
 ```
 
+
+
+### 파일의 내용을 한 줄씩 리스트로 가져오기
+
+```python
+with open('hello.txt', 'r') as file:    # hello.txt 파일을 읽기 모드(r)로 열기
+    lines = file.readlines()
+    print(lines)
+
+```
+
+
+
+
+
