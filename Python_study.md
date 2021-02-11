@@ -6965,3 +6965,19 @@ with open('hello.txt', 'r') as file:    # hello.txt 파일을 읽기 모드(r)�
     print(s)                            # Hello, world!
 ```
 
+
+
+
+
+### 문자열 여러 줄을 파일에 쓰기, 읽기
+
+
+
+### 반복문으로 문자열 여러 줄을 파일에 쓰기
+
+```python
+with open('hello.txt', 'w') as file:    # hello.txt 파일을 쓰기 모드(w)로 열기
+    for i in range(3):
+        file.write('Hello, world! {0}\n'.format(i))
+```
+
