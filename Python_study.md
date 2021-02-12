@@ -7049,3 +7049,15 @@ for i in range(len(text) - 1):             # 2-gram이므로 문자열의 끝에
 
 
 
+### zip으로 2-gram만들기
+
+* 이번에는 zip 함수로 2-gram을 만드는 방법을 알아보겠습니다.
+
+```python
+text = 'hello'
+ 
+two_gram = zip(text, text[1:])
+for i in two_gram:
+    print(i[0], i[1], sep='')
+```
+
