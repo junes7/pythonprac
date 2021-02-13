@@ -7129,25 +7129,33 @@ for i in two_gram:
 
 
 
-
-
-
-
 ### 단어 단위 N-gram 만들기
 
 ```python
-
+# 단어 단위 N-gram 만들기
 n = int(input())
 text = input()
-words = ①           
- 
-if (②             ):
+words = text.split()
+if (len(words) < n):
     print('wrong')
 else:
-    n_gram = ③                                 
+	n_gram = zip(*[words[i:] for i in range(n)])
     for i in n_gram:
         print(i)
+# 입력
+7
+Python is a programming language that lets you work quickly
+# 실행 결과
+('Python', 'is', 'a', 'programmming', 'language', 'that', 'lets') 
+('is', 'a', 'programmming', 'language', 'that', 'lets', 'you')    
+('a', 'programmming', 'language', 'that', 'lets', 'you', 'work')  
+('programmming', 'language', 'that', 'lets', 'you', 'work', 'quickly')
 
+# 입력
+7
+Python is a programming language
+# 실행 결과
+wrong
 ```
 
 
