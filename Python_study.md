@@ -7069,6 +7069,24 @@ print(word == word[::-1])    # 원래 문자열과 반대로 뒤집은 문자열
 
 
 
+### 리스트와 reversed 사용하기
+
+* 사실 파이썬에서는 이 방법이외에도 다양한 방법으로 회문을 판별할 수 있습니다. 다음과 같이 반복 가능한 객체의 요소 순서를 반대로 뒤집는 reversed를 사용해도 됩니다.
+
+```python
+>>> word = 'level'
+>>> list(word) == list(reversed(word))
+True
+>>> list(word)
+['l', 'e', 'v', 'e', 'l']
+>>> list(reversed(word))
+['l', 'e', 'v', 'e', 'l']
+```
+
+
+
+
+
 
 
 
