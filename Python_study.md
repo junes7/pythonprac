@@ -7127,3 +7127,32 @@ for i in two_gram:
     print(i[0], i[1], sep='')
 ```
 
+
+
+
+
+
+
+### 단어 단위 N-gram 만들기
+
+```python
+
+n = int(input())
+text = input()
+words = ①           
+ 
+if (②             ):
+    print('wrong')
+else:
+    n_gram = ③                                 
+    for i in n_gram:
+        print(i)
+
+```
+
+
+
+
+
+
+
