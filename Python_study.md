@@ -7085,6 +7085,19 @@ True
 
 
 
+### 문자열의 join 메서드와 reversed 사용하기
+
+```python
+>>> word = 'level'
+>>> word == ''.join(reversed(word))
+True
+>>> word
+'level'
+>>> ''.join(reversed(word))
+'level'
+
+```
+
 
 
 
