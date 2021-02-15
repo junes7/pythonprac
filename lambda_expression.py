@@ -22,4 +22,10 @@ print(list(map(lambda x: str(x) if x % 3 == 0 else x, a)))
 # map에 객체를 여러 개 넣기
 a = [1, 2, 3, 4, 5]
 b = [2, 4, 6, 8, 10]
-list(map(lambda x, y: x * y, a, b))
+print(list(map(lambda x, y: x * y, a, b)))
+
+# filter 사용하기
+def f(x):
+	return x > 5 and x < 10
+a = [8, 3, 2, 10, 15, 7, 1, 9, 0, 11]
+print(list(filter(f, a)))
