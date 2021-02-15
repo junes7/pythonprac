@@ -7276,7 +7276,7 @@ print(plus_ten(1))
 
 
 
-### 람다 표현식 자체를 호출하기
+### 람다 표현식 자체를 호출하기(Calling lambda expression itself)
 
 * 람다 표현식은 변수에 할당하지 않고 람다 표현식 자체를 바로 호출할 수 있습니다. 다음과 같이 람다 표현식을 ( )(괄호)로 묶은 뒤에 다시 ( )를 붙이고 인수를 넣어서 호출하면 됩니다.
   * (lambda 매개변수들: 식) (인수들)
@@ -7284,5 +7284,16 @@ print(plus_ten(1))
 ```python
 print((lambda x: x + 10)(1))
 11
+```
+
+
+
+### 람다 표현식을 인수로 사용하기(use lambda expression as factor)
+
+```python
+def plus_ten(x):
+    return x + 10
+list(map(plus_ten, [1, 2, 3]))
+
 ```
 
