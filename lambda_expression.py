@@ -18,3 +18,8 @@ print(list(map(plus_ten, [1, 2, 3])))
 # 람다 표현식에 조건부 표현식 사용하기
 a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 print(list(map(lambda x: str(x) if x % 3 == 0 else x, a)))
+
+# map에 객체를 여러 개 넣기
+a = [1, 2, 3, 4, 5]
+b = [2, 4, 6, 8, 10]
+list(map(lambda x, y: x * y, a, b))
