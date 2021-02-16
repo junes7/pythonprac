@@ -7367,3 +7367,41 @@ from functools import reduce
 print(reduce(lambda x, y: x + y, a))
 ```
 
+
+
+
+
+### 함수 안에서 전역 변수 변경하기(change global variable in function)
+
+* 만약 함수 안에서 전역 변수의 값을 변경하면 어떻게 될까요?
+
+```python
+x = 10		# 전역 변수
+def foo():
+    x = 20	# x는 foo의 지역 변수
+	print(x)# foo의 지역 변수 출력
+foo()
+print(x)	# 전역 변수 출력
+# 실행 결과
+20
+10
+```
+
+
+
+* 함수 안에서 전역 변수의 값을 변경하려면 globla 키워드를 사용해야 합니다. 다음과 같이 함수 안에서 global에 전역 변수의 이름을 지정해줍니다.
+  * global 전역변수
+
+```python
+x = 10		# 전역 변수
+def foo():
+    global x# 전역 변수 x를 사용하겠다고 설정
+    x = 20	# x는 전역 변수
+	print(x)# 전역 변수 출력
+foo()
+print(x)	# 전역 변수 출력
+# 실행 결과
+20
+20
+```
+
