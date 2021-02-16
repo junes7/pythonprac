@@ -7405,3 +7405,31 @@ print(x)	# 전역 변수 출력
 20
 ```
 
+
+
+### 함수 안에서 함수 만들기(create function in function)
+
+* 이번에는 함수 안에서 함수를 만드는 방법을 알아보겠습니다. 다음과 같이 def로 함수를 만들고 그 안에서 다시 def로 함수를 만들면 됩니다.
+
+```python
+def 함수이름1():
+    코드
+    def 함수이름2():
+        코드
+```
+
+* 간단하게 함수 안에서 문자열을 출력하는 함수를 만들고 호출해봅니다.
+
+```python
+def print_hello():
+    hello = 'Hello, world!'
+    def print_message():
+        print(hello)
+    print_message()
+print_hello()
+# 실행 결과
+Hello, world!
+```
+
+
+
