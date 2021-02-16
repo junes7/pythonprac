@@ -7359,3 +7359,11 @@ print(reduce(f, a))
 15
 ```
 
+* 이제 함수 f를 람다 표현식으로 만들어서 reduce에 넣어보겠습니다.
+
+```python
+a = [1, 2, 3, 4, 5]
+from functools import reduce
+print(reduce(lambda x, y: x + y, a))
+```
+

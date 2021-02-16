@@ -36,3 +36,8 @@ def f(x, y):
 a = [1, 2, 3, 4, 5]
 from functools import reduce
 print(reduce(f, a))
+
+# 함수 f를 람다 표현식으로 만들어서 reduce에 넣어보기
+a = [1, 2, 3, 4, 5]
+from functools import reduce
+print(reduce(lambda x, y: x + y, a))
