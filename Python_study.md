@@ -7313,7 +7313,7 @@ print(list(map(lambda x: str(x) if x % 3 == 0 else x, a)))
 
 
 
-### map에 객체를 여러 개 넣기
+### map에 객체를 여러 개 넣기(input multiple objects with lambda expression in map method)
 
 * map은 리스트 등의 반복 가능한 객체를 여러 개 넣을 수도 있습니다. 다음은 두 리스트의 요소를 곱해서 새 리스트를 만듭니다.
 
@@ -7326,4 +7326,36 @@ list(map(lambda x, y: x * y, a, b))
 ```
 
 
+
+### filter 사용하기
+
+* 이번에는 filter를 사용해보겠습니다. filter는 반복 가능한 객체에서 특정 조건에 맞는 요소만 가져오는데, filter에 지정한 함수의 반환값이 True일 때만 해당 요소를 가져옵니다.
+  * filter(함수, 반복가능한객체)
+* 먼저 def로 함수를 만들어서 filter를 사용해보겠습니다. 다음은 리스트에서 5보다 크면서 10보다 작은 숫자를 가져옵니다.
+
+```python
+def f(x):
+	return x > 5 and x < 10
+a = [8, 3, 2, 10, 15, 7, 1, 9, 0, 11]
+list(filter(f, a))
+```
+
+
+
+### reduce 사용하기
+
+* 마지막으로 reduce를 사용해보겠습니다. reduce는 반복 가능한 객체의 각 요소를 지정된 함수로 처리한 뒤 이전 결과와 누적해서 반환하는 함수입니다(reduce는 파이썬 3부터 내장 함수가 아닙니다. 따라서 functools 모듈에서 reduce 함수를 가져와야 합니다).
+  * from functools import reduce
+  * reduce(함수, 반복가능한객체)
+* 다음은 리스트에 저장된 요소를 순서대로 더한 뒤 누적된 결과를 반환합니다.
+
+```python
+def f(x, y):
+    return x + y
+a = [1, 2, 3, 4, 5]
+from functools import reduce
+print(reduce(f, a))
+# 실행 결과
+15
+```
 
