@@ -7484,3 +7484,27 @@ print(c(1), c(2), c(3), c(4), c(5))
 
 ```
 
+
+
+### 클로저의 지역 변수 변경하기
+
+* 지금까지 클로저의 지역 변수를 가져오기만 했는데, 클로저의 지역 변수를 변경하고 싶다면 nonlocal을 사용하면 됩니다. 다음은 a * x + b의 결과를 함수 calc의 지역 변수 total에 누적합니다.
+
+```python
+def calc():
+    a = 3
+    b = 5
+    total = 0
+    def mul_add(x):
+        nonlocal total
+        total = total + a * x + b
+        print(total)
+    return mul_add
+ 
+c = calc()
+c(1)
+c(2)
+c(3)
+
+```
+
