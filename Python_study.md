@@ -7530,3 +7530,67 @@ print(c)
 {'x': 10, 'y': 20}
 ```
 
+* 즉, 파이썬에서는 자료형도 클래스입니다. 다음과 같이 type를 사용하면 객체가 어떤 클래스인지 확인할 수 있습니다.
+  * type(객체)
+
+```python
+# Person 클래스 정의
+class Person:
+    def greeting(self):
+        print('Hello')
+# type 객체
+a = 10
+print(type(a))
+b = [0, 1, 2]
+print(type(b))
+c = {'x': 10, 'y': 20}
+print(type(c))
+maria = Person()
+print(type(maria))
+# 실행 결과
+<class 'int'>
+<class 'list'>
+<class 'dict'>
+<class '__main__.Person'>
+```
+
+
+
+
+
+### 인스턴스와 객체의 차이점?
+
+* 클래스는 객체를 표현하는 문법이라고 했는데, 클래스로 인스턴스를 만든다고 하니 좀 헷갈리죠? 사실 인스턴스와 객체는 같은 것을 뜻합니다. 보통 객체만 지칭할 때는 그냥 객체(object)라고 부릅니다. 하지만 클래스와 연관지어서 말할 때는 인스턴스(instance)라고 부릅니다. 그래서 다음과 같이 리스트 변수 a, b가 있으면 a, b는 객체입니다. 그리고 a와 b는 list 클래스의 인스턴스입니다.
+
+```python
+a = list(range(10))
+b = list(range(20))
+```
+
+#### 참고 | 빈 클래스 만들기
+
+* 내용이 없는 빈 클래스를 만들 때는 코드 부분에 pass를 넣어줍니다.
+
+```python
+class Person:
+    pass
+```
+
+
+
+#### 참고 | 메서드 안에서 메서드 호출하기
+
+* 메서드 안에서 메서드를 호출할 때는 다음과 같이 **self.메서드()** 형식으로 호출해야 합니다. self 없이 메서드 이름만 사용하면 클래스 바깥쪽에 있는 함수를 호출한다는 뜻이 되므로 주의해야 합니다.
+
+```python
+class Person:
+    def greeting(self):
+        print('Hello')
+ 
+    def hello(self):
+        self.greeting()    # self.메서드() 형식으로 클래스 안의 메서드를 호출
+ 
+james = Person()
+james.hello()    # Hello
+```
+
