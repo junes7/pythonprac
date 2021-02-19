@@ -7609,3 +7609,70 @@ james = Person()
 james.greeting()	# 안녕하세요.
 ```
 
+
+
+### 인스턴스를 만들 때 값 받기(Get value when we made instance of class )
+
+```python
+class Person:
+    def __init__(self, name, age, address):
+        self.hello = '안녕하세요.'
+        self.name = name
+        self.age = age
+        self.address = address
+        
+	def greeting(self):
+        print('{0} 저는 {1} 입니다.'.format(self.hello, self.name))
+        
+maria = Person('마리아', 20, '서울시 서초구 반포동')
+maria.greeting() # 안녕하세요. 저는 마리아입니다.
+print('이름:', maria.name)	# 마리아
+print('나이:', maria.age)		# 20
+print('주소:', maria.address)	# 서울시 서초구 반포동
+```
+
+
+
+### 비공개 속성 사용하기(Use class private attribute)
+
+* 앞에서 만든 Person 클래스에는 hello, name, age, address 속성이 있습니다.
+* 이 속성들은 메서드에서 self로 접근할 수 있고, 인스턴스.속성 형식으로 클래스 바깥에서도 접근할 수 있습니다.
+
+```python
+class Person:
+    def __init__(self, name, age, address, wallet):
+        self.name = name
+        self.age = age
+        self.address = address
+        self.__wallet = wallet    # 변수 앞에 __를 붙여서 비공개 속성으로 만듦
+ 
+maria = Person('마리아', 20, '서울시 서초구 반포동', 10000)
+maria.__wallet -= 10000    # 클래스 바깥에서 비공개 속성에 접근하면 에러가 발생함
+# 실행 결과
+Traceback (most recent call last):
+  File "C:\project\class_private_attribute_error.py", line 9, in <module>
+    maria.__wallet -= 10000    # 클래스 바깥에서 비공개 속성에 접근하면 에러가 발생함
+AttributeError: 'Person' object has no attribute '__wallet' 
+```
+
+* 실행을 해보면 에러가 발생합니다. self.__wallet처럼 앞에 밑줄 두 개를 붙여서 비공개 속성으로 만들었으므로 클래스 바깥에서 maria.__wallet으로는 접근할 수 없습니다. 사람이 가지고 있는 지갑은 본인만 사용할 수 있는데 maria.__wallet -= 10000처럼 바깥에서 마음대로 돈을 뺄 수는 없겠죠?
+* 비공개 속성은 클래스 안의 메서드에서만 접근할 수 있습니다. 다음과 같이 돈을 내는 pay 메서드를 만들어봅니다.
+
+```python
+class Person:
+    def __init__(self, name, age, address, wallet):
+        self.name = name
+        self.age = age
+        self.address = address
+        self.__wallet = wallet    # 변수 앞에 __를 붙여서 비공개 속성으로 만듦
+ 
+    def pay(self, amount):
+        self.__wallet -= amount   # 비공개 속성은 클래스 안의 메서드에서만 접근할 수 있음
+        print('이제 {0}원 남았네요.'.format(self.__wallet))
+ 
+maria = Person('마리아', 20, '서울시 서초구 반포동', 10000)
+maria.pay(3000)
+# 실행 결과
+이제 7000원 남았네요.
+```
+
