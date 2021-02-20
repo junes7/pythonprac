@@ -7709,3 +7709,27 @@ print(maria.bag)
 ['책', '열쇠']
 ```
 
+
+
+### 인스턴스 속성 사용하기
+
+* 그럼 가방을 여러 사람이 공유하지 않으려면 어떻게 해야 할까요? 그냥 bag를 인스턴스 속성으로 만들면 됩니다.
+
+```python
+class Person:
+    def __init__(self):
+        self.bag = []
+    def put_bag(self, stuff):
+        self.bag.append(stuff)
+        
+james = Person()
+james.put_bag('책')
+maria = Person()
+maria.put_bag('열쇠')
+print(james.bag)
+print(maria.bag)
+# 실행 결과
+['책']
+['열쇠']
+```
+
