@@ -7676,3 +7676,36 @@ maria.pay(3000)
 이제 7000원 남았네요.
 ```
 
+
+
+### 클래스 속성 사용하기(Use class attribute)
+
+* 그럼 이번에는 클래스 속성을 사용해보겠습니다. 클래스 속성은 다음과 같이 클래스에 바로 속성을 만듭니다.
+
+```python
+class 클래스이름:
+    속성 = 값
+```
+
+* 이제 간단하게 사람 클래스에 클래스 속성으로 가방 속성을 넣고 사용해보겠습니다. 다음과 같이 Person 클래스에 바로 bag 속성을 넣고, put_bag 메서드를 만듭니다. 그리고 인스턴스 두 개를 만든 뒤 각각 put_bag 메서드를 사용합니다.
+
+```python
+class Person:
+    bag = []
+ 
+    def put_bag(self, stuff):
+        self.bag.append(stuff)
+ 
+james = Person()
+james.put_bag('책')
+ 
+maria = Person()
+maria.put_bag('열쇠')
+ 
+print(james.bag)
+print(maria.bag)
+# 실행 결과
+['책', '열쇠']
+['책', '열쇠']
+```
+
