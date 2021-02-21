@@ -7733,3 +7733,40 @@ print(maria.bag)
 ['열쇠']
 ```
 
+
+
+### 비공개 클래스 속성 사용하기(use private class attribute)
+
+* 클래스 속성도 비공개 속성을 만들 수 있습니다. 클래스 속성을 만들 때 **__****속성**과 같이 __(밑줄 두 개)로 시작하면 비공개 속성이 됩니다. 따라서 클래스 안에서만 접근할 수 있고, 클래스 바깥에서는 접근할 수 없습니다.
+
+```python
+class 클래스이름:
+    __속성 = 값    # 비공개 클래스 속성
+```
+
+* 즉, 클래스에서 공개하고 싶지 않은 속성이 있다면 비공개 클래스를 사용해야 합니다. 예를 들어 기사 게임 캐릭터는 아이템을 최대 10개까지만 보유할 수 있다고 하죠.
+
+```python
+class Knight:
+    __item_limit = 10    # 비공개 클래스 속성
+ 
+    def print_item_limit(self):
+        print(Knight.__item_limit)    # 클래스 안에서만 접근할 수 있음
+ 
+ 
+x = Knight()
+x.print_item_limit()    # 10
+ 
+print(Knight.__item_limit)    # 클래스 바깥에서는 접근할 수 없음
+# 실행 결과
+Traceback (most recent call last):
+  File "class1.py", line 11, in <module>
+    print(Knight.__item_limit)    # 클래스 바깥에서는 접근할 수 없
+음
+AttributeError: type object 'Knight' has no attribute '__item_limit'
+```
+
+* 실행을 해보면 클래스 Knight의 비공개 클래스 속성 __item_limit는 클래스 안의 print_item_limit 메서드에서만 접근할 수 있고, 클래스 바깥에서 접근하면 에러가 발생합니다. 아이템의 보유 제한이 10개인데, 이 클래스를 사용하는 사람이 마음대로 __item_limit = 1000으로 수정하면 곤란하겠죠?
+
+* 이처럼 비공개 클래스 속성은 클래스 바깥으로 드러내고 싶지 않은 값에 사용합니다.
+
