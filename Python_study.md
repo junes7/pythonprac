@@ -7770,3 +7770,26 @@ AttributeError: type object 'Knight' has no attribute '__item_limit'
 
 * 이처럼 비공개 클래스 속성은 클래스 바깥으로 드러내고 싶지 않은 값에 사용합니다.
 
+
+
+#### 참고 | 클래스와 메서드의 독스트링 사용하기(Use class and docstrings of method)
+
+* 함수와 마찬가지로 클래스와 메서드도 독스트링을 사용할 수 있습니다. 다음과 같이 클래스와 메서드를 만들 때 :(콜론) 바로 다음 줄에 """ """(큰따옴표 세 개) 또는 ''' '''(작은따옴표 세 개)로 문자열을 입력하면 됩니다. 그리고 클래스의 독스트링은 **클래스.__doc__** 형식으로 사용하고, 메서드의 독스트링은 **클래스.메서드.__doc__** 또는 **인스턴스.메서드.__doc__** 형식으로 사용합니다.
+* 독스트링(documentatin strings: 문서화 문자열의 줄임말)은 코멘트와 유사하게 코드를 설명하기 위한 목적으로 사용됩니다.
+
+```python
+class Person:
+    '''사람 클래스입니다.'''
+    
+    def greeting(self):
+        '''인사 메서드입니다.'''
+        print('Hello')
+ 
+print(Person.__doc__)             # 사람 클래스입니다.
+print(Person.greeting.__doc__)    # 인사 메서드입니다.
+ 
+maria = Person()
+print(maria.greeting.__doc__)     # 인사 메서드입니다.
+
+```
+
