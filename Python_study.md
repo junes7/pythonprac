@@ -7819,7 +7819,7 @@ Calc.mul(10, 20)    # 클래스에서 바로 메서드 호출
 
 
 
-#### 참고 | 파이썬 자료형의 인스턴스 메서드와 정적 메서드
+#### 참고 | 파이썬 자료형의 인스턴스 메서드와 정적 메서드(instance method and static method of python data type)
 
 파이썬의 자료형도 인스턴스 메서드와 정적, 클래스 메서드로 나뉘어져 있습니다. 예를 들어 세트에 요소를 더할 때는 인스턴스 메서드를 사용하고, 합집합을 구할 때는 정적 메서드를 사용하도록 만들어져 있습니다.
 
@@ -7835,3 +7835,30 @@ print(set.union({1, 2, 3, 4}, {5}))
 ```
 
 이처럼 인스턴스의 내용을 변경해야 할 때는 update와 같이 인스턴스 메서드로 작성하면 되고, 인스턴스 내용과는 상관없이 결과만 구하면 될 때는 set.union과 같이 정적 메서드로 작성하면 됩니다.
+
+
+
+### 클래스 메서드 사용하기(Use class method)
+
+* 클래스 메서드는 다음과 같이 메서드 위에 @classmethod를 붙입니다. 이때 클래스 메서드는 첫 번째 매개변수에 cls를 지정해야 합니다(cls는 **cl**a**s**s에서 따왔습니다).
+
+```python
+class Person:
+    count = 0    # 클래스 속성
+ 
+    def __init__(self):
+        Person.count += 1    # 인스턴스가 만들어질 때
+                             # 클래스 속성 count에 1을 더함
+ 
+    @classmethod
+    def print_count(cls):
+        print('{0}명 생성되었습니다.'.format(cls.count))    # cls로 클래스 속성에 접근
+ 
+james = Person()
+maria = Person()
+ 
+Person.print_count()    # 2명 생성되었습니다.
+# 실행 결과
+2명 생성되었습니다.
+```
+
