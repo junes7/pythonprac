@@ -7862,3 +7862,38 @@ Person.print_count()    # 2명 생성되었습니다.
 2명 생성되었습니다.
 ```
 
+
+
+## 클래스 상속 사용하기(Use class inheritance)
+
+### 사람 클래스로 학생 클래스 만들기(create student class with person class)
+
+* 클래스 상속은 다음과 같이 클래스를 만들 때 ( )(괄호)를 붙이고 안에 기반 클래스 이름을 넣습니다.
+
+```python
+class 기반클래스이름:
+    코드
+ 
+class 파생클래스이름(기반클래스이름):
+    코드
+```
+
+* 그럼 간단하게 사람 클래스를 만들고 사람 클래스를 상속받아 학생 클래스를 만들어보겠습니다.
+
+```python
+class Person:
+    def greeting(self):
+        print('안녕하세요.')
+ 
+class Student(Person):
+    def study(self):
+        print('공부하기')
+ 
+james = Student()
+james.greeting()    # 안녕하세요.: 기반 클래스 Person의 메서드 호출
+james.study()       # 공부하기: 파생 클래스 Student에 추가한 study 메서드
+# 실행 결과
+안녕하세요.
+공부하기
+```
+
