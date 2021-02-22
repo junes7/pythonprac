@@ -7793,3 +7793,27 @@ print(maria.greeting.__doc__)     # 인사 메서드입니다.
 
 ```
 
+
+
+### 정적 메서드 사용하기(use static method of class)
+
+* 지금까지 클래스의 메서드를 사용할 때 인스턴스를 통해서 호출했습니다. 이번에는 인스턴스를 통하지 않고 클래스에서 바로 호출할 수 있는 정적 메서드와 클래스 메서드에 대해 알아보겠습니다.
+* 먼저 정적 메서드입니다. 정적 메서드는 다음과 같이 메서드 위에 @staticmethod를 붙입니다. 이때 정적 메서드는 매개변수에 self를 지정하지 않습니다.
+
+```python
+class Calc:
+    @staticmethod
+    def add(a, b):
+        print(a + b)
+ 
+    @staticmethod
+    def mul(a, b):
+        print(a * b)
+ 
+Calc.add(10, 20)    # 클래스에서 바로 메서드 호출
+Calc.mul(10, 20)    # 클래스에서 바로 메서드 호출
+# 실행 결과
+30
+200
+```
+
