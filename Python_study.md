@@ -8016,3 +8016,45 @@ james.greeting()
 안녕하세요. 저는 파이썬 코딩 도장 학생입니다.
 ```
 
+
+
+### 다중 상속 사용하기(Use Multiple Inheritance)
+
+* 다중 상속은 여러 기반 클래스로부터 상속을 받아서 파생 클래스를 만드는 방법입니다. 다음과 같이 클래스를 만들 때 ( )(괄호) 안에 클래스 이름을 ,(콤마)로 구분해서 넣습니다.
+
+```python
+class 기반클래스이름1:
+    코드
+ 
+class 기반클래스이름2:
+    코드
+ 
+class 파생클래스이름(기반클래스이름1, 기반클래스이름2):
+    코드
+```
+
+* 그럼 사람 클래스와 대학교 클래스를 만든 뒤 다중 상속으로 대학생 클래스를 만들어보겠습니다.
+
+```python
+class Person:
+    def greeting(self):
+        print('안녕하세요.')
+ 
+class University:
+    def manage_credit(self):
+        print('학점 관리')
+ 
+class Undergraduate(Person, University):
+    def study(self):
+        print('공부하기')
+ 
+james = Undergraduate()
+james.greeting()         # 안녕하세요.: 기반 클래스 Person의 메서드 호출
+james.manage_credit()    # 학점 관리: 기반 클래스 University의 메서드 호출
+james.study()            # 공부하기: 파생 클래스 Undergraduate에 추가한 study 메서드
+
+```
+
+
+
+### 
