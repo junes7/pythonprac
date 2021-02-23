@@ -7897,3 +7897,42 @@ james.study()       # 공부하기: 파생 클래스 Student에 추가한 study 
 공부하기
 ```
 
+
+
+### 상속 관계와 포함 관계 알아보기
+
+* 지금까지 기반 클래스를 상속하여 새로운 클래스를 만들어 보았습니다. 그런데 클래스 상속은 정확히 어디에 사용해야 할까요?
+
+### 상속 관계
+
+* 앞에서 만든 Student 클래스는 Person 클래스를 상속받아서 만들었습니다.
+
+``` python
+class Person:
+    def greeting(self):
+        print('안녕하세요.')
+ 
+class Student(Person):
+    def study(self):
+        print('공부하기')
+
+```
+
+### 포함 관계(inclusion relationship)
+
+* 하지만 학생 클래스가 아니라 사람 목록을 관리하는 클래스를 만든다면 어떻게 해야 할까요? 다음과 같이 리스트 속성에 Person 인스턴스를 넣어서 관리하면 됩니다.
+
+```python
+class Person:
+    def greeting(self):
+        print('안녕하세요.')
+ 
+class PersonList:
+    def __init__(self):
+        self.person_list = []    # 리스트 속성에 Person 인스턴스를 넣어서 관리
+ 
+    def append_person(self, person):    # 리스트 속성에 Person 인스턴스를 추가하는 함수
+        self.person_list.append(person)
+
+```
+
