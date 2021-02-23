@@ -8057,4 +8057,28 @@ james.study()            # 공부하기: 파생 클래스 Undergraduate에 추�
 
 
 
-### 
+### 다이아몬드 상속(Diamond Inheritance)
+
+* 그럼 조금 복잡한 클래스 상속을 해보겠습니다. 여기서는 편의상 클래스 이름을 A, B, C, D로 만들겠습니다.
+
+```python
+class A:
+    def greeting(self):
+        print('안녕하세요. A입니다.')
+ 
+class B(A):
+    def greeting(self):
+        print('안녕하세요. B입니다.')
+ 
+class C(A):
+    def greeting(self):
+        print('안녕하세요. C입니다.')
+ 
+class D(B, C):
+    pass
+ 
+x = D()
+x.greeting()    # 안녕하세요. B입니다.
+
+```
+
