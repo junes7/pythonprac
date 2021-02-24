@@ -102,3 +102,8 @@ class D(B, C):
  
 x = D()
 x.greeting()    # 안녕하세요. B입니다.
+
+# 메서드 탐색 순서 확인하기
+D.mro()
+x = D()
+x.greeting()    # 안녕하세요. B입니다.

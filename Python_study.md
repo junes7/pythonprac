@@ -8082,3 +8082,22 @@ x.greeting()    # 안녕하세요. B입니다.
 
 ```
 
+
+
+### 메서드 탐색 순서 확인하기(Check method navigation order)
+
+```python
+
+>>> D.mro()
+[<class '__main__.D'>, <class '__main__.B'>, <class '__main__.C'>, <class '__main__.A'>, <class 'object'>]
+
+```
+
+* MRO에 따르면 D의 메서드 호출 순서는 자기 자신 D, 그 다음이 B입니다. 따라서 D로 인스턴스를 만들고 greeting을 호출하면 B의 greeting이 호출됩니다( D는 greeting 메서드가 없으므로).
+
+```python
+x = D()
+x.greeting()    # 안녕하세요. B입니다.
+
+```
+
