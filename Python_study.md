@@ -8125,7 +8125,31 @@ class Student(StudentBase):
  
 james = Student()
 james.study()
+```
 
+* 따라서 추상 클래스를 상속받았다면 @abstractmethod가 붙은 추상 메서드를 모두 구현해야 합니다. 다음과 같이 Student에서 go_to_school 메서드도 구현해줍니다.
 
+```python
+from abc import *
+ 
+class StudentBase(metaclass=ABCMeta):
+    @abstractmethod
+    def study(self):
+        pass
+ 
+    @abstractmethod
+    def go_to_school(self):
+        pass
+ 
+class Student(StudentBase):
+    def study(self):
+        print('공부하기')
+ 
+    def go_to_school(self):
+        print('학교가기')
+ 
+james = Student()
+james.study()
+james.go_to_school()
 ```
 
