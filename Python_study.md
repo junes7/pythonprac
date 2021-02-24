@@ -8153,3 +8153,18 @@ james.study()
 james.go_to_school()
 ```
 
+
+
+### 추상 메서드를 빈 메서드로 만드는 이유
+
+```python
+ @abstractmethod
+    def study(self):
+        pass    # 추상 메서드는 호출할 일이 없으므로 빈 메서드로 만듦
+ 
+    @abstractmethod
+    def go_to_school(self):
+        pass    # 추상 메서드는 호출할 일이 없으므로 빈 메서드로 만듦
+
+```
+
