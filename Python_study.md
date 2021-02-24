@@ -8190,3 +8190,49 @@ Traceback (most recent call last):
 StopIteration
 ```
 
+
+
+### for와 반복 가능한 객체
+
+* 이제 for에 반복 가능한 객체를 사용했을 때 동작 과정을 알아보겠습니다. 다음과 같이 for에 range(3)을 사용했다면 먼저 range에서 __iter__로 이터레이터를 얻습니다. 그리고 한 번 반복할 때마다 이터레이터에서 __next__로 숫자를 꺼내서 i에 저장하고, 지정된 숫자 3이 되면 StopIteration을 발생시켜서 반복을 끝냅니다.
+
+
+
+### 이터레이터 만들기
+
+* 이제 __iter__, __next__ 메서드를 구현해서 직접 이터레이터를 만들어보겠습니다. 간단하게 range(횟수)처럼 동작하는 이터레이터입니다.
+
+```python
+class 이터레이터이름:
+    def __iter__(self):
+        코드
+ 
+    def __next__(self):
+        코드
+```
+
+
+
+```python
+class Counter:
+    def __init__(self, stop):
+        self.current = 0    # 현재 숫자 유지, 0부터 지정된 숫자 직전까지 반복
+        self.stop = stop    # 반복을 끝낼 숫자
+ 
+    def __iter__(self):
+        return self         # 현재 인스턴스를 반환
+ 
+    def __next__(self):
+        if self.current < self.stop:    # 현재 숫자가 반복을 끝낼 숫자보다 작을 때
+            r = self.current            # 반환할 숫자를 변수에 저장
+            self.current += 1           # 현재 숫자를 1 증가시킴
+            return r                    # 숫자를 반환
+        else:                           # 현재 숫자가 반복을 끝낼 숫자보다 크거나 같을 때
+            raise StopIteration         # 예외 발생
+ 
+for i in Counter(3):
+    print(i, end=' ')
+
+
+```
+
