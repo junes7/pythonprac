@@ -8168,3 +8168,25 @@ james.go_to_school()
 
 ```
 
+
+
+# 이터레이터 사용하기
+
+## 반복 가능한 객체 알아보기
+
+```python
+
+>>> it = [1, 2, 3].__iter__()
+>>> it.__next__()
+1
+>>> it.__next__()
+2
+>>> it.__next__()
+3
+>>> it.__next__()
+Traceback (most recent call last):
+  File "<pyshell#48>", line 1, in <module>
+    it.__next__()
+StopIteration
+```
+
