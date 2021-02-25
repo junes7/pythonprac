@@ -26,3 +26,10 @@ class Counter:
  
 for i in Counter(3):
     print(i, end=' ')
+
+# 이터레이터 언패킹
+a, b, c = Counter(3)
+print(a, b, c)
+a, b, c, d, e = Counter(5)
+print(a, b, c, d, e)
+

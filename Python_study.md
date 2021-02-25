@@ -8236,3 +8236,21 @@ for i in Counter(3):
 
 ```
 
+
+
+### 이터레이터 언패킹(Iterator unpacking)
+
+```python
+a, b, c = Counter(3)
+print(a, b, c)
+a, b, c, d, e = Counter(5)
+print(a, b, c, d, e)
+# 실행 결과
+0 1 2
+0 1 2 3 4
+```
+
+* 사실 우리가 자주 사용하는 map도 이터레이터입니다. 그래서 a, b, c = map(int, input().split())처럼 언패킹으로 변수 여러 개에 값을 할당할 수 있습니다.
+
+
+
