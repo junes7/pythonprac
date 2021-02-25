@@ -8254,3 +8254,27 @@ print(a, b, c, d, e)
 
 
 
+## 인덱스로 접근할 수 있는 이터레이터 만들기(create iterator which is able to access to index)
+
+```python
+class Counter:
+    def __init__(self, stop):
+        self.stop = stop
+ 
+    def __getitem__(self, index):
+        if index < self.stop:
+            return index
+        else:
+            raise IndexError
+ 
+print(Counter(3)[0], Counter(3)[1], Counter(3)[2])
+ 
+for i in Counter(3):
+    print(i, end=' ')
+
+```
+
+
+
+
+
