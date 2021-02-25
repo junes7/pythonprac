@@ -8318,3 +8318,24 @@ Traceback (most recent call last):
 StopIteration
 ```
 
+
+
+### next
+
+* next는 기본값을 지정할 수 있습니다. 기본값을 지정하면 반복이 끝나더라도 StopIteration이 발생하지 않고 기본값을 출력합니다. 즉, 반복할 수 있을 때는 해당 값을 출력하고, 반복이 끝났을 때는 기본값을 출력합니다. 다음은 range(3)으로 0, 1, 2 세 번 반복하는데 next에 기본값으로 10을 지정했습니다.
+  * **next(반복가능한객체, 기본값)**
+
+```python
+>>> it = iter(range(3))
+>>> next(it, 10)
+0
+>>> next(it, 10)
+1
+>>> next(it, 10)
+2
+>>> next(it, 10)
+10
+>>> next(it, 10)
+10
+```
+
