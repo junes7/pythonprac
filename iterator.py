@@ -49,4 +49,8 @@ print(Counter(3)[0], Counter(3)[1], Counter(3)[2])
 for i in Counter(3):
     print(i, end=' ')
 
-
+# iter, next 함수 활용하기
+it = iter(range(3))
+next(it)
+next(it)
+next(it)

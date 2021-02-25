@@ -8276,5 +8276,24 @@ for i in Counter(3):
 
 
 
+## iter, next 함수 활용하기(utilize iter, next function)
+
+* 이번에는 파이썬 내장 함수 iter, next에 대해 알아보겠습니다. iter는 객체의 __iter__ 메서드를 호출해주고, next는 객체의 __next__ 메서드를 호출해줍니다. 그럼 range(3)에 iter와 next를 사용해보겠습니다.
+
+```python
+>>> it = iter(range(3))
+>>> next(it)
+0
+>>> next(it)
+1
+>>> next(it)
+2
+>>> next(it)
+Traceback (most recent call last):
+  File "<pyshell#6>", line 1, in <module>
+    next(it)
+StopIteration
+```
+
 
 
