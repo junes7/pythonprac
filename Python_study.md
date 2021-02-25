@@ -8297,3 +8297,24 @@ StopIteration
 
 
 
+### iter
+
+* iter는 반복을 끝낼 값을 지정하면 특정 값이 나올 때 반복을 끝냅니다. 이 경우에는 반복 가능한 객체 대신 호출 가능한 객체(callable)를 넣어줍니다. 참고로 반복을 끝낼 값은 sentinel이라고 부르는데 감시병이라는 뜻입니다. 즉, 반복을 감시하다가 특정 값이 나오면 반복을 끝낸다고 해서 sentinel입니다.
+
+```python
+
+>>> import random
+>>> it = iter(lambda : random.randint(0, 5), 2)
+>>> next(it)
+0
+>>> next(it)
+3
+>>> next(it)
+1
+>>> next(it)
+Traceback (most recent call last):
+  File "<pyshell#37>", line 1, in <module>
+    next(it)
+StopIteration
+```
+
