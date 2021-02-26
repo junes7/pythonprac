@@ -8,4 +8,13 @@ def number_generator(stop):
 for i in number_generator(3):
     print(i)
 
+# yield에서 함수 호출하기
+def upper_generator(x):
+    for i in x:
+        yield i.upper() # 함수의 반환값을 바깥으로 전달
+        
+fruits = ['apple', 'pear', 'grape', 'pineapple', 'orange']
+for i in upper_generator(fruits):
+    print(i)
 
+    
