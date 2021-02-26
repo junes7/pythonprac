@@ -17,4 +17,12 @@ fruits = ['apple', 'pear', 'grape', 'pineapple', 'orange']
 for i in upper_generator(fruits):
     print(i)
 
+# yield from 으로 값을 여러 번 바깥으로 전달하기
+def number_generator():
+    x = [1, 2, 3]
+    for i in x:
+        yield i
+ 
+for i in number_generator():
+    print(i)
     

@@ -8384,3 +8384,42 @@ PINEAPPLE
 ORANGE
 ```
 
+
+
+### yield from 으로 값을 여러 번 바깥으로 전달하기(passing out a value multiple times with yield from)
+
+* 지금까지 yield로 값을 한 번씩 바깥으로 전달했습니다. 그래서 값을 여러 번 바깥으로 전달할 때는 for 또는 while 반복문으로 반복하면서 yield를 사용했습니다. 다음은 리스트의 1, 2, 3을 바깥으로 전달합니다.
+
+```python
+def number_generator():
+    x = [1, 2, 3]
+    for i in x:
+        yield i
+ 
+for i in number_generator():
+    print(i)
+# 실행 결과
+1
+2
+3
+```
+
+* 이런 경우에는 매번 반복문을 사용하지 않고, yield from을 사용하면 됩니다. yield from에는 반복 가능한 객체, 이터레이터, 제너레이터 객체를 지정합니다(yield from은 파이썬 3.3 이상부터 사용 가능).
+  * yield from 반복 가능한 객체
+  * yield from 이터레이터
+  * yield from 제너레이터 객체
+* 그럼 yield from에 리스트를 지정해서 숫자 1, 2, 3을 바깥으로 전달해보겠습니다.
+
+```python
+def number_generator():
+    x = [1, 2, 3]
+    yield from x    # 리스트에 들어있는 요소를 한 개씩 바깥으로 전달
+ 
+for i in number_generator():
+    print(i)
+# 실행 결과
+1
+2
+3
+```
+
