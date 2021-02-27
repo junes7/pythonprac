@@ -8580,3 +8580,28 @@ co.close()    # 코루틴 종료
 
 
 
+### GeneratorExit 예외 처리하기
+
+* 코루틴 객체에서 close 메서드를 호출하면 코루틴이 종료될 때 GeneratorExit 예외가 발생합니다. 따라서 이 예외를 처리하면 코루틴의 종료 시점을 알 수 있습니다.
+
+```python
+
+def number_coroutine():
+    try:
+        while True:
+            x = (yield)
+            print(x, end=' ')
+    except GeneratorExit:    # 코루틴이 종료 될 때 GeneratorExit 예외 발생
+        print()
+        print('코루틴 종료')
+ 
+co = number_coroutine()
+next(co)
+ 
+for i in range(20):
+    co.send(i)
+ 
+co.close()
+
+```
+
