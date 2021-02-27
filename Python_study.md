@@ -8580,12 +8580,11 @@ co.close()    # 코루틴 종료
 
 
 
-### GeneratorExit 예외 처리하기
+### GeneratorExit 예외 처리하기(handling GeneratorExit exception)
 
 * 코루틴 객체에서 close 메서드를 호출하면 코루틴이 종료될 때 GeneratorExit 예외가 발생합니다. 따라서 이 예외를 처리하면 코루틴의 종료 시점을 알 수 있습니다.
 
 ```python
-
 def number_coroutine():
     try:
         while True:
@@ -8604,4 +8603,39 @@ for i in range(20):
 co.close()
 
 ```
+
+
+
+### 코루틴 안에서 예외 발생시키기(generate exception in coroutine)
+
+* 코루틴 안에 예외를 발생 시킬 때는 throw 메서드를 사용합니다. throw는 말그대로 던지다라는 뜻인데 예외를 코루틴 안으로 던집니다. 이때 throw 메서드에 지정한 에러 메시지는 except as의 변수에 들어갑니다.
+  * **코루틴객체.throw(예외이름, 에러메시지)**
+
+* 다음은 코루틴에 숫자를 보내서 누적하다가 RuntimeError 예외가 발생하면 에러 메시지를 출력하고 누적된 값을 코루틴 바깥으로 전달합니다.
+
+```python
+def sum_coroutine():
+    try:
+        total = 0
+        while True:
+            x = (yield)
+            total += x
+    except RuntimeError as e:
+        print(e)
+        yield total    # 코루틴 바깥으로 값 전달
+ 
+co = sum_coroutine()
+next(co)
+ 
+for i in range(20):
+    co.send(i)
+ 
+print(co.throw(RuntimeError, '예외로 코루틴 끝내기')) # 190
+                                                      # 코루틴의 except에서 yield로 전달받은 값
+# 실행 결과
+예외로 코루틴 끝내기
+190
+```
+
+
 
