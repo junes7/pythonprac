@@ -8423,3 +8423,67 @@ for i in number_generator():
 3
 ```
 
+* yield from x와 같이 yield from에 리스트(반복 가능한 객체)를 지정했습니다. 이렇게 하면 리스트에 들어있는 요소를 한 개씩 바깥으로 전달합니다. 즉, yield from을 한 번 사용하여 값을 세 번 바깥으로 전달합니다. 따라서 next 함수(__next__ 메서드)를 세 번 호출할 수 있습니다.
+
+```python
+g = number_generator()
+next(g)
+next(g)
+next(g)
+next(g)
+# 실행 결과
+1
+2
+3
+Traceback (most recent call last):
+  File "generator.py", line 40, in <module>
+    next(g)
+StopIteration
+```
+
+
+
+### yield from에 제너레이터 객체 지정하기
+
+* 이번에는 yield from에 제너레이터 객체를 지정해보겠습니다(이터레이터는 제너레이터와 동작이 같으므로 생략하겠습니다).
+
+```python
+def number_generator(stop):
+    n = 0
+    while n < stop:
+        yield n
+        n += 1
+        
+def three_generator():
+    # 숫자를 세 번 바깥으로 전달
+    yield from number_generator(3)
+    
+for i in three_generator():
+    print(i)
+# 실행 결과
+0
+1
+2
+```
+
+* 먼저 제너레이터 number_generator는 매개변수로 받은 숫자 직전까지 숫자를 만들어냅니다. 그리고 three_generator에서는 yield from number_generator(3)과 같이 yield from에 제너레이터 객체를 지정했습니다.
+* number_generator(3)은 숫자를 세 개를 만들어내므로 yield from number_generator(3)은 숫자를 세 번 바깥으로 전달합니다. 따라서 for 반복문에 three_generator()를 사용하면 숫자를 세 번 출력합니다(next 함수 또는 __next__ 메서드도 세 번 호출 가능).
+* 이번 유닛에서는 제너레이터와 yield 사용 방법을 알아보았습니다. 이 부분은 파이썬에서도 고급 기능에 해당하는 부분이라 초보자들은 이해하기가 쉽지 않습니다. 그래서 지금 당장 yield가 이해되지 않는다고 해서 걱정할 필요가 없습니다. 나중에 프로그래밍에 익숙해지면 자연스럽게 익히게 됩니다.
+
+#### 참고 | 제너레이터 표현식
+
+* 리스트 표현식을 사용할 때 [ ](대괄호)를 사용했습니다. 같은 리스트 표현식을 ( )(괄호)로 묶으면 제너레이터 표현식이 됩니다. 리스트 표현식은 처음부터 리스트의 요소를 만들어내지만 제너레이터 표현식은 필요할 때 요소를 만들어내므로 메모리를 절약할 수 있습니다.
+
+**(식 for 변수 in 반복가능한객체)**
+
+```python
+[i for i in range(50) if i % 2 == 0]
+[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48]
+(i for i in range(50) if i % 2 == 0)
+<generator object <genexpr> at 0x024F02A0>
+```
+
+
+
+
+

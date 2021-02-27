@@ -32,3 +32,10 @@ def number_generator():
  
 for i in number_generator():
     print(i)
+
+g = number_generator()
+next(g)
+next(g)
+next(g)
+next(g)
+
