@@ -48,5 +48,5 @@ next(co)
  
 for i in range(20):
     co.send(i)
- 
-co.close()    # 코루틴 종료
+# 코루틴 종료
+co.close()
