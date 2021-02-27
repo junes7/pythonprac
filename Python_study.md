@@ -8443,7 +8443,7 @@ StopIteration
 
 
 
-### yield from에 제너레이터 객체 지정하기
+### yield from에 제너레이터 객체 지정하기(appoint generator object in yield from)
 
 * 이번에는 yield from에 제너레이터 객체를 지정해보겠습니다(이터레이터는 제너레이터와 동작이 같으므로 생략하겠습니다).
 
@@ -8484,6 +8484,31 @@ for i in three_generator():
 ```
 
 
+
+## 코루틴 사용하기(Use Coroutine)
+
+* 지금까지 함수를 호출한 뒤 함수가 끝나면 현재 코드로 다시 돌아왔습니다. 예를 들어서 다음과 같이 calc 함수 안에서 add 함수를 호출했을 때 add 함수가 끝나면 다시 calc 함수로 돌아옵니다. 특히 add 함수가 끝나면 이 함수에 들어있던 변수와 계산식은 모두 사라집니다.
+
+```python
+def add(a, b):
+    c = a + b    # add 함수가 끝나면 변수와 계산식은 사라짐
+    print(c)
+    print('add 함수')
+ 
+def calc():
+    add(1, 2)    # add 함수가 끝나면 다시 calc 함수로 돌아옴
+    print('calc 함수')
+ 
+calc()
+```
+
+* 이 소스 코드에서 calc 함수와 add 함수의 관계를 살펴보겠습니다. calc가 메인 루틴(main routine)이면 add는 calc의 서브 루틴(sub routine)입니다. 이 메인 루틴과 서브 루틴의 동작 과정을 그림으로 나타내면 다음과 같은 모양이 됩니다.
+
+
+
+
+
+### 코루틴에 값 보내기
 
 
 
