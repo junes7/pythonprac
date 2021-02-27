@@ -8555,4 +8555,28 @@ print(co.send(3))    # 6: 코루틴에 숫자 3을 보내고 코루틴에서 나
 
 
 
-## 코루틴을 종료하고 예외 처리하기
+## 코루틴을 종료하고 예외 처리하기(finish coroutine and handling exception)
+
+* 보통 코루틴은 실행 상태를 유지하기 위해 while True:를 사용해서 끝나지 않는 무한 루프로 동작합니다. 만약 코루틴을 강제로 종료하고 싶다면 close 메서드를 사용합니다.
+  * 코루틴객체.close()
+* 다음은 코루틴에 숫자를 20개 보낸 뒤 코루틴을 종료합니다.
+
+```python
+def number_coroutine():
+    while True:
+        x = (yield)
+        print(x, end=' ')
+ 
+co = number_coroutine()
+next(co)
+ 
+for i in range(20):
+    co.send(i)
+ 
+co.close()    # 코루틴 종료
+# 실행 결과
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+```
+
+
+

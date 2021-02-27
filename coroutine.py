@@ -37,5 +37,16 @@ print(co.send(1))    # 1: 코루틴에 숫자 1을 보내고 코루틴에서 나
 print(co.send(2))    # 3: 코루틴에 숫자 2를 보내고 코루틴에서 나온 값 출력
 print(co.send(3))    # 6: 코루틴에 숫자 3을 보내고 코루틴에서 나온 값 출력
 
-
-
+# 코루틴을 종료하기 예외 처리하기
+def number_coroutine():
+    while True:
+        x = (yield)
+        print(x, end=' ')
+ 
+co = number_coroutine()
+next(co)
+ 
+for i in range(20):
+    co.send(i)
+ 
+co.close()    # 코루틴 종료
