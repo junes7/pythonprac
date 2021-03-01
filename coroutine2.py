@@ -48,3 +48,18 @@ for i in range(1, 101):   # 1부터 100까지 반복
     co.send(i)            # 코루틴 accumulate에 숫자를 보냄
 co.send(None)             # 코루틴 accumulate에 None을 보내서 숫자 누적을 끝냄
 
+# 함수의 시작과 끝 출력
+def hello():
+    print('hello 함수 시작')
+    print('hello')
+    print('hello 함수 끝')
+ 
+def world():
+    print('world 함수 시작')
+    print('world')
+    print('world 함수 끝')
+ 
+hello()
+world()
+
+# 

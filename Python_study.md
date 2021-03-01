@@ -8746,3 +8746,35 @@ co.send(None)             # 코루틴 accumulate에 None을 보내서 숫자 누
 
 
 
+
+
+### 데코레이터 만들기
+
+* 데코레이터는 함수를 장식한다고 했는데 도대체 어디에 사용하는 것일까요? 데코레이터는 함수를 수정하지 않은 상태에서 추가 기능을 구현할 때 사용합니다. 예를 들어서 함수의 시작과 끝을 출력하고 싶다면 다음과 같이 함수 시작, 끝 부분에 print를 넣어주어야 합니다.
+
+```python
+def hello():
+    print('hello 함수 시작')
+    print('hello')
+    print('hello 함수 끝')
+ 
+def world():
+    print('world 함수 시작')
+    print('world')
+    print('world 함수 끝')
+ 
+hello()
+world()
+# 실행 결과
+hello 함수 시작
+hello
+hello 함수 끝
+world 함수 시작
+world
+world 함수 끝
+```
+
+
+
+
+
