@@ -8809,3 +8809,35 @@ world 함수 끝
 
 
 
+### @으로 데코레이터 사용하기(use decorator closure with at sign)
+
+* 이제 @을 사용하여 좀 더 간편하게 데코레이터를 사용해보겠습니다. 다음과 같이 호출할 함수 위에 **@데코레이터** 형식으로 지정합니다.
+
+```python
+@데코레이터
+def 함수이름():
+    코드
+```
+
+
+
+```python
+def trace(func):                             # 호출할 함수를 매개변수로 받음
+    def wrapper():
+        print(func.__name__, '함수 시작')    # __name__으로 함수 이름 출력
+        func()                               # 매개변수로 받은 함수를 호출
+        print(func.__name__, '함수 끝')
+    return wrapper                           # wrapper 함수 반환
+ 
+@trace    # @데코레이터
+def hello():
+    print('hello')
+ 
+@trace    # @데코레이터
+def world():
+    print('world')
+ 
+hello()    # 함수를 그대로 호출
+world()    # 함수를 그대로 호출
+```
+
