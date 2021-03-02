@@ -8913,3 +8913,36 @@ add(a=10, b=20) -> 30
 30
 ```
 
+
+
+### 가변 인수 함수 데코레이터(Variable argument function decorator)
+
+* def add(a, b):는 매개변수의 개수가 고정된 함수입니다. 그러면 매개변수(인수)가 고정되지 않은 함수는 어떻게 처리할까요? 이때는 wrapper 함수를 가변 인수 함수로 만들면 됩니다.
+
+```python
+def trace(func):                     # 호출할 함수를 매개변수로 받음
+    def wrapper(*args, **kwargs):    # 가변 인수 함수로 만듦
+        r = func(*args, **kwargs)    # func에 args, kwargs를 언패킹하여 넣어줌
+        print('{0}(args={1}, kwargs={2}) -> {3}'.format(func.__name__, args, kwargs, r))
+                                     # 매개변수와 반환값 출력
+        return r                     # func의 반환값을 반환
+    return wrapper                   # wrapper 함수 반환
+ 
+@trace                   # @데코레이터
+def get_max(*args):      # 위치 인수를 사용하는 가변 인수 함수
+    return max(args)
+ 
+@trace                   # @데코레이터
+def get_min(**kwargs):   # 키워드 인수를 사용하는 가변 인수 함수
+    return min(kwargs.values())
+ 
+print(get_max(10, 20))
+print(get_min(x=10, y=20, z=30))
+# 실행 결과
+get_max(args=(10, 20), kwargs={}) -> 20
+20
+get_min(args=(), kwargs={'x': 10, 'y': 20, 'z': 30}) -> 10
+10
+```
+
+* get_max 함수와 get_min 함수는 가변 인수 함수입니다. 따라서 데코레이터도 가변 인수 함수로 만들어줍니다. 이때 위치 인수와 키워드 인수를 모두 받을 수 있도록 *args와 **kwargs를 지정해줍니다.
