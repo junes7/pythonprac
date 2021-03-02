@@ -8946,3 +8946,28 @@ get_min(args=(), kwargs={'x': 10, 'y': 20, 'z': 30}) -> 10
 ```
 
 * get_max 함수와 get_min 함수는 가변 인수 함수입니다. 따라서 데코레이터도 가변 인수 함수로 만들어줍니다. 이때 위치 인수와 키워드 인수를 모두 받을 수 있도록 *args와 **kwargs를 지정해줍니다.
+
+#### 참고 | 메서드에 데코레이터 사용하기(Using decorators with methods)
+
+* 클래스를 만들면서 메서드에 데코레이터를 사용할 때는 self를 주의해야 합니다. 인스턴스 메서드는 항상 self를 받으므로 데코레이터를 만들 때도 wrapper 함수의 첫 번째 매개변수는 self로 지정해야 합니다(클래스 메서드는 cls). 마찬가지로 func를 호출할 때도 self와 매개변수를 그대로 넣어야 합니다.
+
+```python
+def trace(func):
+    def wrapper(self, a, b):   # 호출할 함수가 인스턴스 메서드이므로 첫 번째 매개변수는 self로 지정
+        r = func(self, a, b)   # self와 매개변수를 그대로 넣어줌
+        print('{0}(a={1}, b={2}) -> {3}'.format(func.__name__, a, b, r))   # 매개변수와 반환값 출력
+        return r               # func의 반환값을 반환
+    return wrapper
+ 
+class Calc:
+    @trace
+    def add(self, a, b):    # add는 인스턴스 메서드
+        return a + b
+ 
+c = Calc()
+print(c.add(10, 20))
+# 실행 결과
+add(a=10, b=20) -> 30
+30
+```
+
