@@ -8843,7 +8843,7 @@ world()    # 함수를 그대로 호출
 
 
 
-#### 참고 | 데코레이터를 여러 개 지정하기
+#### 참고 | 데코레이터를 여러 개 지정하기(Specifying multiple decorators)
 
 * 함수에는 데코레이터를 여러 개 지정할 수 있습니다. 다음과 같이 함수 위에 데코레이터를 여러 줄로 지정해줍니다. 이때 데코레이터가 실행되는 순서는 위에서 아래 순입니다.
 
@@ -8876,5 +8876,40 @@ def hello():
     print('hello')
  
 hello()
+# 실행 결과
+decorator1
+decorator2
+hello
+```
+
+* @을 사용하지 않았을 때는 다음 코도와 동작이 같습니다.
+
+```python
+decorated_hello = decorator1(decorator2(hello))
+decorated_hello()
+```
+
+
+
+### 매개변수와 반환값을 처리하는 데코레이터 만들기(create a decorator to process parameters and return values)
+
+* 지금까지 매개변수와 반환값이 없는 함수의 데코레이터를 만들었습니다. 이번에는 매개변수와 반환값을 처리하는 데코레이터는 어떻게 만드는지 알아보겠습니다. 다음은 함수의 매개변수와 반환값을 출력하는 데코레이터입니다.
+
+```python
+def trace(func):          # 호출할 함수를 매개변수로 받음
+    def wrapper(a, b):    # 호출할 함수 add(a, b)의 매개변수와 똑같이 지정
+        r = func(a, b)    # func에 매개변수 a, b를 넣어서 호출하고 반환값을 변수에 저장
+        print('{0}(a={1}, b={2}) -> {3}'.format(func.__name__, a, b, r))  # 매개변수와 반환값 출력
+        return r          # func의 반환값을 반환
+    return wrapper        # wrapper 함수 반환
+ 
+@trace              # @데코레이터
+def add(a, b):      # 매개변수는 두 개
+    return a + b    # 매개변수 두 개를 더해서 반환
+ 
+print(add(10, 20))
+# 실행 결과
+add(a=10, b=20) -> 30
+30
 ```
 
