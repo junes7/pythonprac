@@ -8841,3 +8841,40 @@ hello()    # 함수를 그대로 호출
 world()    # 함수를 그대로 호출
 ```
 
+
+
+#### 참고 | 데코레이터를 여러 개 지정하기
+
+* 함수에는 데코레이터를 여러 개 지정할 수 있습니다. 다음과 같이 함수 위에 데코레이터를 여러 줄로 지정해줍니다. 이때 데코레이터가 실행되는 순서는 위에서 아래 순입니다.
+
+```python
+@데코레이터1
+@데코레이터2
+def 함수이름():
+    코드
+```
+
+
+
+```python
+def decorator1(func):
+    def wrapper():
+        print('decorator1')
+        func()
+    return wrapper
+ 
+def decorator2(func):
+    def wrapper():
+        print('decorator2')
+        func()
+    return wrapper
+ 
+# 데코레이터를 여러 개 지정
+@decorator1
+@decorator2
+def hello():
+    print('hello')
+ 
+hello()
+```
+
