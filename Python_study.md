@@ -9005,7 +9005,7 @@ add의 반환값은 3의 배수가 아닙니다.
 
 
 
-#### **참고 |** **매개변수가 있는 데코레이터를 여러 개 지정하기**
+#### **참고 |** **매개변수가 있는 데코레이터를 여러 개 지정하기**(appoint multiple decorators with parameters)
 
 * 매개변수가 있는 데코레이터를 여러 개 지정할 때는 다음과 같이 인수를 넣은 데코레이터를 여러 줄로 지정해줍니다.
 
@@ -9026,5 +9026,27 @@ add(10, 20)
 # 실행 결과
 add의 반환값은 7의 배수가 아닙니다.
 wrapper의 반환값은 3의 배수입니다.
+```
+
+
+
+## 클래스로 데코레이터 만들기
+
+```python
+class Trace:
+    def __init__(self, func):    # 호출할 함수를 인스턴스의 초깃값으로 받음
+        self.func = func         # 호출할 함수를 속성 func에 저장
+ 
+    def __call__(self):
+        print(self.func.__name__, '함수 시작')    # __name__으로 함수 이름 출력
+        self.func()                               # 속성 func에 저장된 함수를 호출
+        print(self.func.__name__, '함수 끝')
+ 
+@Trace    # @데코레이터
+def hello():
+    print('hello')
+ 
+hello()    # 함수를 그대로 호출
+
 ```
 
