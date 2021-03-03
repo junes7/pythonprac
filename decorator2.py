@@ -18,4 +18,13 @@ def add(a, b):
 print(add(10, 20))
 print(add(2, 5))
 
+# 매개변수가 있는 데코레이터를 여러 개 지정하기
+@is_multiple(3)
+@is_multiple(7)
+def add(a, b):
+    return a + b
+ 
+add(10, 20)
+
+
 
