@@ -9161,3 +9161,33 @@ square(10)
 
 
 
+### 모듈에 클래스 작성하기(Write a class to the module)
+
+* 그럼 이번에는 모듈에 클래스를 작성하고 사용해보겠습니다. 다음 내용을 프로젝트 폴더(C:\project) 안에 person.py 파일로 저장하세요.
+
+```python
+class Person:    # 클래스
+    def __init__(self, name, age, address):
+        self.name = name
+        self.age = age
+        self.address = address
+ 
+    def greeting(self):
+        print('안녕하세요. 저는 {0}입니다.'.format(self.name))
+```
+
+* 이제 main.py 파일을 다음과 같이 고쳐서 실행해보세요.
+  * import 모듈
+  * 모듈.클래스()
+
+```python
+import person    # import로 person 모듈을 가져옴
+ 
+# 모듈.클래스()로 person 모듈의 클래스 사용
+maria = person.Person('마리아', 20, '서울시 서초구 반포동')
+maria.greeting()
+
+```
+
+
+
