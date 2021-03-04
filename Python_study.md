@@ -9143,3 +9143,21 @@ print(square2.square(10))    # 모듈.함수() 형식으로 모듈의 함수 사
 1024
 ```
 
+
+
+### from import로 변수, 함수 가져오기(Get variable, function with from import)
+
+* 물론 모듈에서 from import로 변수와 함수를 가져온 뒤 모듈 이름을 붙이지 않고 사용할 수도 있습니다.
+  * **from** **모듈 import 변수, 함수**
+
+```python
+from square2 import base, square
+print(base)
+square(10)
+# 실행 결과
+2
+1024
+```
+
+
+
