@@ -9204,3 +9204,18 @@ maria.greeting()
 안녕하세요. 저는 마리아입니다.
 ```
 
+
+
+## 모듈과 시작점 알아보기
+
+```python
+print('hello 모듈 시작')
+print('hello.py __name__:', __name__)    # __name__ 변수 출력
+print('hello 모듈 끝')
+
+import hello    # hello 모듈을 가져옴
+ 
+print('main.py __name__:', __name__)    # __name__ 변수 출력
+
+```
+
