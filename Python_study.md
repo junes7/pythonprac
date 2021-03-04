@@ -9105,3 +9105,20 @@ def 함수이름():
     코드
 ```
 
+
+
+## 모듈과 패키지 만들기
+
+
+
+### 모듈 만들기
+
+* 그럼 간단하게 2의 거듭제곱을 구하는 모듈을 만들어보겠습니다. 다음 내용을 프로젝트 폴더(C:\project) 안에 square2.py 파일로 저장합니다. IDLE에서 새 소스 파일을 만들고 저장하는 방법은 '[3.2 IDLE에서 소스 파일 실행하기](https://dojang.io/mod/page/view.php?id=2157)'를 참조하세요.
+
+```python
+base = 2          # 변수
+ 
+def square(n):    # 함수
+    return base ** n
+```
+
