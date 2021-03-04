@@ -9122,3 +9122,24 @@ def square(n):    # 함수
     return base ** n
 ```
 
+* 이렇게 변수와 함수를 넣어서 square2.py 파일을 만들었습니다. 이렇게 모듈을 만들었을 때 모듈 이름은 square2입니다. 즉, 스크립트 파일에서 확장자 .py를 제외하면 모듈 이름이 됩니다.
+
+
+
+### 모듈 사용하기
+
+* 이제 square2 모듈을 사용해보겠습니다. 다음 내용을 프로젝트 폴더(C:\project) 안에 main.py 파일로 저장한 뒤 실행해보세요. 이때 square2.py 파일과 main.py 파일은 반드시 같은 폴더에 있어야 합니다.
+  * import 모듈
+  * 모듈.변수
+  * 모듈.함수()
+
+```python
+import square2               # import로 square2 모듈을 가져옴
+ 
+print(square2.base)          # 모듈.변수 형식으로 모듈의 변수 사용
+print(square2.square(10))    # 모듈.함수() 형식으로 모듈의 함수 사용
+# 실형 결과
+2
+1024
+```
+
