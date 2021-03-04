@@ -9191,3 +9191,16 @@ maria.greeting()
 
 
 
+### from import로 클래스 가져오기
+
+* 물론 모듈에서 from import로 클래스를 가져온 뒤 모듈 이름을 붙이지 않고 사용할 수도 있습니다.
+  * from 모듈 import 클래스
+
+```python
+from person import Person
+maria = Person('마리아', 20, '서울시 서초구 반포동')
+maria.greeting()
+# 실행 결과
+안녕하세요. 저는 마리아입니다.
+```
+
