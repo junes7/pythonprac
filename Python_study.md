@@ -9241,3 +9241,48 @@ main.py __name__: __main__
 
 파이썬에서 import로 모듈을 가져오면 해당 스크립트 파일이 한 번 실행됩니다. 따라서 hello 모듈을 가져오면 hello.py 안의 코드가 실행됩니다. 따라서 hello.py의 \__name__ 변수에는 'hello'가 들어가고, main.py의 _\_name__ 변수에는 '\_\_main__'이 들어갑니다.
 
+
+
+### 스크립트 파일로 실행하거나 모듈로 사용하는 코드 만들기(Execute script file and create code which uses as a module)
+
+* 그럼 스크립트 파일을 그대로 실행할 수도 있고, 모듈로도 사용할 수 있는 코드를 만들어보겠습니다. 다음 내용을 프로젝트 폴더(C:\project) 안에 calc.py 파일로 저장한 뒤 실행해보세요.
+
+```python
+def add(a, b):
+    return a + b
+ 
+def mul(a, b):
+    return a * b
+ 
+if __name__ == '__main__':    # 프로그램의 시작점일 때만 아래 코드 실행
+    print(add(10, 20))
+    print(mul(10, 20))
+# 실행 결과
+30
+200
+```
+
+* 모듈로 가져왔을 때는 아무것도 출력되지 않습니다. 왜냐하면 \__name__ 변수의 값이 '\_\_main__'일 때만 10, 20의 합과 곱을 출력하도록 만들었기 때문입니다. 즉, 스크립트 파일을 모듈로 사용할 때는 calc.add, calc.mul처럼 함수만 사용하는 것이 목적이므로 10, 20의 합과 곱을 출력하는 코드는 필요가 없습니다.
+* 이때는 다음과 같이 calc.add와 calc.mul 함수에 원하는 값을 넣어서 사용하면 됩니다.
+
+```python
+import calc
+calc.add(50, 60)
+calc.mul(50, 60)
+# 실행 결과
+110
+3000
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
