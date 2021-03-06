@@ -43,6 +43,17 @@ import calc
 calc.add(50, 60)
 calc.mul(50, 60)
 
+# calcpkg 패키지에 모듈 만들기
+# calcpkg/operation.py
+def add(a, b):
+    return a + b
+ 
+def mul(a, b):
+    return a * b
 
-
-
+# calcpkg/geometry.py
+def triangle_area(base, height):
+    return base * height / 2
+ 
+def rectangle_area(width, height):
+    return width * height

@@ -9276,9 +9276,45 @@ calc.mul(50, 60)
 
 
 
+### 패키지 만들기
+
+* 이번에는 패키지를 만들어보겠습니다. 모듈은 스크립트 파일이 한 개지만 패키지는 폴더(디렉터리)로 구성되어 있습니다.
+* 지금부터 만들 패키지의 폴더 구성은 다음과 같습니다.
+
+![image-20210306220327249](images/image-20210306220327249.png)
 
 
 
+* 먼저 프로젝트 폴더(C:\project) 안에 calcpkg 폴더를 만듭니다. 그리고 다음 내용을 calcpkg 폴더 안에 \__init__.py 파일로 저장하세요.
+
+```python
+# __init__.py 파일은 내용을 비워 둘 수 있음
+```
+
+* 폴더(디렉터리) 안에 __init__.py 파일이 있으면 해당 폴더는 패키지로 인식됩니다. 그리고 기본적으로 __init__.py 파일의 내용은 비워 둘 수 있습니다(파이썬 3.3 이상부터는 __init__.py 파일이 없어도 패키지로 인식됩니다. 하지만 하위 버전에도 호환되도록 __init__.py 파일을 작성하는 것을 권장합니다).
+
+### 패키지에 모듈 만들기(create module in package)
+
+* 이제 calcpkg 패키지에 모듈을 두 개를 만들겠습니다. 첫 번째 모듈은 덧셈, 곱셈 함수가 들어있는 operation 모듈이고, 두 번째 모듈은 삼각형, 사각형의 넓이 계산 함수가 들어있는 geometry 모듈입니다.
+* 먼저 다음 내용을 calcpkg 폴더 안에 operation.py 파일로 저장하세요.
+
+```python
+def add(a, b):
+    return a + b
+ 
+def mul(a, b):
+    return a * b
+```
+
+* 그리고 다음 내용을 calcpkg 폴더 안에 geometry.py 파일로 저장하세요.
+
+```python
+def triangle_area(base, height):
+    return base * height / 2
+ 
+def rectangle_area(width, height):
+    return width * height
+```
 
 
 
