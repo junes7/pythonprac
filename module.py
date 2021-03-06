@@ -68,3 +68,11 @@ print(calcpkg.operation.mul(10, 20))    # operation 모듈의 mul 함수 사용
 print(calcpkg.geometry.triangle_area(30, 40))    # geometry 모듈의 triangle_area 함수 사용
 print(calcpkg.geometry.rectangle_area(30, 40))   # geometry 모듈의 rectangle_area 함수 사용
 
+# from import로 패키지의 모듈에서 변수, 함수, 클래스 가져오기
+from calcpkg.operation import add, mul
+add(10, 20)
+mul(10, 20)
+
+
+
+

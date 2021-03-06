@@ -9344,5 +9344,27 @@ print(calcpkg.geometry.rectangle_area(30, 40))   # geometry 모듈의 rectangle_
 
 
 
+### from import로 패키지의 모듈에서 변수, 함수, 클래스 가져오기(Get variable, function, class from module of package with from import)
+
+* 물론 패키지의 모듈에서 from import로 함수(변수, 클래스)를 가져온 뒤 패키지와 모듈 이름을 붙이지 않고 사용할 수도 있습니다.
+  * **from** **패키지.모듈 import 변수**
+  * **from** **패키지.모듈 import 함수**
+  * **from** **패키지.모듈 import 클래스**
+
+* 다음은 calcpkg 패키지의 operation 모듈에서 add, mul 함수를 가져옵니다.
+
+```python
+from calcpkg.operation import add, mul
+add(10, 20)
+mul(10, 20)
+# 실행 결과
+30
+200
+```
+
+* 지금까지 만든 main.py 스크립트 파일과 calcpkg 패키지의 계층을 그림으로 나타내면 다음과 같은 모양이 됩니다. main.py 파일이 있는 폴더에 calcpkg 패키지가 있고, calcpkg 패키지의 폴더 안에 __init__.py, operation.py, geometry.py 파일이 들어있습니다.
+
+
+
 
 
