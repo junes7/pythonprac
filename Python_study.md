@@ -9318,6 +9318,30 @@ def rectangle_area(width, height):
 
 
 
+### 패키지 사용하기(Use package)
+
+* 이제 스크립트 파일에서 패키지의 모듈을 사용해보겠습니다. 다음 내용을 프로젝트 폴더(C:\project) 안에 main.py 파일로 저장한 뒤 실행해보세요(main.py 파일을 calcpkg 패키지 폴더 안에 넣으면 안 됩니다).
+  * import 패키지, 모듈
+  * 패키지.모듈.변수
+  * 패키지.모듈.함수()
+  * 패키지.모듈.클래스()
+
+```python
+import calcpkg.operation    # calcpkg 패키지의 operation 모듈을 가져옴
+import calcpkg.geometry     # calcpkg 패키지의 geometry 모듈을 가져옴
+ 
+print(calcpkg.operation.add(10, 20))    # operation 모듈의 add 함수 사용
+print(calcpkg.operation.mul(10, 20))    # operation 모듈의 mul 함수 사용
+ 
+print(calcpkg.geometry.triangle_area(30, 40))    # geometry 모듈의 triangle_area 함수 사용
+print(calcpkg.geometry.rectangle_area(30, 40))   # geometry 모듈의 rectangle_area 함수 사용
+# 실행 결과
+30
+200
+600.0
+1200
+```
+
 
 
 
