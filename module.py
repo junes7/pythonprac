@@ -14,3 +14,13 @@ print(square2.square(10))    # 모듈.함수() 형식으로 모듈의 함수 사
 from square2 import base, square
 print(base)
 square(10)
+
+# 모듈과 시작점 알아보기
+# hello.py
+print('hello 모듈 시작')
+print('hello.py __name__:', __name__)    # __name__ 변수 출력
+print('hello 모듈 끝')
+# main.py
+import hello    # hello 모듈을 가져옴
+ 
+print('main.py __name__:', __name__)    # __name__ 변수 출력

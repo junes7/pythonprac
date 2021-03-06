@@ -9208,14 +9208,36 @@ maria.greeting()
 
 ## 모듈과 시작점 알아보기
 
+* 인터넷에 있는 파이썬 코드를 보다 보면 if \_\_name__ == '\_\_main__':으로 시작하는 부분을 자주 만나게 됩니다.
+
+```python
+if __name__ == '__main__':
+	코드
+```
+
+* 도대체 이 코드는 왜 사용하는 것일까요? 이 코드는 현재 스크립트 파일이 실행되는 상태를 파악하기 위해 사용합니다.
+* 먼저 _\_name__부터 알아보겠습니다. 다음 내용을 프로젝트 폴더(C:\project) 안에 hello.py 파일로 저장하세요.
+
 ```python
 print('hello 모듈 시작')
 print('hello.py __name__:', __name__)    # __name__ 변수 출력
 print('hello 모듈 끝')
+```
 
+* 그리고 다음 내용을 프로젝트 폴더(C:\project) 안에 main.py 파일로 저장한 뒤 실행해보세요.
+
+```python
 import hello    # hello 모듈을 가져옴
  
 print('main.py __name__:', __name__)    # __name__ 변수 출력
-
+# 실행 결과
+hello 모듈 시작
+hello.py __name__: hello
+hello 모듈 끝
+main.py __name__: __main__
 ```
+
+실행을 해보면 hello.py 파일과 main.py 파일의 \__name__ 변수 값이 출력됩니다.
+
+파이썬에서 import로 모듈을 가져오면 해당 스크립트 파일이 한 번 실행됩니다. 따라서 hello 모듈을 가져오면 hello.py 안의 코드가 실행됩니다. 따라서 hello.py의 \__name__ 변수에는 'hello'가 들어가고, main.py의 _\_name__ 변수에는 '\_\_main__'이 들어갑니다.
 
