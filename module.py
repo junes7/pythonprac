@@ -73,6 +73,17 @@ from calcpkg.operation import add, mul
 add(10, 20)
 mul(10, 20)
 
-
+# 패키지에서 from import 응용하기
+# __init__.py
+from . import operation    # 현재 패키지에서 operation 모듈을 가져옴
+from . import geometry     # 현재 패키지에서 geometry 모듈을 가져옴
+# main.py
+import calcpkg    # calcpkg 패키지만 가져옴
+ 
+print(calcpkg.operation.add(10, 20))    # operation 모듈의 add 함수 사용
+print(calcpkg.operation.mul(10, 20))    # operation 모듈의 mul 함수 사용
+ 
+print(calcpkg.geometry.triangle_area(30, 40))    # geometry 모듈의 triangle_area 함수 사용
+print(calcpkg.geometry.rectangle_area(30, 40))   # geometry 모듈의 rectangle_area 함수 사용
 
 

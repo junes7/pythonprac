@@ -9366,5 +9366,13 @@ mul(10, 20)
 
 
 
+### 패키지에서 from import 응용하기(Apply from import in package)
 
+* 지금까지 calcpkg 패키지의 모듈을 가져올 때 import calcpkg.operation처럼 **import** **패키지.모듈** 형식으로 가져왔습니다. 그러면 import calcpkg처럼 **import** **패키지** 형식으로 패키지만 가져와서 모듈을 사용할 수는 없을까요? 이때는 calcpkg 패키지의 __init__.py 파일을 다음과 같이 수정합니다.
+  * from.import 모듈
+
+```python
+from . import operation    # 현재 패키지에서 operation 모듈을 가져옴
+from . import geometry     # 현재 패키지에서 geometry 모듈을 가져옴
+```
 
