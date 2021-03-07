@@ -9376,3 +9376,59 @@ from . import operation    # 현재 패키지에서 operation 모듈을 가져�
 from . import geometry     # 현재 패키지에서 geometry 모듈을 가져옴
 ```
 
+* 파이썬에서 __init__.py 파일은 폴더(디렉터리)가 패키지로 인식되도록 하는 역할도 하고, 이름 그대로 패키지를 초기화하는 역할도 합니다. 즉, import로 패키지를 가져오면 __init__.py 파일이 실행되므로 이 파일에서 **from . import** **모듈** 형식으로 현재 패키지에서 모듈을 가져오게 만들어야 합니다. 참고로 .(점)은 현재 패키지라는 뜻입니다.
+* 이제 main.py에서 import calcpkg와 같이 패키지만 가져오도록 수정한 뒤 실행해봅니다.
+
+```python
+import calcpkg    # calcpkg 패키지만 가져옴
+ 
+print(calcpkg.operation.add(10, 20))    # operation 모듈의 add 함수 사용
+print(calcpkg.operation.mul(10, 20))    # operation 모듈의 mul 함수 사용
+ 
+print(calcpkg.geometry.triangle_area(30, 40))    # geometry 모듈의 triangle_area 함수 사용
+print(calcpkg.geometry.rectangle_area(30, 40))   # geometry 모듈의 rectangle_area 함수 사용
+# 실행 결과
+30
+200
+600.0
+1200
+```
+
+* calcpkg의 __init__.py에서 하위 모듈을 함께 가져오게 만들었으므로 import calcpkg로 패키지만 가져와도 calcpkg.operation.add(10, 20)처럼 사용할 수 있습니다.
+
+
+
+###  from import로 패키지에 속한 모든 변수, 함수, 클래스 가져오기
+
+* 앞에서 from import 문법 중에 *(애스터리스크)를 지정하여 모든 변수, 함수, 클래스를 가져오는 방법이 있었습니다. 그럼 패키지에 속한 모든 변수, 함수, 클래스를 가져오려면 어떻게 해야 할까요? 먼저 main.py에서 import calcpkg를 from calcpkg import *와 같이 수정하고, 각 함수들도 앞에 붙은 calcpkg.operation, calcpkg.geometry를 삭제한 뒤 실행해봅니다.
+  * **from** **패키지 import \***
+
+```python
+from calcpkg import *    # calcpkg 패키지의 모든 변수, 함수, 클래스를 가져옴
+ 
+print(add(10, 20))    # operation 모듈의 add 함수 사용
+print(mul(10, 20))    # operation 모듈의 mul 함수 사용
+ 
+print(triangle_area(30, 40))    # geometry 모듈의 triangle_area 함수 사용
+print(rectangle_area(30, 40))   # geometry 모듈의 rectangle_area 함수 사용
+# 실행 결과
+Traceback (most recent call last):
+  File "C:\project\main.py", line 3, in <module>
+    print(add(10, 20))    # operation 모듈의 add 함수 사용
+NameError: name 'add' is not defined 
+```
+
+* 
+
+
+
+* 현재 네임스페이스에는 operation, geometry만 들어있어서 add, mul처럼 함수 이름만으로는 호출할 수가 없습니다.
+* 이때는 __init__.py에서 모듈 안의 함수를 가져오게 만들어야 합니다. 특히 현재 패키지(calcpkg)라는 것을 명확하게 나타내기 위해 모듈 앞에 .(점)을 붙입니다.
+  * **from .모듈 import 변수, 함수, 클래스**
+
+```python
+# 현재 패키지의 operation, geometry 모듈에서 각 함수를 가져옴
+from .operation import add, mul
+from .geometry import triangle_area, rectangle_area
+```
+
