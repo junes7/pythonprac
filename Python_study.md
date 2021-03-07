@@ -9196,6 +9196,27 @@ re.match('a+b', 'aab')    # aab에는 a가 1개 이상 있으므로 패턴에 �
 
 
 
+### 문자가 한 개만 있는지 판단하기(determining if there is only one character)
+
+* 문자가 여러 개 있는지 판단할 때는 *과 +를 사용했지만, 문자가 한 개만 있는지 판단할 때는 어떻게 해야 할까요? 이때는 ?와 .을 사용합니다. ?는 ? 앞의 문자(범위)가 0개 또는 1개인지 판단하고, .은 .이 있는 위치에 아무 문자(숫자)가 1개 있는지 판단합니다.
+  * **문자?**
+  * **[0-9]?**
+  * **.**
+
+```python
+re.match('abc?d', 'abd')         # abd에서 c 위치에 c가 0개 있으므로 패턴에 매칭됨
+re.match('ab[0-9]?c', 'ab3c')    # [0-9] 위치에 숫자가 1개 있으므로 패턴에 매칭됨
+re.match('ab.d', 'abxd')         # .이 있는 위치에 문자가 1개 있으므로 패턴에 매칭됨
+# 실행 결과
+<_sre.SRE_Match object; span=(0, 3), match='abd'>
+<_sre.SRE_Match object; span=(0, 4), match='ab3c'>
+<_sre.SRE_Match object; span=(0, 4), match='abxd'>
+```
+
+
+
+
+
 
 
 ## 모듈과 패키지 만들기
