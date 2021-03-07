@@ -9398,7 +9398,7 @@ print(calcpkg.geometry.rectangle_area(30, 40))   # geometry 모듈의 rectangle_
 
 
 
-###  from import로 패키지에 속한 모든 변수, 함수, 클래스 가져오기
+###  from import로 패키지에 속한 모든 변수, 함수, 클래스 가져오기(get all variables, functions, classes which include in package with from import)
 
 * 앞에서 from import 문법 중에 *(애스터리스크)를 지정하여 모든 변수, 함수, 클래스를 가져오는 방법이 있었습니다. 그럼 패키지에 속한 모든 변수, 함수, 클래스를 가져오려면 어떻게 해야 할까요? 먼저 main.py에서 import calcpkg를 from calcpkg import *와 같이 수정하고, 각 함수들도 앞에 붙은 calcpkg.operation, calcpkg.geometry를 삭제한 뒤 실행해봅니다.
   * **from** **패키지 import \***
