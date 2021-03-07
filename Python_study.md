@@ -9166,9 +9166,33 @@ re.match('hello|world', 'hello')    # hello 또는 world가 있으므로 패턴�
 
 
 
+### 범위 판단하기(Determining scope)
 
+* 이번에는 문자열이 숫자로 되어있는지 판단해보겠습니다. 다음과 같이 [ ](대괄호) 안에 숫자 범위를 넣으며 * 또는 +를 붙입니다. 숫자 범위는 0-9처럼 표현하며 *는 문자(숫자)가 0개 이상 있는지, +는 1개 이상 있는지 판단합니다.
+  * **[0-9]\***
+  * **[0-9]+**
 
+```python
+re.match('[0-9]*', '1234')    # 1234는 0부터 9까지 숫자가 0개 이상 있으므로 패턴에 매칭됨
+re.match('[0-9]+', '1234')    # 1234는 0부터 9까지 숫자가 1개 이상 있으므로 패턴에 매칭됨
+re.match('[0-9]+', 'abcd')    # abcd는 0부터 9까지 숫자가 1개 이상 없으므로 패턴에 매칭되지 않음
+# 실행 결과
+<_sre.SRE_Match object; span=(0, 4), match='1234'>
+<_sre.SRE_Match object; span=(0, 4), match='1234'>
+```
 
+* 그럼 \*와 +는 어디에 활용할까요? 다음과 같이 a*b와 a+b를 확인해보면 쉽게 알 수 있습니다.
+
+```python
+
+re.match('a*b', 'b')      # b에는 a가 0개 이상 있으므로 패턴에 매칭됨
+re.match('a+b', 'b')      # b에는 a가 1개 이상 없으므로 패턴에 매칭되지 않음
+re.match('a*b', 'aab')    # aab에는 a가 0개 이상 있으므로 패턴에 매칭됨
+re.match('a+b', 'aab')    # aab에는 a가 1개 이상 있으므로 패턴에 매칭됨
+<_sre.SRE_Match object; span=(0, 1), match='b'>
+<_sre.SRE_Match object; span=(0, 3), match='aab'>
+<_sre.SRE_Match object; span=(0, 3), match='aab'>
+```
 
 
 
