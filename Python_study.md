@@ -9107,6 +9107,53 @@ def 함수이름():
 
 
 
+## 정규표현식 사용하기(Use regular expression)
+
+* 정규표현식(regular expression)은 일정한 규칙(패턴)을 가진 문자열을 표현하는 방법입니다. 복잡한 문자열 속에서 특정한 규칙으로 된 문자열을 검색한 뒤 추출하거나 바꿀 때 사용합니다. 또는, 문자열이 정해진 규칙에 맞는지 판단할 때도 사용합니다.
+* 정규표현식을 처음 접하면 외계어 같아서 어려워하는 사람들이 많습니다. 하지만 부분부분 쪼개서 학습하면 그렇게 어렵지 않습니다.
+
+### 문자열 판단하기(determine string)
+
+* 간단하게 문자열에 특정 문자열이 포함되어 있는지 판단해보겠습니다. 정규표현식은 re 모듈을 가져와서 사용하며 match 함수에 정규표현식 패턴과 판단할 문자열을 넣습니다(re는 **r**egular **e**xpression의 약자).
+  * **re.match('패턴', '문자열')**
+
+* 다음은 'Hello, world!' 문자열에 'Hello'와 'Python'이 있는지 판단합니다.
+
+```python
+import re
+re.match('Hello', 'Hello, world!')     # 문자열이 있으므로 정규표현식 매치 객체가 반환됨
+# 실행 결과
+<_sre.SRE_Match object; span=(0, 5), match='Hello'>
+re.match('Python', 'Hello, world!')    # 문자열이 없으므로 아무것도 반환되지 않음
+```
+
+
+
+### 문자열이 맨 앞에 오는지 맨 뒤에 오는지 판단하기(determining whether a string comes first or last)
+
+* 문자열 앞에 ^를 붙이면 문자열이 맨 앞에 오는지 판단하고, 문자열 뒤에 $를 붙이면 문자열이 맨 뒤에 오는지 판단합니다(특정 문자열로 끝나는지).
+  * **^문자열**
+  * **문자열$**
+
+* 단, 이때는 match 대신 search 함수를 사용해야 합니다. match 함수는 문자열 처음부터 매칭되는지 판단하지만, search는 문자열 일부분이 매칭되는지 판단합니다.
+  * **re.search('패턴', '문자열')**
+
+* '^Hello'는 'Hello, world!'가 'Hello'로 시작하는지 판단하고, 'world!$'는 'Hello, world!'가 'world!'로 끝나는지 판단합니다.
+
+```python
+re.search('^Hello', 'Hello, world!')     # Hello로 시작하므로 패턴에 매칭됨
+re.search('world!$', 'Hello, world!')    # world!로 끝나므로 패턴에 매칭됨
+# 실행 결과
+<_sre.SRE_Match object; span=(0, 5), match='Hello'>
+<_sre.SRE_Match object; span=(7, 13), match='world!'>
+```
+
+
+
+
+
+
+
 ## 모듈과 패키지 만들기
 
 
