@@ -8,9 +8,8 @@ re.match('Python', 'Hello, world!')    # 문자열이 없으므로 아무것도 
 re.search('^Hello', 'Hello, world!')     # Hello로 시작하므로 패턴에 매칭됨
 re.search('world!$', 'Hello, world!')    # world!로 끝나므로 패턴에 매칭됨
 
-
-
-
+# 지정된 문자열이 하나라도 포함되는지 판단하기
+re.match('hello|world', 'hello')    # hello 또는 world가 있으므로 패턴에 매칭됨
 
 
 

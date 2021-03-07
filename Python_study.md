@@ -9150,6 +9150,26 @@ re.search('world!$', 'Hello, world!')    # world!로 끝나므로 패턴에 매�
 
 
 
+### 지정된 문자열이 하나라도 포함되는지 판단하기(determining if any of the specified strings are included)
+
+* |는 특정 문자열에서 지정된 문자열(문자)이 하나라도 포함되는지 판단합니다. 기본 개념은 OR 연산자와 같습니다.
+  * **문자열|문자열**
+  * **문자열|문자열|문자열|문자열**
+
+* 'hello|world'는 문자열에서 'hello' 또는 'world'가 포함되는지 판단합니다.
+
+```python
+re.match('hello|world', 'hello')    # hello 또는 world가 있으므로 패턴에 매칭됨
+# 실행 결과
+<_sre.SRE_Match object; span=(0, 5), match='hello'>
+```
+
+
+
+
+
+
+
 
 
 
