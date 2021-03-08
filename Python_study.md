@@ -9371,6 +9371,25 @@ re.match('[a-zA-Z0-9\s]+', 'Hello 1234')    # \s로 공백 표현
 
 
 
+#### 참고 | 같은 정규식 패턴을 자주 사용할 때(When you frequently use the same regular expression pattern)
+
+* 매번 match나 search 함수에 정규표현식 패턴을 지정하는 방법은 비효율적입니다. 같은 패턴을 자주 사용할 때는 compile 함수를 사용하여 정규표현식 패턴을 객체로 만든 뒤 match 또는 search 메서드를 호출하면 됩니다.
+  * **객체 = re.compile('패턴')**
+  * **객체.match('문자열')**
+  * **객체.search('문자열')**
+
+```python
+p = re.compile('[0-9]+')    # 정규표현식 패턴을 객체로 만듦
+p.match('1234')             # 정규표현식 패턴 객체에서 match 메서드 사용
+p.search('hello')           # 정규표현식 패턴 객체에서 search 메서드 사용
+```
+
+
+
+
+
+
+
 ## 모듈과 패키지 만들기
 
 
