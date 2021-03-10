@@ -9904,6 +9904,28 @@ print(count_by_range(a, -1, 3))
 
 
 
+### collections
+
+Collections 라이브러리의 기능 중에서 코딩 테스트에 유용한 클래스는 deque와 Counter이다.
+
+```python
+from collections import deque
+
+data = deque([2, 3, 4])
+data.appendleft(1)
+data.append(5)
+
+print(data)
+print(list(data))
+
+```
+
+
+
+
+
+
+
 ### 비트 연산자 사용하기
 
 
