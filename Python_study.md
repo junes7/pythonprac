@@ -9846,6 +9846,27 @@ print(result)
 
 
 
+### heapq
+
+* 파이썬에서는 힙(Heap) 기능을 위해 heapq 라이브러리를 제공한다. heqpq는 다익스트라 최단 경로 알고리즘(Dijkstra Algorithm)을 포함해 다양한 알고리즘에서 우선순위 큐 기능을 구현하고자 할 때 사용된다. heapq 외에도 PriorityQueue 라이브러리를 사용할 수 있지만, 코딩 테스트 환경에서는 보통 heapq가 더 빠르게 동작하므로 heapq를 이용하도록 하자.
+
+```python
+import heapq
+def heapsort(iterable):
+    h = []
+    result = []
+    # 모든 원소를 차례대로 힙에 삽입
+    for value in iterable:
+        heapq.heappush(h, -value)
+    # 힙에 삽입된 모든 원소를 차례대로 꺼내어 담기
+    for i in range(len(h)):
+        result.append(heapq.heappop(h))
+    return result
+
+result = heapsort([1, 3, 5, 7, 9, 2, 4, 6, 8, 0])
+print(result)
+```
+
 
 
 
