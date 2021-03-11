@@ -29,8 +29,15 @@ x = bytearray(b'hello')
 x[0] = ord('a')    # ord는 문자의 ASCII 코드를 반환
 print(x)
 
-
-
-
-
+# 바이트 자료형과 인코딩
+'hello'.encode()     # str을 bytes로 변환
+'안녕'.encode('euc-kr')
+'안녕'.encode('utf-8')
+b'hello'.decode()    # bytes를 str로 변환
+x = '안녕'.encode('euc-kr')
+x.decode('euc-kr')
+y = '안녕'.encode('utf-8')
+y.decode('utf-8')
+bytes('안녕', encoding='euc-kr')
+bytearray('안녕', encoding='cp949')
 

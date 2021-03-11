@@ -10066,5 +10066,62 @@ bytearray(b'aello')
 
 
 
-### 바이트 자료형과 인코딩
+### 바이트 자료형과 인코딩(Byte Material Type and Encoding)
+
+* 파이썬에서 문자열( str)의 기본 인코딩은 UTF-8인데, b'hello'와 같이 문자열을 바이트 객체로 만들면 각 문자를 ASCII 코드로 저장합니다. 보통 문자열을 UTF-8이 아닌 ASCII 코드로 처리하고 싶을 때 바이트 객체를 사용합니다.
+* 문자열(str)을 바이트 객체로 바꾸려면 encode 메서드를 사용합니다.
+  * **문자열.encode()**
+
+```python
+'hello'.encode()     # str을 bytes로 변환
+# 실행 결과
+b'hello'
+```
+
+* 이때 인코딩을 지정해주면 해당 인코딩으로 된 바이트 객체를 만듭니다. 다음은 한글 문자열 '안녕'을 EUC-KR 인코딩과 UTF-8 인코딩으로 된 바이트 객체로 만듭니다.
+  * **문자열.encode('인코딩')**
+
+```python
+'안녕'.encode('euc-kr')
+'안녕'.encode('utf-8')
+# 실행 결과
+b'\xbe\xc8\xb3\xe7'
+b'\xec\x95\x88\xeb\x85\x95'
+```
+
+* 반대로 바이트 객체를 문자열(str)로 바꾸려면 decode 메서드를 사용하면 됩니다.
+  * **바이트객체.decode()**
+
+```python
+b'hello'.decode()    # bytes를 str로 변환
+# 실행
+'hello'
+```
+
+* 물론 바이트 객체가 특정 인코딩으로 되어 있다면 decode에 인코딩을 지정해주면 됩니다.
+  * **바이트객체.decode('인코딩')**
+
+```python
+x = '안녕'.encode('euc-kr')
+x.decode('euc-kr')
+y = '안녕'.encode('utf-8')
+y.decode('utf-8')
+# 실행 결과
+'안녕'
+'안녕'
+```
+
+* bytes, bytearray는 인코딩을 지정하여 객체를 생성할 수 있습니다.
+  * **bytes(값, encoding='인코딩')**
+  * **bytearray(값, encoding='인코딩')**
+
+* 다음은 한글 문자열 '안녕'을 EUC-KR, CP949 인코딩으로 된 바이트 객체로 생성합니다.
+
+```python
+bytes('안녕', encoding='euc-kr')
+bytearray('안녕', encoding='cp949')
+# 실행 결과
+b'\xbe\xc8\xb3\xe7'
+bytearray(b'\xbe\xc8\xb3\xe7')
+```
 
