@@ -24,7 +24,10 @@ bytes(10)    # 0이 10개 들어있는 바이트 객체 생성
 bytes([10, 20, 30, 40, 50])    # 리스트로 바이트 객체 생성
 bytes(b'hello')    # 바이트 객체로 바이트 객체 생성
 
-
+# bytearray
+x = bytearray(b'hello')
+x[0] = ord('a')    # ord는 문자의 ASCII 코드를 반환
+print(x)
 
 
 
