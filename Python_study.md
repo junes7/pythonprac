@@ -10242,9 +10242,18 @@ datetime.datetime(2018, 5, 19, 4, 40, 12, 536110, tzinfo=<UTC>)
 
 
 
+### 특정 날짜와 시간으로 객체 만들기(Create an object with a specific date and time)
 
+* 또는, datetime.datetime에 연, 월, 일, 시, 분, 초, 마이크로초를 넣어서 객체를 만들 수도 있습니다.
+  * **datetime.datetime(year, month, day, hour=0, minute=0, second=0, microsecond=0)**
 
-
+```python
+# 특정 날짜와 시간으로 객체 만들기
+d = datetime.datetime(2021, 3, 12)
+print(d)
+# 실행 결과
+datetime.datetime(2021, 3, 12, 0, 0)
+```
 
 
 

@@ -57,4 +57,11 @@ print(time.strftime('%c', time.localtime(time.time())))
 import datetime
 print(datetime.datetime.today())
 print(datetime.datetime.now())
-print(datetime.datetime.now(pytz.timezone('UTC')))
+
+# 특정 날짜와 시간으로 객체 만들기
+d = datetime.datetime(2021, 3, 12)
+print(d)
+
+
+
+
