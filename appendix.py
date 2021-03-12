@@ -41,3 +41,8 @@ y.decode('utf-8')
 bytes('안녕', encoding='euc-kr')
 bytearray('안녕', encoding='cp949')
 
+# time 모듈로 현재 시간 구하기
+import time
+print(time.time())
+
+

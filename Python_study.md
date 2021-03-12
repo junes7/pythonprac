@@ -10125,3 +10125,50 @@ b'\xbe\xc8\xb3\xe7'
 bytearray(b'\xbe\xc8\xb3\xe7')
 ```
 
+* EUC-KR은 한글 표준 인코딩입니다. 그리고고 CP949는 마이크로소프트에서 만든 한글 인코딩의 한 종류이며 EUC-KR의 확장형입니다(Windows에서 사용).
+
+
+
+### 날짜/시간 모듈 활용하기
+
+* 파이썬으로 프로그래밍을 하다보면 날짜와 시간 처리를 해야 하는 경우가 자주 생깁니다. 여기서는 날짜와 시간을 표현하는 time과 datetime 모듈을 소개하겠습니다.
+
+### time 모듈로 현재 시간 구하기(Get current time by time module)
+
+* 먼저 시간을 표현하는 time 모듈입니다. 다음과 같이 time 모듈의 time 함수를 호출하면 1970년 1월 1일 0시 0분 0초 이후 경과한 시간을 초단위로 반환합니다. 시간대는 UTC(Universal Time Coordinated, 협정 세계시)를 사용합니다.
+
+```python
+# time 모듈로 현재 시간 구하기
+import time
+print(time.time())
+1615520854.1497736
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
