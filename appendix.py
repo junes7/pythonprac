@@ -62,6 +62,9 @@ print(datetime.datetime.now())
 d = datetime.datetime(2021, 3, 12)
 print(d)
 
+# 문자열로 날짜/시간 객체 만들기
+d = datetime.datetime.strptime('2018-05-19', '%Y-%m-%d')
+print(d)
 
 
 

@@ -10257,5 +10257,16 @@ datetime.datetime(2021, 3, 12, 0, 0)
 
 
 
+### 문자열로 날짜/시간 객체 만들기(create date/time objects with String)
+
+* strptime 메서드를 사용하면 문자열 형태의 날짜를 datetime.datetime 객체로 만들 수 있습니다. 이때는 날짜/시간 포맷을 지정해줘야 합니다.
+  * **datetime.datetime.strptime('날짜문자열', '포맷')**
+
+```python
+d = datetime.datetime.strptime('2018-05-19', '%Y-%m-%d')
+print(d)
+datetime.datetime(2018, 5, 19, 0, 0)
+```
+
 
 
