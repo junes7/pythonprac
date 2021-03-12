@@ -45,4 +45,7 @@ bytearray('안녕', encoding='cp949')
 import time
 print(time.time())
 
+# 날짜와 시간 형태로 변환하기
+print(time.localtime(time.time()))
+
 

@@ -10146,6 +10146,23 @@ print(time.time())
 
 
 
+### 날짜와 시간 형태로 변환하기(Convert to date and time form)
+
+* time 모듈의 localtime 함수를 사용하면 time에서 반환한 값을 날짜와 시간 형태로 변환해줍니다. 특히 localtime이라는 이름 그대로 현재 지역의 시간대를 사용합니다. 우리나라에서 실행했다면 UTC에 9시간을 더한 KST(Korea Standard Time, 한국 표준시)를 사용합니다(UTC+09:00).
+  * time.localtime(초)
+
+```python
+# 날짜와 시간 형태로 변환하기
+print(time.localtime(time.time()))
+# 실행 결과
+time.struct_time(tm_year=2021, tm_mon=3, tm_mday=12, tm_hour=13, tm_min=16, tm_sec=8, tm_wday=4, tm_yday=71, tm_isdst=0)
+time.struct_time(tm_year=2021, tm_mon=3, tm_mday=12, tm_hour=13, tm_min=17, tm_sec=39, tm_wday=4, tm_yday=71, tm_isdst=0)
+```
+
+* 여기서 tm_wday는 요일(월요일~일요일, 0~6), tm_yday는 1월 1일부터 경과한 일수, tm_isdst는 서머타임 여부입니다.
+
+
+
 
 
 
