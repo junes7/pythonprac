@@ -10179,15 +10179,66 @@ Fri Mar 12 13:22:10 2021
 
 
 
+**[날짜 표]**
+
+| 코드 | 설명                                      | 예                                       |
+| ---- | ----------------------------------------- | ---------------------------------------- |
+| %a   | 요일 줄임말                               | Sun, Mon, ... , Sat                      |
+| %A   | 요일                                      | Sunday, Monday, ... , Saturday           |
+| %w   | 요일을 숫자로 표시, 월요일~일요일,0~6     | 0, 1, ... , 6                            |
+| %d   | 일                                        | 01, 02, ..., 31                          |
+| %b   | 월 줄임말                                 | Jan, Feb, ... , Dec                      |
+| %B   | 월                                        | January, February, ... , December        |
+| %m   | 숫자 월                                   | 01, 02, ... , 12                         |
+| %y   | 두 자릿수 연도                            | 01, 02, ... , 99                         |
+| %Y   | 네 자릿수 연도                            | 0001, 0002, ... , 2017, 2018, ... , 9999 |
+| %H   | 시간(24 시간)                             | 00, 01, ... , 23                         |
+| %I   | 시간(12 시간)                             | 01, 02, ... , 12                         |
+| %p   | AM(오전), PM(오후)                        | AM, PM                                   |
+| %M   | 분                                        | 00, 01, ... , 59                         |
+| %S   | 초                                        | 00, 01, ... , 59                         |
+| %Z   | 시간대                                    | 대한민국 표준시                          |
+| %j   | 1월 1일부터 경과한 일수                   | 001, 002, ... , 366                      |
+| %U   | 1년중 주차, 월요일이 한 주의 시작으로     | 00, 01, ... , 53                         |
+| %W   | 1년중 주차, 월요일이 한 주의 시작으로     | 00, 01, ... , 53                         |
+| %c   | 날짜, 요일, 시간을 출력, 현재 시간대 기준 | Fri Mar 12 13:22:10 2021                 |
+| %x   | 날짜를 출력, 현재 시간대 기준             | 03/12/21                                 |
+| %X   | 시간을 출력, 현재 시간대 기준             | '13:43:33'                               |
 
 
 
 
 
+### datetime 모듈로 현재 날짜와 시간 구하기(Get current date and time with datetime module)
+
+* 이번에는 datetime 모듈의 datetime 클래스를 사용해보겠습니다. datetime.datetime으로 현재 날짜와 시간을 구할 때는 today 메서드를 사용합니다(현재 시간대 기준, KST).
+  * datetime.datetime.today( )
+
+```python
+import datetime
+datetime.datetime.today()
+datetime.datetime(2021, 3, 12, 13, 52, 18, 501398)
+datetime.datetime.now()
+datetime.datetime(2021, 3, 12, 13, 51, 1, 997797)
+```
+
+* 만약 datetime 모듈로 현재 시간을 구할 때 UTC를 기준으로 구하고 싶다면 now 메서드에 pytz 모듈로 시간대를 지정해주어야 합니다.
+  * **datetime.datetime.now(시간대객체)**
+
+* 먼저 pip로 pytz 모듈을 설치합니다.
+
+```bash
+pip install pytz
+```
 
 
 
+* 그리고 pytz.timezone에 'UTC'를 지정하면 UTC를 기준으로 시간을 구할 수 있습니다(KST보다 9시간 이전의 시간이 나옴).
 
+```python
+datetime.datetime.now(pytz.timezone('UTC'))
+datetime.datetime(2018, 5, 19, 4, 40, 12, 536110, tzinfo=<UTC>)
+```
 
 
 

@@ -49,5 +49,12 @@ print(time.time())
 print(time.localtime(time.time()))
 
 # 날짜/시간 포맷에 맞춰서 출력하기
-print(time.strftime('%Y-%m-%d', time.localtime(time.time())))
+print(time.strftime('%Y-%m-%d-%H-%M-%p', time.localtime(time.time())))
+print(time.strftime('%x-%X', time.localtime(time.time())))
 print(time.strftime('%c', time.localtime(time.time())))
+
+# datetime 모듈로 현재 날짜와 시간 구하기
+import datetime
+print(datetime.datetime.today())
+print(datetime.datetime.now())
+print(datetime.datetime.now(pytz.timezone('UTC')))
