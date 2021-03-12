@@ -10163,9 +10163,19 @@ time.struct_time(tm_year=2021, tm_mon=3, tm_mday=12, tm_hour=13, tm_min=17, tm_s
 
 
 
+### 날짜/시간 포맷에 맞춰서 출력하기(Print to date/time format)
 
+* time.localtime으로 만든 객체는 time.strftime 함수를 사용하여 원하는 날짜/시간 포맷으로 출력할 수 있습니다.
+  * time.strftime('포맷', 시간객체)
 
-
+```python
+# 날짜/시간 포맷에 맞춰서 출력하기
+print(time.strftime('%Y-%m-%d', time.localtime(time.time())))
+print(time.strftime('%c', time.localtime(time.time())))
+# 실행 결과
+2021-03-12
+Fri Mar 12 13:22:10 2021
+```
 
 
 
