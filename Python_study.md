@@ -10314,3 +10314,15 @@ datetime.datetime(2021, 2, 21, 0, 0)
 '2021-02-21 00:00:00'
 ```
 
+* 즉, datetime.datetime 객체에서 datetime.timedelta를 빼면 이전 날짜와 시간을 구하고, 더하면 이후 날짜와 시간을 구합니다.
+* 특히 datetime.datetime 객체에서 datetime.datetime 객체를 빼면 datetime.timedelta 객체가 나옵니다.
+
+```python
+datetime.datetime(2021, 3, 13) - datetime.datetime(2021, 2, 1)
+# 실행 결과
+datetime.timedelta(days=40)
+'40 days, 0:00:00'
+```
+
+
+
