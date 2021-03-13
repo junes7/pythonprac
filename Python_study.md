@@ -10296,3 +10296,21 @@ print(today.year, today.month, today.day, today.hour, today.minute, today.second
 2021 3 13 23 4 14 386825
 ```
 
+
+
+### 날짜와 시간 차이 계산하기(Calculating the Date and Time Difference)
+
+* datetime 모듈에서 유용한 기능이 바로 datetime.timedelta입니다. datetime.timedelta는 두 날짜와 시간 사이의 차이를 계산할 때 사용합니다.
+  * **datetime.timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)**
+
+* 다음은 2021년 3월 13일에서 20일전 날짜를 구합니다.
+
+```python
+d = datetime(2021, 3, 13)
+from datetime import timedelta
+d - timedelta(days=20)
+# 실행 결과
+datetime.datetime(2021, 2, 21, 0, 0)
+'2021-02-21 00:00:00'
+```
+

@@ -11,5 +11,8 @@ print(d.strftime('%c'))
 today = datetime.datetime.today()
 print(today.year, today.month, today.day, today.hour, today.minute, today.second, today.microsecond)
 
-
+# 날짜와 시간 차이 계산하기
+d = datetime.datetime(2021, 3, 13)
+from datetime import timedelta
+print(d - timedelta(days=20))
 
