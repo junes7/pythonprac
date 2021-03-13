@@ -10263,10 +10263,23 @@ datetime.datetime(2021, 3, 12, 0, 0)
   * **datetime.datetime.strptime('날짜문자열', '포맷')**
 
 ```python
-d = datetime.datetime.strptime('2018-05-19', '%Y-%m-%d')
+d = datetime.datetime.strptime('2021-03-12', '%Y-%m-%d')
 print(d)
-datetime.datetime(2018, 5, 19, 0, 0)
+datetime.datetime(2021, 3, 12, 0, 0)
 ```
 
 
+
+### 날짜/시간 객체를 문자열로 만들기(Make a date/time object a string)
+
+* 반대로 datetime 객체를 문자열로 만들 수도 있습니다. 이때는 strftime 메서드를 사용합니다.
+  * **datetime 객체.strftime('포맷')**
+
+```python
+print(d.strftime('%Y-%m-%d'))
+print(d.strftime('%c'))
+# 실행 결과
+'2021-03-12'
+'Fri Mar 12 00:00:00 2021'
+```
 
