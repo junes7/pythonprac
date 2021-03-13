@@ -24,4 +24,6 @@ print(math.fabs(x - 0.3) <= sys.float_info.epsilon)
 # 파이썬 3.5 이상부터는 math.isclose함수를 사용해 두 실수가 같은지 판단
 print(math.isclose(0.1 + 0.2, 0.3))
 
-
+# Decimal으로 정확한 자릿수 표현하기
+from decimal import Decimal
+print(Decimal('0.1') + Decimal('0.2'))

@@ -10372,3 +10372,17 @@ math.isclose(0.1 + 0.2, 0.3)
 True
 ```
 
+
+
+### Decimal으로 정확한 자릿수 표현하기
+
+* 반올림 오차가 없는 고정소수점을 사용하려면 decimal 모듈의 Decimal을 사용하면 됩니다. Decimal은 숫자를 10진수로 처리하여 정확한 소수점 자릿수를 표현합니다.
+
+```python
+from decimal import Decimal
+Decimal('0.1') + Decimal('0.2')
+# 실행 결과
+Decimal('0.3')
+0.3
+```
+
