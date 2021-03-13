@@ -6,3 +6,10 @@ print(d)
 # 날짜/시간 객체를 문자열로 만들기
 print(d.strftime('%Y-%m-%d'))
 print(d.strftime('%c'))
+
+# 날짜와 시간 속성에 접근하기
+today = datetime.datetime.today()
+print(today.year, today.month, today.day, today.hour, today.minute, today.second, today.microsecond)
+
+
+

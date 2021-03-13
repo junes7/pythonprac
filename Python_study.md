@@ -10283,3 +10283,16 @@ print(d.strftime('%c'))
 'Fri Mar 12 00:00:00 2021'
 ```
 
+
+
+###  날짜와 시간 속성에 접근하기(Accessing the Date and Time properties)
+
+* datetime.datetime 객체는 연( year), 월(month), 일(day), 시(hour), 분(minute), 초(second), 마이크로초(microsecond) 속성을 따로 가져올 수 있습니다.
+
+```python
+today = datetime.today()
+print(today.year, today.month, today.day, today.hour, today.minute, today.second, today.microsecond)
+# 실행 결과
+2021 3 13 23 4 14 386825
+```
+
