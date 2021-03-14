@@ -10374,7 +10374,7 @@ True
 
 
 
-### Decimal으로 정확한 자릿수 표현하기
+### Decimal으로 정확한 자릿수 표현하기(Expressing the exact number of digits with decimal)
 
 * 반올림 오차가 없는 고정소수점을 사용하려면 decimal 모듈의 Decimal을 사용하면 됩니다. Decimal은 숫자를 10진수로 처리하여 정확한 소수점 자릿수를 표현합니다.
 
@@ -10384,5 +10384,19 @@ Decimal('0.1') + Decimal('0.2')
 # 실행 결과
 Decimal('0.3')
 0.3
+```
+
+
+
+### Fraction으로 분수 표현하기
+
+* 순환소수는 고정소수점이라도 정확히 표현할 수 없습니다. 이때는 fractions 모듈의 Fraction을 사용하여 분수로 표현하면 됩니다.
+
+```python
+from fractions import Fraction
+print(Fraction('10/3'))    # 10을 3으로 나누면 순환소수 3.33333...이지만 분수 3분의 10으로 표현
+# 실행 결과
+Fraction(10, 3)
+10/3
 ```
 

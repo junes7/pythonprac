@@ -27,3 +27,14 @@ print(math.isclose(0.1 + 0.2, 0.3))
 # Decimal으로 정확한 자릿수 표현하기
 from decimal import Decimal
 print(Decimal('0.1') + Decimal('0.2'))
+
+# fraction으로 분수 표현하기
+from fractions import Fraction
+print(Fraction('10/3'))    # 10을 3으로 나누면 순환소수 3.33333...이지만 분수 3분의 10으로 표현
+
+
+
+
+
+
+
