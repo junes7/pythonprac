@@ -10423,6 +10423,46 @@ with OpenHello() as hello:
 
 
 
+### 메타클래스 사용하기
+
+* 메타클래스(metaclass)는 클래스를 만드는 클래스인데, 이 메타클래스를 구현하는 방법은 두 가지가 있습니다.
+  * type을 사용하여 동적으로 클래스를 생성하는 방식
+  * type을 상속받아서 메타클래스를 구현하는 방식
+* type은 객체의 클래스(자료형) 종류를 알아낼 때도 사용할 수 있고, 클래스를 만들어낼 수도 있습니다.
+
+### type를 사용하여 동적으로 클래스 생성하기(Using type to dynamically create classes)
+
+* 먼저 클래스는 type 안에 클래스 이름(문자열), 기반 클래스 튜플, 속성과 메서드 딕셔너리를 지정해서 만듭니다.
+  * **클래스 = type('클래스이름', 기반클래스튜플, 속성메서드딕셔너리)**
+
+```python
+Hello = type('Hello', (), {})    # type으로 클래스 Hello 생성
+print(Hello)
+<class '__main__.Hello'>
+h = Hello()                      # 클래스 Hello로 인스턴스 h 생성
+print(h)
+<__main__.Hello object at 0x029B4750>
+```
+
+
+
+### type을 상속받아서 메타클래스 구현하기(Implementing meta-classes by inheriting types)
+
+* 이번에는 메타클래스의 __new__ 메서드를 알아보겠습니다. 클래스가 type을 상속받으면 메타클래스가 됩니다. 이때 __new__ 메서드에서 새로 만들어질 클래스에 속성과 메서드를 추가해줄 수 있습니다.
+
+```python
+class MakeCalc(type):    # type을 상속받음
+    def __new__(metacls, name, bases, namespace):      # 새 클래스를 만들 때 호출되는 메서드
+        namespace['desc'] = '계산 클래스'              # 새 클래스에 속성 추가
+        namespace['add'] = lambda self, a, b: a + b    # 새 클래스에 메서드 추가
+        return type.__new__(metacls, name, bases, namespace)    # type의 __new__ 호출
+ 
+Calc = MakeCalc('Calc', (), {})    # 메타클래스 MakeCalc로 클래스 Calc 생성
+c = Calc()                         # 클래스 Calc로 인스턴스 c 생성
+print(c.desc)                      # '계산 클래스': 인스턴스 c의 속성 출력
+print(c.add(1, 2))                 # 3: 인스턴스 c의 메서드 호출
+```
+
 
 
 
