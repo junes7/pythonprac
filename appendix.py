@@ -62,8 +62,3 @@ print(datetime.datetime.now())
 d = datetime.datetime(2021, 3, 12)
 print(d)
 
-
-
-
-
-

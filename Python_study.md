@@ -10540,7 +10540,7 @@ loop.run_until_complete(hello())    # hello가 끝날 때까지 기다림
 
 
 
-### await로 네이트브 코루틴 실행하기(Running native coroutine with await method)
+### await로 네이트브 코루틴 실행하기(Running native coroutine with await)
 
 * 이번에는 await로 네이티브 코루틴을 실행하는 방법입니다. 다음과 같이 await 뒤에 코루틴 객체, 퓨처 객체, 태스크 객체를 지정하면 해당 객체가 끝날 때까지 기다린 뒤 결과를 반환합니다. await는 단어 뜻 그대로 특정 객체가 끝날 때까지 기다립니다.
 * await 키워드는 파이썬 3.5 이상부터 사용 가능, 3.4에서는 yield from을 사용
@@ -10553,7 +10553,6 @@ loop.run_until_complete(hello())    # hello가 끝날 때까지 기다림
 
 ```python
 import asyncio
- 
 async def add(a, b):
     print('add: {0} + {1}'.format(a, b))
     await asyncio.sleep(1.0)    # 1초 대기. asyncio.sleep도 네이티브 코루틴
@@ -10591,3 +10590,35 @@ async def add(a, b):
     return a + b    # 두 수를 더한 결과 반환
 ```
 
+
+
+### 비동기로 웹 페이지 가져오기(Import web pages asynchronously)
+
+* 이번에는 asyncio를 사용하여 비동기로 웹 페이지를 가져와보겠습니다.
+* 먼저 다음과 같이 asyncio를 사용하지 않고 웹 페이지를 순차적으로 가져오겠습니다. urllib.request의 urlopen으로 웹 페이지를 가져온 뒤 웹 페이지의 길이를 출력해봅니다.
+
+```python
+from time import time
+from urllib.request import Request, urlopen
+ 
+urls = ['https://www.google.co.kr/search?q=' + i
+        for i in ['apple', 'pear', 'grape', 'pineapple', 'orange', 'strawberry']]
+ 
+begin = time()
+result = []
+for url in urls:
+    request = Request(url, headers={'User-Agent': 'Mozilla/5.0'})    # UA가 없으면 403 에러 발생
+    response = urlopen(request)
+    page = response.read()
+    result.append(len(page))
+ 
+print(result)
+end = time()
+print('실행 시간: {0:.3f}초'.format(end - begin))
+# 실행 결과
+[89590, 88723, 88802, 90142, 90628, 92663]
+실행 시간: 8.422초
+```
+
+* 실행을 해보면 웹 페이지의 크기가 출력되고 실행 시간은 약 8초가 걸립니다(웹 페이지 크기는 매번 달라질 수 있고, 실행 시간은 컴퓨터마다 달라질 수 있습니다).
+* 여기서는 urls에 저장된 순서대로 주소에 접근해서 웹 페이지를 가져오도록 만들었습니다. 이렇게 하면 웹 페이지 하나를 완전히 가져온 뒤에 다음 웹 페이지를 가져와야 해서 비효율적입니다.
