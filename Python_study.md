@@ -10489,5 +10489,54 @@ print(a is b)   # True: 인스턴스 a와 b는 같음
 
 
 
+### asyncio 사용하기
+
+* asyncio(Asynchronous I/O)는 비동기 프로그래밍을 위한 모듈이며 CPU 작업과 I/O를 병렬로 처리하게 해줍니다.
+* 동기(synchronous) 처리는 특정 작업이 끝나면 다음 작업을 처리하는 순차처리 방식이고, 비동기(asynchronous) 처리는 여러 작업을 처리하도록 예약한 뒤 작업이 끝나면 결과를 받는 방식입니다.
+
+[동기 처리와 비동기 처리]
+
+![image-20210315000155003](images/image-20210315000155003.png)
+
+
+
+### 네이티브 코루틴 만들기(create native coroutine)
+
+* 먼저 asyncio를 사용하려면 다음과 같이 async def로 네이티브 코루틴을 만듭니다(파이썬에서는 제너레이터 기반의 코루틴과 구분하기 위해 async def로 만든 코루틴은 네이티브 코루틴이라고 합니다).
+* async def 키워드는 파이썬 3.5 이상부터 사용 가능합니다.
+
+```python
+async def 함수이름():
+    코드
+```
+
+```python
+import asyncio
+ 
+async def hello():    # async def로 네이티브 코루틴을 만듦
+    print('Hello, world!')
+ 
+loop = asyncio.get_event_loop()     # 이벤트 루프를 얻음
+loop.run_until_complete(hello())    # hello가 끝날 때까지 기다림
+loop.close()                        # 이벤트 루프를 닫음
+# 실행 결과
+Hello, world!
+```
+
+
+
+* 먼저 async def로 hello를 만듭니다. 그다음에 asyncio.get_event_loop 함수로 이벤트 루프를 얻고 loop.run_until_complete(hello( ))와 같이 run_until_complete에 코루틴 객체를 넣습니다(네이터브 코루틴을 호출하면 코루틴 객체가 생성됩니다).
+
+  * **이벤트루프 = asyncio.get_event_loop()**
+
+  * **이벤트루프.run_until_complete(코루틴객체 또는 퓨처객체)**
+
+```python
+loop = asyncio.get_event_loop()     # 이벤트 루프를 얻음
+loop.run_until_complete(hello())    # hello가 끝날 때까지 기다림
+```
+
+* run_until_complete는 네이티브 코루틴이 이벤트 루프에서 실행되도록 예약하고, 해당 네이티브 코루틴이 끝날 때까지 기다립니다. 이렇게 하면 이벤트 루프를 통해서 hello 코루틴이 실행됩니다. 할 일이 끝났으면 loop.close로 이벤트 루프를 닫아줍니다.
+
 
 
