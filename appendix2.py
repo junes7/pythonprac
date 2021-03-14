@@ -44,6 +44,10 @@ class OpenHello:
 with OpenHello() as hello:
     hello.write('Hello, world!')
 
-
+# type를 사용하여 동적으로 클래스 생성하기
+Hello = type('Hello', (), {})    # type으로 클래스 Hello 생성
+print(Hello)
+h = Hello()                      # 클래스 Hello로 인스턴스 h 생성
+print(h)
 
 
