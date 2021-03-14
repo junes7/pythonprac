@@ -10388,7 +10388,7 @@ Decimal('0.3')
 
 
 
-### Fraction으로 분수 표현하기
+### Fraction으로 분수 표현하기(Represent fractions with fraction)
 
 * 순환소수는 고정소수점이라도 정확히 표현할 수 없습니다. 이때는 fractions 모듈의 Fraction을 사용하여 분수로 표현하면 됩니다.
 
@@ -10399,4 +10399,33 @@ print(Fraction('10/3'))    # 10을 3으로 나누면 순환소수 3.33333...이�
 Fraction(10, 3)
 10/3
 ```
+
+
+
+### with as에 사용할 수 있는 클래스 만들기(create a class that can be used with as)
+
+* open으로 파일을 열 때 with as를 사용하여 파일 객체의 close를 자동으로 호출해주었습니다. 이런 방식으로 with as를 사용하려면 클래스에 __enter__와 __exit__ 메서드를 구현해주면 됩니다.
+
+```python
+class OpenHello:
+    def __enter__(self):
+        self.file = open('hello.txt', 'w')    # 파일 객체를 속성에 저장
+        return self.file     # __enter__에서 값을 반환하면 as에 지정한 변수에 들어감
+ 
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.file.close()    # __exit__에서 파일 객체 닫기
+ 
+with OpenHello() as hello:
+    hello.write('Hello, world!')
+
+
+```
+
+
+
+
+
+
+
+
 
