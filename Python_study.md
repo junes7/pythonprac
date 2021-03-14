@@ -10489,7 +10489,7 @@ print(a is b)   # True: 인스턴스 a와 b는 같음
 
 
 
-### asyncio 사용하기
+### asyncio 사용하기(Using asyncio)
 
 * asyncio(Asynchronous I/O)는 비동기 프로그래밍을 위한 모듈이며 CPU 작업과 I/O를 병렬로 처리하게 해줍니다.
 * 동기(synchronous) 처리는 특정 작업이 끝나면 다음 작업을 처리하는 순차처리 방식이고, 비동기(asynchronous) 처리는 여러 작업을 처리하도록 예약한 뒤 작업이 끝나면 결과를 받는 방식입니다.
@@ -10539,4 +10539,55 @@ loop.run_until_complete(hello())    # hello가 끝날 때까지 기다림
 * run_until_complete는 네이티브 코루틴이 이벤트 루프에서 실행되도록 예약하고, 해당 네이티브 코루틴이 끝날 때까지 기다립니다. 이렇게 하면 이벤트 루프를 통해서 hello 코루틴이 실행됩니다. 할 일이 끝났으면 loop.close로 이벤트 루프를 닫아줍니다.
 
 
+
+### await로 네이트브 코루틴 실행하기(Running native coroutine with await method)
+
+* 이번에는 await로 네이티브 코루틴을 실행하는 방법입니다. 다음과 같이 await 뒤에 코루틴 객체, 퓨처 객체, 태스크 객체를 지정하면 해당 객체가 끝날 때까지 기다린 뒤 결과를 반환합니다. await는 단어 뜻 그대로 특정 객체가 끝날 때까지 기다립니다.
+* await 키워드는 파이썬 3.5 이상부터 사용 가능, 3.4에서는 yield from을 사용
+  * **변수 = await 코루틴객체**
+  * **변수 = await 퓨처객체**
+  * **변수 = await 태스크객체**
+
+* 여기서 주의할 점이 있는데 await는 네이티브 코루틴 안에서만 사용할 수 있습니다.
+* 그럼 두 수를 더하는 네이티브 코루틴을 만들고 코루틴에서 1초 대기한 뒤 결과를 반환해보겠습니다.
+
+```python
+import asyncio
+ 
+async def add(a, b):
+    print('add: {0} + {1}'.format(a, b))
+    await asyncio.sleep(1.0)    # 1초 대기. asyncio.sleep도 네이티브 코루틴
+    return a + b    # 두 수를 더한 결과 반환
+ 
+async def print_add(a, b):
+    result = await add(a, b)    # await로 다른 네이티브 코루틴 실행하고 반환값을 변수에 저장
+    print('print_add: {0} + {1} = {2}'.format(a, b, result))
+ 
+loop = asyncio.get_event_loop()             # 이벤트 루프를 얻음
+loop.run_until_complete(print_add(1, 2))    # print_add가 끝날 때까지 이벤트 루프를 실행
+loop.close()                                # 이벤트 루프를 닫음
+# 실행 결과
+add: 1 + 2
+print_add: 1 + 2 = 3
+
+```
+
+* add: 1 + 2가 출력되고 1초 뒤에 print_add: 1 + 2 = 3이 출력됩니다.
+
+* 먼저 print_add부터 보겠습니다. print_add에서는 await로 add를 실행하고 반환값을 변수에 저장했습니다. 이렇게 코루틴 안에서 다른 코루틴을 실행할 때는 await를 사용합니다.
+
+```python
+async def print_add(a, b):
+    result = await add(a, b)    # await로 다른 네이티브 코루틴 실행하고 반환값을 변수에 저장
+    print('print_add: {0} + {1} = {2}'.format(a, b, result))
+```
+
+* add에서는 await asyncio.sleep(1.0)로 1초 대기한 뒤 return a + b로 두 수를 더한 결과를 반환합니다. 사실 await asyncio.sleep(1.0)은 없어도 되지만 코루틴이 비동기로 실행되는 모습을 확인하기 위해 사용했습니다. 특히 asyncio.sleep도 네이티브 코루틴이라 await를 사용해야 합니다.
+
+```python
+async def add(a, b):
+    print('add: {0} + {1}'.format(a, b))
+    await asyncio.sleep(1.0)    # 1초 대기. asyncio.sleep도 네이티브 코루틴
+    return a + b    # 두 수를 더한 결과 반환
+```
 
