@@ -10622,3 +10622,45 @@ print('실행 시간: {0:.3f}초'.format(end - begin))
 
 * 실행을 해보면 웹 페이지의 크기가 출력되고 실행 시간은 약 8초가 걸립니다(웹 페이지 크기는 매번 달라질 수 있고, 실행 시간은 컴퓨터마다 달라질 수 있습니다).
 * 여기서는 urls에 저장된 순서대로 주소에 접근해서 웹 페이지를 가져오도록 만들었습니다. 이렇게 하면 웹 페이지 하나를 완전히 가져온 뒤에 다음 웹 페이지를 가져와야 해서 비효율적입니다.
+
+
+
+### asyncio 사용해서 웹 페이지를 비동기로 가져오기(Import Web pages asynchronously with asyncio)
+
+* 그럼 asyncio를 사용해서 비동기로 실행해보겠습니다.
+
+```python
+from time import time
+from urllib.request import Request, urlopen
+import asyncio
+ 
+urls = ['https://www.google.co.kr/search?q=' + i
+        for i in ['apple', 'pear', 'grape', 'pineapple', 'orange', 'strawberry']]
+ 
+async def fetch(url):
+    request = Request(url, headers={'User-Agent': 'Mozilla/5.0'})    # UA가 없으면 403 에러 발생
+    response = await loop.run_in_executor(None, urlopen, request)    # run_in_executor 사용
+    page = await loop.run_in_executor(None, response.read)           # run in executor 사용
+    return len(page)
+ 
+async def main():
+    futures = [asyncio.ensure_future(fetch(url)) for url in urls]
+                                                           # 태스크(퓨처) 객체를 리스트로 만듦
+    result = await asyncio.gather(*futures)                # 결과를 한꺼번에 가져옴
+    print(result)
+ 
+begin = time()
+loop = asyncio.get_event_loop()          # 이벤트 루프를 얻음
+loop.run_until_complete(main())          # main이 끝날 때까지 기다림
+loop.close()                             # 이벤트 루프를 닫음
+end = time()
+print('실행 시간: {0:.3f}초'.format(end - begin))
+# 실행 결과
+[89556, 88682, 89925, 90164, 90513, 93965]
+실행 시간: 1.737초
+```
+
+* asyncio를 사용하니 실행 시간이 8초대에서 1초대로 줄었습니다.
+* urlopen이나 response.read 같은 함수(메서드)는 결과가 나올 때까지 코드 실행이 중단(block)되는데 이런 함수들을 블로킹 I/O(blocking I/O) 함수라고 부릅니다. 특히 네이티브 코루틴 안에서 블로킹 I/O 함수를 실행하려면 이벤트 루프의 run_in_executor 함수를 사용하여 다른 스레드에서 병렬로 실행시켜야 합니다.
+* run_in_executor의 첫 번째 인수는 executor인데 함수를 실행시켜줄 스레드 풀 또는 프로세스 풀입니다. 여기서는 None을 넣어서 기본 스레드 풀을 사용합니다. 그리고 두 번째 인수에는 실행할 함수를 넣고 세 번째 인수부터는 실행할 함수에 들어갈 인수를 차례대로 넣어줍니다.
+
