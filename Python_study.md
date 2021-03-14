@@ -10752,3 +10752,45 @@ loop.close()
 ```
 
 * __aenter__ 메서드에서 1초 대기한 뒤 self.a와 self.b를 더한 결과를 반환하도록 만듭니다. 이렇게 __aenter__에서 값을 반환하면 as에 지정한 변수에 들어갑니다. __aexit__ 메서드는 async with as를 완전히 벗어나면 호출되는데 여기서는 특별히 만들 부분이 없으므로 pass를 넣습니다(메서드 자체가 없으면 에러가 발생합니다).
+
+
+
+### async for
+
+* 이번에는 async for입니다. async for로 동작하는 클래스를 만들려면 __aiter__와 __anext__ 메서드를 구현해야 합니다(asynchronous iter, asynchronous next라는 뜻). 그리고 메서드를 만들 때는 반드시 async def를 사용합니다.
+* async for는 파이썬 3.5 이상부터 사용 가능
+* 다음은 1초마다 숫자를 생성하는 비동기 이터레이터입니다.
+
+```python
+import asyncio
+ 
+class AsyncCounter:
+    def __init__(self, stop):
+        self.current = 0
+        self.stop = stop
+ 
+    def __aiter__(self):
+        return self
+ 
+    async def __anext__(self):
+        if self.current < self.stop:
+            await asyncio.sleep(1.0)
+            r = self.current
+            self.current += 1
+            return r
+        else:
+            raise StopAsyncIteration
+ 
+async def main():
+    async for i in AsyncCounter(3):    # for 앞에 async를 붙임
+        print(i, end=' ')
+ 
+loop = asyncio.get_event_loop()
+loop.run_until_complete(main())
+loop.close()
+# 실행 결과
+0 1 2
+```
+
+* 메서드가 __anext__, __aiter__라는 점만 다를 뿐 일반적인 이터레이터와 만드는 방법과 같습니다. 반복을 끝낼 때는 StopAsyncIteration 예외를 발생시키면 됩니다. 물론 네이티브 코루틴을 사용할 때는 앞에 await를 붙입니다. 비동기 이터레이터를 다 만들었다면 네이티브 코루틴 안에서 async for i in AsyncCounter(3):과 같이 async for에 사용하면 됩니다.
+
