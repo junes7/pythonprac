@@ -10663,4 +10663,92 @@ print('실행 시간: {0:.3f}초'.format(end - begin))
 * asyncio를 사용하니 실행 시간이 8초대에서 1초대로 줄었습니다.
 * urlopen이나 response.read 같은 함수(메서드)는 결과가 나올 때까지 코드 실행이 중단(block)되는데 이런 함수들을 블로킹 I/O(blocking I/O) 함수라고 부릅니다. 특히 네이티브 코루틴 안에서 블로킹 I/O 함수를 실행하려면 이벤트 루프의 run_in_executor 함수를 사용하여 다른 스레드에서 병렬로 실행시켜야 합니다.
 * run_in_executor의 첫 번째 인수는 executor인데 함수를 실행시켜줄 스레드 풀 또는 프로세스 풀입니다. 여기서는 None을 넣어서 기본 스레드 풀을 사용합니다. 그리고 두 번째 인수에는 실행할 함수를 넣고 세 번째 인수부터는 실행할 함수에 들어갈 인수를 차례대로 넣어줍니다.
+  * **이벤트루프.run_in_executor(None, 함수, 인수1, 인수2, 인수3)**
+* run_in_executor도 네이티브 코루틴이므로 await로 실행한 뒤 결과를 가져옵니다.
 
+```python
+async def fetch(url):
+    request = Request(url, headers={'User-Agent': 'Mozilla/5.0'})    # UA가 없으면 403 에러 발생
+    response = await loop.run_in_executor(None, urlopen, request)    # run_in_executor 사용
+    page = await loop.run_in_executor(None, response.read)           # run in executor 사용
+    return len(page)
+```
+
+* main에서는 네이티브 코루틴 여러 개를 동시에 실행하는데, 이때는 먼저 asyncio.ensure_future 함수를 사용하여 태스크( asyncio.Task) 객체를 생성하고 리스트로 만들어줍니다.
+  * **태스크객체 = asyncio.ensure_future(코루틴객체 또는 퓨처객체)**
+
+* 그다음에 태스크 리스트를 asyncio.gather 함수에 넣어줍니다. asyncio.gather는 모든 코루틴 객체(퓨처, 태스크 객체)가 끝날 때까지 기다린 뒤 결과(반환값)를 리스트로 반환합니다.
+  * **변수 = await asyncio.gather(코루틴객체1, 코루틴객체2)**
+* asyncio.gather는 리스트가 아닌 위치 인수로 객체를 받으므로 태스크 객체를 리스트로 만들었다면 asyncio.gather(*futures)와 같이 리스트를 언패킹해서 넣어줍니다. 또한, asyncio.gather도 코루틴이므로 await로 실행한 뒤 결과를 가져옵니다.
+
+```python
+async def main():
+    futures = [asyncio.ensure_future(fetch(url)) for url in urls]
+                                                           # 태스크(퓨처) 객체를 리스트로 만듦
+    result = await asyncio.gather(*futures)                # 결과를 한꺼번에 가져옴
+    print(result)
+```
+
+* 참고로 asyncio.gather에 퓨처 객체를 넣은 순서와 결과 리스트에서 요소의 순서는 일치하지 않을 수도 있습니다.
+* 웹 페이지를 순서대로 가져올 때와 asyncio를 사용하여 비동기로 가져올 때를 비교해보면 다음과 같은 모양이 됩니다(비동기 부분은 간략화한 개념도이며 실제 실행 과정은 상당히 복잡합니다).
+
+[웹 페이지를 순서대로 가져올 때와 비동기로 가져올 때]
+
+![image-20210315003846091](images/image-20210315003846091.png)
+
+
+
+### async with과 async for 사용하기
+
+* 이번에는 async with과 async for 문법을 사용하는 방법입니다. 먼저 async with은 클래스나 함수를 비동기로 처리한 뒤 결과를 반환하는 문법입니다. 그리고 async for는 비동기로 반복하는 문법입니다.
+
+### async with
+
+* async with은 with 다음에 클래스의 인스턴스를 지정하고 as 뒤에 결과를 저장할 변수를 지정합니다.
+* async with은 파이썬 3.5 이상부터 사용 가능
+
+```python
+async with 클래스() as 변수:
+    코드
+```
+
+* async with으로 동작하는 클래스를 만들려면 __aenter__와 __aexit__ 메서드를 구현해야 합니다(asynchronous enter, asynchronous exit라는 뜻). 그리고 메서드를 만들 때는 반드시 async def를 사용합니다.
+
+```python
+class 클래스이름:
+    async def __aenter__(self):
+        코드
+ 
+    async def __aexit__(self, exc_type, exc_value, traceback):
+        코드
+```
+
+* 그럼 1초 뒤에 덧셈 결과를 반환하는 클래스를 만들어보겠습니다.
+
+```python
+import asyncio
+ 
+class AsyncAdd:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+    
+    async def __aenter__(self):
+        await asyncio.sleep(1.0)
+        return self.a + self.b    # __aenter__에서 값을 반환하면 as에 지정한 변수에 들어감
+ 
+    async def __aexit__(self, exc_type, exc_value, traceback):
+        pass
+ 
+async def main():
+    async with AsyncAdd(1, 2) as result:    # async with에 클래스의 인스턴스 지정
+        print(result)    # 3
+ 
+loop = asyncio.get_event_loop()
+loop.run_until_complete(main())
+loop.close()
+# 실행 결과
+3
+```
+
+* __aenter__ 메서드에서 1초 대기한 뒤 self.a와 self.b를 더한 결과를 반환하도록 만듭니다. 이렇게 __aenter__에서 값을 반환하면 as에 지정한 변수에 들어갑니다. __aexit__ 메서드는 async with as를 완전히 벗어나면 호출되는데 여기서는 특별히 만들 부분이 없으므로 pass를 넣습니다(메서드 자체가 없으면 에러가 발생합니다).
