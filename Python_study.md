@@ -10825,3 +10825,18 @@ PS C:\project\example> .\Scripts\Activate.ps1
 (example) PS C:\project\example>
 ```
 
+
+
+### 패키지 목록 관리하기(Managing package lists)
+
+* 특히 가상 환경에 설치된 패키지는 목록을 저장해 두었다가 나중에 다시 설치할 수 있습니다. 다음과 같이 pip freeze로 패키지 목록과 버전 정보를 requirements.txt 파일에 저장합니다(git 등으로 버전 관리를 할 때 저장소에 설치된 패키지를 모두 추가하지 않고, requirements.txt 파일만 관리하면 됩니다).
+
+```python
+
+(example) C:\project\example>pip freeze > requirements.txt
+(example) C:\project\example>pip install -r requirements.txt
+(example) C:\project\example>pip uninstall -r requirements.txt
+```
+
+
+
