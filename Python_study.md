@@ -10794,3 +10794,25 @@ loop.close()
 
 * 메서드가 __anext__, __aiter__라는 점만 다를 뿐 일반적인 이터레이터와 만드는 방법과 같습니다. 반복을 끝낼 때는 StopAsyncIteration 예외를 발생시키면 됩니다. 물론 네이티브 코루틴을 사용할 때는 앞에 await를 붙입니다. 비동기 이터레이터를 다 만들었다면 네이티브 코루틴 안에서 async for i in AsyncCounter(3):과 같이 async for에 사용하면 됩니다.
 
+
+
+### 가상환경 사용하기
+
+* 파이썬을 사용하다 보면 pip로 패키지를 설치하게 되는데 이 패키지들은 파이썬 설치 폴더(디렉터리)의 Lib/site-packages 안에 저장됩니다. 그래서 pip로 설치한 패키지는 모든 파이썬 스크립트에서 사용할 수 있게 됩니다. 평소에는 이런 방식이 큰 문제가 없지만 프로젝트를 여러 개 개발할 때는 패키지의 버전 문제가 발생합니다.
+* 예를 들어 프로젝트 A에서는 패키지X 1.5를 사용해야 하고, 프로젝트 B에서는 패키지X 2.0을 사용해야 하는 경우가 생깁니다. 이 패키지X 1.5와 2.0은 호환이 되지 않는다면 개발하기가 상당히 불편해집니다.
+
+
+
+### Windows에서 가상 환경 만들기(Create a virtual environment in Windows)
+
+* 그럼 먼저 Windows에서 가상 환경을 만드는 방법을 알아보겠습니다. 가상 환경은 venv 모듈에 가상 환경 이름을 지정해서 만듭니다.
+  * **python -m venv** **가상환경이름**
+* 여기서는 C:\project 폴더 아래에 가상 환경을 만들겠습니다. 다음과 같이 명령 프롬프트에서 example 가상 환경을 만들고 example 폴더 안으로 이동합니다. 그다음에 Scripts 폴더 안의 activate.bat 파일을 실행하면 가상 환경이 활성화됩니다.
+
+```windows
+C:\project>python -m venv example
+C:\project>cd example
+C:\project\example>Scripts\activate.bat
+(example) C:\project\example>
+```
+

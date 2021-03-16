@@ -48,3 +48,8 @@ async def main():
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
 loop.close()
+
+# Windows에서 가상 환경 만들기
+
+
+
