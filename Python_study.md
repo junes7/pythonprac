@@ -10816,3 +10816,12 @@ C:\project\example>Scripts\activate.bat
 (example) C:\project\example>
 ```
 
+* Windows PowerShell에서는 Activate.ps1 파일을 실행합니다( ps1 스크립트를 실행할 수 없을 때는 Windows PowerShell을 관리자로 실행한 뒤 Set-ExecutionPolicy RemoteSigned를 입력하고 Y를 입력).
+
+```windows power shell
+PS C:\project> python -m venv example
+PS C:\project> cd example
+PS C:\project\example> .\Scripts\Activate.ps1
+(example) PS C:\project\example>
+```
+
