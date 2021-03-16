@@ -10831,7 +10831,7 @@ PS C:\project\example> .\Scripts\Activate.ps1
 
 * 특히 가상 환경에 설치된 패키지는 목록을 저장해 두었다가 나중에 다시 설치할 수 있습니다. 다음과 같이 pip freeze로 패키지 목록과 버전 정보를 requirements.txt 파일에 저장합니다(git 등으로 버전 관리를 할 때 저장소에 설치된 패키지를 모두 추가하지 않고, requirements.txt 파일만 관리하면 됩니다).
 
-```python
+```windows
 
 (example) C:\project\example>pip freeze > requirements.txt
 (example) C:\project\example>pip install -r requirements.txt
@@ -10839,4 +10839,15 @@ PS C:\project\example> .\Scripts\Activate.ps1
 ```
 
 
+
+###  리눅스와 macOS에서 가상 환경 만들기(Creating a virtual environment on Linux and macOS)
+
+* 이번에는 리눅스와 macOS에서 가상 환경을 만드는 방법입니다. 다음과 같이 python3으로 venv 모듈을 실행하여 가상 환경을 만들고, source로 bin 디렉터리 안의 activate 파일을 적용하여 가상 환경을 활성화합니다.
+
+```linux, macOS
+~$ python3 -m venv example
+~$ cd example
+~/example$ source bin/activate
+(example) ~/example$
+```
 
