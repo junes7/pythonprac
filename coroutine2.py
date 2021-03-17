@@ -48,3 +48,18 @@ for i in range(1, 101):   # 1부터 100까지 반복
     co.send(i)            # 코루틴 accumulate에 숫자를 보냄
 co.send(None)             # 코루틴 accumulate에 None을 보내서 숫자 누적을 끝냄
 
+# 연습문제: 문자열 검색 코루틴 만들기
+def find(word):
+    result = False
+    while True:
+        line = (yield result)
+        result = word in line
+        
+f = find('Python')
+next(f)
+ 
+print(f.send('Hello, Python!'))
+print(f.send('Hello, world!'))
+print(f.send('Python Script'))
+ 
+f.close()
