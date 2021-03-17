@@ -7232,6 +7232,21 @@ add(x, y)
 
 
 
+### 연습문제: 몫과 나머지를 구하는 함수 만들기(Create a function that takes the quotient and the rest)
+
+* 다음 소스 코드를 완성하여 x를 y로 나누었을 때의 몫과 나머지가 출력되게 만드세요.
+
+```python
+x = 10
+y = 3
+def get_quotient_remainder(a, b):
+    return a // b, a % b
+quotient, remainder = get_quotient_remainder(x, y)
+print('몫: {0}, 나머지: {1}'.format(quotient, remainder))
+# 실행 결과
+몫: 3, 나머지: 1
+```
+
 
 
 ### 람다 표현식 사용하기
@@ -10896,3 +10911,8 @@ print(james.age)    # 인스턴스.속성 형식으로 값을 가져옴
 ```
 
 * getter, setter 메서드의 이름을 잘 보면 둘다 age입니다. 그리고 getter에는 @property가 붙어있고, setter에는 @age.setter가 붙어있습니다. 즉, 값을 가져오는 메서드에는 @property 데코레이터를 붙이고, 값을 저장하는 메서드에는 @메서드이름.setter 데코레이터를 붙이는 방식입니다.
+
+
+
+
+
