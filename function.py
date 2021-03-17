@@ -21,3 +21,8 @@ def get_quotient_remainder(a, b):
     return a // b, a % b
 quotient, remainder = get_quotient_remainder(x, y)
 print('몫: {0}, 나머지: {1}'.format(quotient, remainder))
+
+# 공배수 구하기
+a = {i for i in range(1, 101) if i % 3 == 0}
+b = {i for i in range(1, 101) if i % 5 == 0}
+print(a&b)
