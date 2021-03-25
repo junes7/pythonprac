@@ -44,6 +44,17 @@ for i in range(1, 101):
     else:
         print(i)
 print()
+# 논리 연산자를 사용하지 않고 4과 5의 공배수 처리하기
+for i in range(1, 101):
+    if i % 20 == 0:
+        print('FizzBuzz')
+    elif i % 4 == 0:
+        print('Fizz')
+    elif i % 5 == 0:
+        print('Buzz')
+    else:
+        print(i)
+print()
 # 1부터 100까지 숫자 중 5와 10의 공배수 처리하기
 for i in range(1, 101):
     if i % 5 == 0 and i % 10 == 0:
